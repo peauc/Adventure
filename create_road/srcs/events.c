@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:18:42 2016 Paul Wery
-** Last update Sun Apr 10 15:49:39 2016 Paul Wery
+** Last update Sun Apr 10 15:56:39 2016 Paul Wery
 */
 
 #include "road.h"
@@ -35,7 +35,7 @@ t_bunny_response	loop(void *data)
   l.two.x = 800;
   l.one.y = 100;
   l.two.y = 500;
-  l.width = 10;
+  l.width = 1;
   r = (t_road*)data;
   pix_initialize_alpha(r->pix);
   cop_pix(r->pix, r->back);
