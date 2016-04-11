@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Feb 29 20:51:07 2016 Paul Wery
-** Last update Sun Apr 10 15:35:57 2016 Paul Wery
+** Last update Mon Apr 11 18:47:09 2016 Paul Wery
 */
 
 #include <stdlib.h>
@@ -39,12 +39,20 @@ int		add_elem_next(t_points *elem, t_points *src)
 
   if ((new_elem = malloc(sizeof(*new_elem))) == NULL)
     return (-1);
+  new_elem->path = src->path;
+  new_elem->path_0[0] = src->path_0[0];
+  new_elem->path_0[1] = src->path_0[1];
+  new_elem->path_1[0] = src->path_1[0];
+  new_elem->path_1[1] = src->path_1[1];
+  new_elem->path_2[0] = src->path_2[0];
+  new_elem->path_2[1] = src->path_2[1];
+  new_elem->path_3[0] = src->path_3[0];
+  new_elem->path_3[1] = src->path_3[1];
   new_elem->el.center = src->el.center;
   new_elem->el.axe_a = src->el.axe_a;
   new_elem->el.axe_b = src->el.axe_b;
-  new_elem->line.one = src->line.one;
-  new_elem->line.two = src->line.two;
-  new_elem->line.width = src->line.width;
+  new_elem->el.zaxe_a = src->el.zaxe_a;
+  new_elem->el.zaxe_b = src->el.zaxe_b;
   new_elem->next = elem->next;
   new_elem->prev = elem;
   elem->next->prev = new_elem;
