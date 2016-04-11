@@ -5,10 +5,20 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 00:17:23 2016 Paul Wery
-** Last update Tue Apr 12 00:33:43 2016 Paul Wery
+** Last update Tue Apr 12 01:00:43 2016 Paul Wery
 */
 
 #include "road.h"
+
+int	links_elem(t_bunny_position *start, t_points *it)
+{
+  if ((it->path_0[1].x == start->x && it->path_0[1].y == start->y)
+      || (it->path_1[1].x == start->x && it->path_1[1].y == start->y)
+      || (it->path_2[1].x == start->x && it->path_2[1].y == start->y)
+      || (it->path_3[1].x == start->x && it->path_3[1].y == start->y))
+    return (1);
+  return (0);
+}
 
 void	cop_path_next(t_bunny_position *start, t_points *it)
 {
@@ -30,7 +40,7 @@ void	cop_path_next(t_bunny_position *start, t_points *it)
 
 int	cop_path(t_bunny_position *start, t_points *it)
 {
-  if (it->path == 4)
+  if (it->path == 4 || links_elem(start, it) == 1)
     return (-1);
   if (it->path == 0)
     {
