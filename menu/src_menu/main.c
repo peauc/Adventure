@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Mon Apr 11 17:37:14 2016 Poc
+** Last update Mon Apr 11 20:18:38 2016 Poc
 */
 
 #include "default.h"
@@ -30,7 +30,8 @@ t_bunny_response	escape(t_bunny_event_state state,
 t_bunny_response       	mainloop(t_data *data)
 {
   /* my_fill(data->pixel); */
-  draw_menu(data->pixel);
+  if (draw_menu(data->pixel))
+    return (EXIT_ON_ERROR);
   bunny_blit(&data->window->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->window);
   return (GO_ON);

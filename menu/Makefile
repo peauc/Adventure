@@ -5,15 +5,16 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Mon Apr 11 18:19:49 2016 Poc
+## Last update Mon Apr 11 19:33:05 2016 Poc
 ##
 
 DEBUG=	yes
 
-SRC=	main.c 		\
-	fill.c		\
-	menu.c		\
+SRC=	main.c 			\
+	fill.c			\
+	menu.c			\
 	menu_load.c		\
+	tekpixel.c		\
 
 OBJ=	$(addprefix src_menu/, $(SRC:.c=.o))
 

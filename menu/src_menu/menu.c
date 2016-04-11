@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 16:24:49 2016 Poc
-** Last update Mon Apr 11 18:16:36 2016 Poc
+** Last update Mon Apr 11 20:26:58 2016 Poc
 */
 
 #include <stdlib.h>
@@ -20,26 +20,11 @@ int		draw_menu_background(t_bunny_pixelarray *pixel)
   while (i < WIDTH * HEIGHT)
     {
       color = (t_color*) pixel->pixels + i;
-      color->full = BLUE;
+      color->full = BLACK;
       i++;
     }
 
   return (0);
-}
-
-int		draw_menu_separation(t_bunny_pixelarray *pixel)
-{
-  int		i;
-  t_color	*color;
-
-  i = WIDTH * (HEIGHT * 0.75);
-  while (i < WIDTH * HEIGHT)
-    {
-      color = (t_color *) pixel->pixels + i;
-      if (i % (WIDTH / 2) == 0)
-	color->full = GREEN;
-      i++;
-    }
 }
 
 int		draw_menu(t_bunny_pixelarray *pixel)
@@ -50,5 +35,9 @@ int		draw_menu(t_bunny_pixelarray *pixel)
     if (load_menu(&menu))
       return (1);
   draw_menu_background(pixel);
-  draw_menu_separation(pixel);
+  pixelarray_copy(pixel, menu->buttons[0].sprite, menu->buttons[0].start);
+  pixelarray_copy(pixel, menu->buttons[1].sprite, menu->buttons[1].start);
+  pixelarray_copy(pixel, menu->buttons[2].sprite, menu->buttons[2].start);
+  pixelarray_copy(pixel, menu->buttons[3].sprite, menu->buttons[3].start);
+  return (0);
 }
