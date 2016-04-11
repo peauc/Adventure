@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Feb 29 20:51:07 2016 Paul Wery
-** Last update Mon Apr 11 18:47:09 2016 Paul Wery
+** Last update Mon Apr 11 22:24:40 2016 Paul Wery
 */
 
 #include <stdlib.h>
@@ -31,6 +31,14 @@ void	delete_list(t_points **root)
   empty_list(*root);
   free(*root);
   *root = NULL;
+}
+
+void	delete_elem(t_points *list, t_points *elem)
+{
+  delete_links(list, elem);
+  elem->prev->next = elem->next;
+  elem->next->prev = elem->prev;
+  free(elem);
 }
 
 int		add_elem_next(t_points *elem, t_points *src)

@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Mon Apr 11 18:39:32 2016 Paul Wery
+** Last update Mon Apr 11 22:25:00 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -104,7 +104,9 @@ t_bunny_response	wheel_mouse(int wheelid, int delta,
 
 t_points		*create_list(void);
 int			add_elem_next(t_points *elem, t_points *src);
+void			delete_elem(t_points *list, t_points *elem);
 void			delete_list(t_points **root);
+void			delete_links(t_points *list, t_points *elem);
 
 
 void			pix_initialize(t_bunny_pixelarray *pix);

@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Wed Apr  6 22:15:40 2016 Paul Wery
-## Last update Mon Apr 11 18:39:49 2016 Paul Wery
+## Last update Mon Apr 11 22:26:29 2016 Paul Wery
 ##
 
 NAME	=	road
@@ -22,6 +22,7 @@ SRCS	=	srcs/main.c \
 		srcs/events.c \
 		srcs/resize.c \
 		srcs/my_list.c \
+		srcs/delete_links.c \
 		srcs/pix_initialize.c \
 		srcs/tekpixel.c \
 		srcs/create_tmp.c \

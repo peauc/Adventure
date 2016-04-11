@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Apr 11 16:55:27 2016 Paul Wery
-** Last update Mon Apr 11 18:20:42 2016 Paul Wery
+** Last update Mon Apr 11 22:50:21 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -100,7 +100,8 @@ void			click_next(t_bunny_event_state state,
 {
   static t_points	*it = NULL;
 
-  if (r->state == 0)
+  if (r->state == 0 || ((r->state == 0 || r->state == 4)
+			&& it != get_elem(r, pos)))
     it = NULL;
   if (it == NULL)
     it = get_elem(r, pos);
@@ -117,4 +118,7 @@ void			click_next(t_bunny_event_state state,
       if (r->state == 4)
 	it->path += 1;
     }
+  else if (state == GO_UP && button == BMB_RIGHT
+	   && (r->state == 0 || r->state > 2))
+    ini_struct(r);
 }
