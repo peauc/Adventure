@@ -5,12 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Feb 22 14:13:05 2016 Paul Wery
-** Last update Sun Apr 10 14:14:41 2016 Paul Wery
+** Last update Mon Apr 11 15:45:31 2016 Paul Wery
 */
 
 #include <lapin.h>
 #include "road.h"
-#include "struct_resize.h"
 
 void	ini_resize(t_resize *r)
 {

@@ -5,14 +5,14 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Wed Apr  6 22:15:40 2016 Paul Wery
-## Last update Sun Apr 10 15:56:31 2016 Paul Wery
+## Last update Mon Apr 11 18:39:49 2016 Paul Wery
 ##
 
 NAME	=	road
 
 RM	=	rm -f
 
-CC	=	gcc
+CC	=	gcc -g
 
 CFLAGS	=	-W -Wall -Werror -ansi -pedantic -Iinclude -I/home/${USER}/.froot/include
 
@@ -24,7 +24,13 @@ SRCS	=	srcs/main.c \
 		srcs/my_list.c \
 		srcs/pix_initialize.c \
 		srcs/tekpixel.c \
-		srcs/line.c
+		srcs/create_tmp.c \
+		srcs/tekcircle.c \
+		srcs/events_next.c \
+		srcs/line/tekline.c \
+		srcs/line/ini_line.c \
+		srcs/line/line.c \
+		srcs/line/my_color.c
 
 LIB	=	-L/home/${USER}/.froot/lib\
 		-llapin -lsfml-audio -lsfml-graphics\
