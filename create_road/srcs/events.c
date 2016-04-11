@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:18:42 2016 Paul Wery
-** Last update Mon Apr 11 22:44:57 2016 Paul Wery
+** Last update Tue Apr 12 00:19:03 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -65,16 +65,11 @@ t_bunny_response		my_click(t_bunny_event_state state,
   if (in_el(r, pos) == NULL && r->state <= 2)
     {
       if (state == GO_UP && button == BMB_LEFT && r->state == 0)
-	{
-	  r->points.el.center.x = pos->x;
-	  r->points.el.center.y = pos->y;
-	  r->points.el.axe_a = 10;
-	  r->points.el.axe_b = 5;
-	  r->state += 1;
-	}
+	ini_el(r, pos);
       else if (state == GO_UP && button == BMB_RIGHT && r->state >= 1)
 	{
-	  add_elem_next(r->list, &r->points);
+	  if (add_elem_next(r->list, &r->points) == -1)
+	    return (EXIT_ON_ERROR);
 	  ini_struct(r);
 	}
       else if (state == GO_UP && button == BMB_LEFT && r->state == 1)

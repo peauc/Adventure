@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Mon Apr 11 22:25:00 2016 Paul Wery
+** Last update Tue Apr 12 00:33:20 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -143,5 +143,7 @@ void			ini_line(t_line *l, t_bunny_position *posi,
 unsigned int		my_color(const t_bunny_position *pos,
 				 unsigned int *color, t_line *l);
 void			line(t_bunny_pixelarray *pix, t_points *it);
+void			ini_el(t_road *r, const t_bunny_position *pos);
+int			cop_path(t_bunny_position *start, t_points *it);
 
 #endif /* !ROAD */
