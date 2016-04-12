@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Tue Apr 12 22:56:03 2016 Paul Wery
+** Last update Wed Apr 13 00:11:16 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -163,5 +163,9 @@ int			get_nb(const char *str, int val, int n, int neg);
 void			key_next(t_bunny_event_state state,
 				 t_bunny_keysym keysym,
 				 t_road *r);
+int			save_ini(t_road *r);
+void			write_str(char *str, int fd);
+void			write_nb(int nb, int fd);
+void			write_next(t_points *it, int fd);
 
 #endif /* !ROAD */

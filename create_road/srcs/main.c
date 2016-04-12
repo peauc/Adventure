@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:16:54 2016 Paul Wery
-** Last update Tue Apr 12 23:15:08 2016 Paul Wery
+** Last update Wed Apr 13 00:15:31 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -35,6 +35,7 @@ int	start_loop(t_road *r)
   bunny_set_click_response(my_click);
   bunny_set_wheel_response(wheel_mouse);
   bunny_loop(r->win, 0, r);
+  save_ini(r);
   delete_list(&r->list);
   return (0);
 }

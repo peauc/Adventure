@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Wed Apr  6 22:15:40 2016 Paul Wery
-## Last update Tue Apr 12 21:48:45 2016 Paul Wery
+## Last update Wed Apr 13 00:09:35 2016 Paul Wery
 ##
 
 NAME	=	road
@@ -35,7 +35,9 @@ SRCS	=	srcs/main.c \
 		srcs/line/ini_line.c \
 		srcs/line/line.c \
 		srcs/line/my_color.c \
-		srcs/comp_string.c
+		srcs/comp_string.c \
+		srcs/save_ini.c \
+		srcs/save_ini_next.c
 
 LIB	=	-L/home/${USER}/.froot/lib\
 		-llapin -lsfml-audio -lsfml-graphics\
