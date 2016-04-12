@@ -5,40 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:16:54 2016 Paul Wery
-** Last update Tue Apr 12 16:06:19 2016 Paul Wery
+** Last update Tue Apr 12 23:15:08 2016 Paul Wery
 */
 
 #include <unistd.h>
 #include "road.h"
-
-void	ini_struct(t_road *r)
-{
-  r->state = 0;
-  r->points.image = r->image;
-  r->points.path = 0;
-  r->points.path_0[0].x = -1;
-  r->points.path_0[0].y = -1;
-  r->points.path_0[1].x = -1;
-  r->points.path_0[1].y = -1;
-  r->points.path_1[0].x = -1;
-  r->points.path_1[0].y = -1;
-  r->points.path_1[1].x = -1;
-  r->points.path_1[1].y = -1;
-  r->points.path_2[0].x = -1;
-  r->points.path_2[0].y = -1;
-  r->points.path_2[1].x = -1;
-  r->points.path_2[1].y = -1;
-  r->points.path_3[0].x = -1;
-  r->points.path_3[0].y = -1;
-  r->points.path_3[1].x = -1;
-  r->points.path_3[1].y = -1;
-  r->points.el.center.x = -1;
-  r->points.el.center.y = -1;
-  r->points.el.axe_a = 10;
-  r->points.el.axe_b = 5;
-  r->points.el.zaxe_a = 10;
-  r->points.el.zaxe_b = 5;
-}
 
 void	delete_all(t_road *r)
 {
@@ -52,6 +23,8 @@ void	delete_all(t_road *r)
 
 int	start_loop(t_road *r)
 {
+  r->x = 0;
+  r->y = 0;
   if ((r->list = create_list()) == NULL)
     return (-1);
   if (full_ini(r->list) == -1)
@@ -66,17 +39,47 @@ int	start_loop(t_road *r)
   return (0);
 }
 
-int	create_window(t_road *r)
+int	create_window_next(t_road *r)
 {
-  if (r->winl >= 1920 && r->winh >= 1080)
+  if (r->winl > 1920 || r->winh > 1080)
     {
-      if ((r->win = bunny_start(r->winl, r->winh, true, "Road")) == NULL)
+      if (r->winl > 1920)
+	r->winl = 1920;
+      else if (r->winh > 1080)
+	r->winh = 1080;
+      if ((r->win = bunny_start(r->winl, r->winh, false, "Road")) == NULL)
 	return (-1);
     }
   else
       if ((r->win = bunny_start(r->winl, r->winh, false, "Road")) == NULL)
 	return (-1);
-  if ((r->pix = bunny_new_pixelarray(r->winl, r->winh)) == NULL)
+  return (0);
+}
+
+int	create_window(t_road *r, char **av, int ac)
+{
+  if (ac == 4)
+    {
+      r->winl = get_nb(av[2], 0, 0, 0);
+      r->winh = get_nb(av[3], 0, 0, 0);
+      if (r->winl < 0 || r->winh < 0)
+	return (-1);
+      if ((r->back = resize_picture(r->back, r->winl, r->winh)) == NULL)
+	return (-1);
+      r->max_x = r->winl;
+      r->max_y = r->winh;
+    }
+  if (r->winl >= 1920 && r->winh >= 1080)
+    {
+      r->winl = 1920;
+      r->winh = 1080;
+      if ((r->win = bunny_start(1920, 1080, true, "Road")) == NULL)
+	return (-1);
+    }
+  else
+    if (create_window_next(r) == -1)
+      return (-1);
+  if ((r->pix = bunny_new_pixelarray(r->max_x, r->max_y)) == NULL)
     return (-1);
   return (0);
 }
@@ -88,7 +91,8 @@ int		main(int ac, char **av)
   r.win = NULL;
   r.pix = NULL;
   r.back = NULL;
-  if (ac != 2)
+  bunny_set_maximum_ram(50 * 1000000);
+  if (ac != 2 && ac != 4)
     return (0);
   if ((r.back = bunny_load_pixelarray(av[1])) == NULL)
     return (0);
@@ -98,7 +102,8 @@ int		main(int ac, char **av)
 	    : r.back->clipable.clip_height);
   r.max_x = r.back->clipable.clip_width;
   r.max_y = r.back->clipable.clip_height;
-  create_window(&r);
+  if (create_window(&r, av, ac) == -1)
+    return (0);
   r.image = av[1];
   if (start_loop(&r) == -1)
     return (0);

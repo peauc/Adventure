@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Apr 11 02:24:44 2016 Paul Wery
-** Last update Tue Apr 12 18:26:56 2016 Paul Wery
+** Last update Tue Apr 12 22:56:30 2016 Paul Wery
 */
 
 #include "road.h"
@@ -76,7 +76,7 @@ void		aff_all(t_road *r,
 	    circle(r, r->pix, &it->el, YELLOW);
 	  else
 	    circle(r, r->pix, &it->el, RED);
-	  line(r->pix, it);
+	  line(r, it);
 	}
       it = it->next;
     }

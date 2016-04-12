@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 10 13:57:15 2016 Paul Wery
-** Last update Tue Apr 12 15:43:54 2016 Paul Wery
+** Last update Tue Apr 12 22:01:03 2016 Paul Wery
 */
 
 #include "road.h"
@@ -57,7 +57,7 @@ void			cop_pix(t_road *r,
 	     && pos.x < src->clipable.clip_width)
 	{
 	  color = (t_color*)src->pixels
-	    + (pos.x + (pos.y * src->clipable.clip_width));
+	    + (pos.x + r->x + ((pos.y + r->y) * src->clipable.clip_width));
 	  if (color->argb[3] != 0)
 	    road_pix(r, dest, &pos, color->full);
 	  pos.x += 1;

@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Tue Apr 12 16:17:28 2016 Paul Wery
+** Last update Tue Apr 12 22:56:03 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -91,6 +91,8 @@ typedef struct		s_road
   int			winh;
   int			max_x;
   int			max_y;
+  int			x;
+  int			y;
 }			t_road;
 
 t_bunny_response	my_click(t_bunny_event_state state,
@@ -140,7 +142,7 @@ void			circle(t_road *r, t_bunny_pixelarray *pix,
 void			zcircle(t_road *r, t_bunny_pixelarray *pix,
 				t_el *el, unsigned int color);
 
-void			tekline(t_bunny_pixelarray *pix,
+void			tekline(t_road *r,
 				t_bunny_position *pos,
 				t_color *color);
 void			ini_col(unsigned int *col,
@@ -149,7 +151,7 @@ void			ini_line(t_line *l, t_bunny_position *posi,
 				 t_bunny_position *pos);
 unsigned int		my_color(const t_bunny_position *pos,
 				 unsigned int *color, t_line *l);
-void			line(t_bunny_pixelarray *pix, t_points *it);
+void			line(t_road *r, t_points *it);
 void			ini_el(t_road *r, const t_bunny_position *pos);
 int			cop_path(t_bunny_position *start, t_points *it);
 int			full_ini(t_points *list);
@@ -157,5 +159,9 @@ int			comp_string(char *one, char *two);
 int			same_name(char *one, char *two);
 void			road_pix(t_road *r, t_bunny_pixelarray *pix,
 				 t_bunny_position *pos, unsigned int color);
+int			get_nb(const char *str, int val, int n, int neg);
+void			key_next(t_bunny_event_state state,
+				 t_bunny_keysym keysym,
+				 t_road *r);
 
 #endif /* !ROAD */

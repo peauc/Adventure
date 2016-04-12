@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Wed Apr  6 22:15:40 2016 Paul Wery
-## Last update Tue Apr 12 02:51:36 2016 Paul Wery
+## Last update Tue Apr 12 21:48:45 2016 Paul Wery
 ##
 
 NAME	=	road
@@ -21,6 +21,7 @@ OBJS	=	$(SRCS:.c=.o)
 SRCS	=	srcs/main.c \
 		srcs/full_ini.c \
 		srcs/events.c \
+		srcs/events_key.c \
 		srcs/resize.c \
 		srcs/my_list.c \
 		srcs/delete_links.c \
