@@ -5,10 +5,9 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Feb 29 20:51:07 2016 Paul Wery
-** Last update Mon Apr 11 18:47:09 2016 Paul Wery
+** Last update Tue Apr 12 03:03:38 2016 Paul Wery
 */
 
-#include <stdlib.h>
 #include <unistd.h>
 #include "road.h"
 
@@ -21,7 +20,7 @@ void		empty_list(t_points *root)
   while (it != root)
     {
       save = it->next;
-      free(it);
+      bunny_free(it);
       it = save;
     }
 }
@@ -29,16 +28,25 @@ void		empty_list(t_points *root)
 void	delete_list(t_points **root)
 {
   empty_list(*root);
-  free(*root);
+  bunny_free(*root);
   *root = NULL;
+}
+
+void	delete_elem(t_points *list, t_points *elem)
+{
+  delete_links(list, elem);
+  elem->prev->next = elem->next;
+  elem->next->prev = elem->prev;
+  bunny_free(elem);
 }
 
 int		add_elem_next(t_points *elem, t_points *src)
 {
   t_points	*new_elem;
 
-  if ((new_elem = malloc(sizeof(*new_elem))) == NULL)
+  if ((new_elem = bunny_malloc(sizeof(*new_elem))) == NULL)
     return (-1);
+  new_elem->image = src->image;
   new_elem->path = src->path;
   new_elem->path_0[0] = src->path_0[0];
   new_elem->path_0[1] = src->path_0[1];
@@ -64,7 +72,7 @@ t_points	*create_list(void)
 {
   t_points	*root;
 
-  if ((root = malloc(sizeof(*root))) == NULL)
+  if ((root = bunny_malloc(sizeof(*root))) == NULL)
     return (NULL);
   root->prev = root;
   root->next = root;
