@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 23:37:30 2016 Paul Wery
-** Last update Wed Apr 13 00:13:01 2016 Paul Wery
+** Last update Wed Apr 13 01:02:49 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -97,7 +97,7 @@ int		save_ini(t_road *r)
       it = it->next;
       nb += 1;
     }
-  if ((fd = open("ini/paths.ini", O_CREAT | O_APPEND | O_WRONLY
+  if ((fd = open("paths.ini", O_CREAT | O_APPEND | O_WRONLY
 		 | O_TRUNC, S_IRUSR | S_IWUSR)) == -1)
     return (-1);
   it = r->list->next;
