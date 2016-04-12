@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Apr 11 02:24:44 2016 Paul Wery
-** Last update Mon Apr 11 22:29:56 2016 Paul Wery
+** Last update Tue Apr 12 03:01:35 2016 Paul Wery
 */
 
 #include "road.h"
@@ -66,12 +66,15 @@ void		aff_all(t_road *r,
   it = r->list->next;
   while (it != r->list)
     {
-      zcircle(r->pix, &it->el, BLUE);
-      if (in_a_el(it, pos) == 1)
-	circle(r->pix, &it->el, YELLOW);
-      else
-	circle(r->pix, &it->el, RED);
-      line(r->pix, it);
+      if (same_name(r->image, it->image) == 1)
+	{
+	  zcircle(r->pix, &it->el, BLUE);
+	  if (in_a_el(it, pos) == 1)
+	    circle(r->pix, &it->el, YELLOW);
+	  else
+	    circle(r->pix, &it->el, RED);
+	  line(r->pix, it);
+	}
       it = it->next;
     }
 }

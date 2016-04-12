@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Feb 29 20:51:07 2016 Paul Wery
-** Last update Tue Apr 12 00:05:16 2016 Paul Wery
+** Last update Tue Apr 12 03:03:38 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -46,6 +46,7 @@ int		add_elem_next(t_points *elem, t_points *src)
 
   if ((new_elem = bunny_malloc(sizeof(*new_elem))) == NULL)
     return (-1);
+  new_elem->image = src->image;
   new_elem->path = src->path;
   new_elem->path_0[0] = src->path_0[0];
   new_elem->path_0[1] = src->path_0[1];

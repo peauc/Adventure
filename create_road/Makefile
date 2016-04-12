@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Wed Apr  6 22:15:40 2016 Paul Wery
-## Last update Tue Apr 12 00:20:10 2016 Paul Wery
+## Last update Tue Apr 12 02:51:36 2016 Paul Wery
 ##
 
 NAME	=	road
@@ -19,6 +19,7 @@ CFLAGS	=	-W -Wall -Werror -ansi -pedantic -Iinclude -I/home/${USER}/.froot/inclu
 OBJS	=	$(SRCS:.c=.o)
 
 SRCS	=	srcs/main.c \
+		srcs/full_ini.c \
 		srcs/events.c \
 		srcs/resize.c \
 		srcs/my_list.c \
@@ -32,7 +33,8 @@ SRCS	=	srcs/main.c \
 		srcs/line/tekline.c \
 		srcs/line/ini_line.c \
 		srcs/line/line.c \
-		srcs/line/my_color.c
+		srcs/line/my_color.c \
+		srcs/comp_string.c
 
 LIB	=	-L/home/${USER}/.froot/lib\
 		-llapin -lsfml-audio -lsfml-graphics\
