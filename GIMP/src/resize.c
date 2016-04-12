@@ -5,10 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Feb 22 14:13:05 2016 Paul Wery
-** Last update Tue Apr 12 11:25:11 2016 marel_m
+** Last update Tue Apr 12 17:19:57 2016 marel_m
 */
 
 #include <lapin.h>
+#include "default.h"
 #include "road.h"
 
 void	ini_resize(t_resize *r)

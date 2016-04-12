@@ -5,11 +5,20 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Mar  8 09:15:03 2016 maud marel
-** Last update Sat Apr  2 14:29:03 2016 marel_m
+** Last update Tue Apr 12 16:59:10 2016 marel_m
 */
 
 #include <stdlib.h>
-#include "my.h"
+
+int	my_strlen(char *str)
+{
+  int	i;
+
+  i = 0;
+  while (str && str[i] != '\0')
+    i++;
+  return (i);
+}
 
 char	*my_strdup(char *str)
 {

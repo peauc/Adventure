@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:37:21 2016 marel_m
-** Last update Tue Apr 12 15:39:20 2016 marel_m
+** Last update Tue Apr 12 18:17:42 2016 marel_m
 */
 
 #include "default.h"
@@ -18,9 +18,9 @@ void			shop(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->shop_back, pos);
-  put_pix_in_pix_txt(data->pixel, data->shop_middle, pos);
-  put_pix_in_pix_txt(data->pixel, data->shop_front, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[8].back, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[8].middle, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[8].front, pos);
   put_pix_in_pix_txt(data->pixel, data->new, pos);
 }
 
@@ -32,6 +32,6 @@ void			shop_place(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->shop_place, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[9].front, pos);
   put_pix_in_pix_txt(data->pixel, data->new, pos);
 }

@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Tue Apr 12 16:02:46 2016 marel_m
+** Last update Tue Apr 12 18:16:32 2016 marel_m
 */
 
 #ifndef _DEFAULT_
@@ -17,8 +17,8 @@
 
 # define PUTERROR(X)	write(2, X, my_strlen(X))
 # define PUTSTR(X)	write(1, X, my_strlen(X))
-# define WIDTH 1280
-# define HEIGHT 720
+# define WIDTH 1024
+# define HEIGHT 768
 
 typedef struct		s_scene
 {
@@ -37,5 +37,15 @@ typedef struct		s_data
   t_bunny_pixelarray	*harbor;
   t_bunny_pixelarray	*harbor_fr;
 }			t_data;
+
+int			load_all_scene(t_data *);
+char			*my_strdup(char *);
+
+t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *, int, int);
+void			pix_initialize(t_bunny_pixelarray *);
+void			boat(t_data *);
+void			put_pix_in_pix_txt(t_bunny_pixelarray *,
+					   t_bunny_pixelarray *,
+					   t_bunny_position);
 
 #endif /* _DEFAULT_ */

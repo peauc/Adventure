@@ -5,13 +5,23 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Tue Apr 12 11:14:00 2016 marel_m
+## Last update Tue Apr 12 18:15:04 2016 marel_m
 ##
 
 DEBUG=	yes
 
 SRC=	main.c \
 	resize.c \
+	load_all_scene.c \
+	basement.c \
+	beach.c \
+	boat.c \
+	harbor.c \
+	house.c \
+	manor.c \
+	shop.c \
+	street.c \
+	my_strdup.c \
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 

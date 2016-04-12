@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Tue Apr 12 14:56:59 2016 marel_m
+** Last update Tue Apr 12 18:26:51 2016 marel_m
 */
 
 #include "default.h"
@@ -84,15 +84,7 @@ void            pix_initialize(t_bunny_pixelarray *pix)
 
 t_bunny_response       	mainloop(t_data *data)
 {
-  t_bunny_position	pos;
-
-  pix_initialize(data->pixel);
-  pix_initialize(data->new);
-  pos.x = 0;
-  pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->harbor, pos);
-  put_pix_in_pix_txt(data->pixel, data->harbor_fr, pos);
-  put_pix_in_pix_txt(data->pixel, data->new, pos);
+  street(data);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->win);
   return (GO_ON);
@@ -104,17 +96,12 @@ int			main(int ac, char **av)
 
   ac = ac;
   av = av;
+  bunny_set_maximum_ram(1000000000);
   data.win = bunny_start(WIDTH, HEIGHT, false, "test");
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
-  if ((data.harbor = bunny_load_pixelarray("pictures/harbor_back.png")) == NULL)
-    return (1);
-  if ((data.harbor = resize_picture(data.harbor, WIDTH, 576)) == NULL)
-    return (1);
-  if ((data.harbor_fr = bunny_load_pixelarray("pictures/harbor_front.png")) == NULL)
-    return (1);
-  if ((data.harbor_fr = resize_picture(data.harbor_fr, WIDTH, 576)) == NULL)
-    return (1);
+  if (load_all_scene(&data) == -1)
+    return (-1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
