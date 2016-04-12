@@ -5,12 +5,13 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Mon Apr 11 18:58:18 2016 Mathieu Sauvau
+## Last update Mon Apr 11 20:42:39 2016 Mathieu Sauvau
 ##
 
 DEBUG=	yes
 
 SRC=	main.c \
+	../menu/src_menu/tekpixel.c \
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 
