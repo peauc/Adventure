@@ -5,13 +5,23 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Mon Apr 11 20:42:39 2016 Mathieu Sauvau
+## Last update Tue Apr 12 18:15:04 2016 marel_m
 ##
 
 DEBUG=	yes
 
 SRC=	main.c \
-	../menu/src_menu/tekpixel.c \
+	resize.c \
+	load_all_scene.c \
+	basement.c \
+	beach.c \
+	boat.c \
+	harbor.c \
+	house.c \
+	manor.c \
+	shop.c \
+	street.c \
+	my_strdup.c \
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 

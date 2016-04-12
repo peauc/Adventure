@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Mon Apr 11 20:22:33 2016 Mathieu Sauvau
+** Last update Tue Apr 12 11:36:13 2016 Mathieu Sauvau
 */
 
 #ifndef _DEFAULT_
@@ -17,11 +17,15 @@
 
 # define PUTERROR(X)	write(2, X, my_strlen(X))
 # define PUTSTR(X)	write(1, X, my_strlen(X))
+# define WIDTH 1000
+# define HEIGHT 1000
 
 typedef struct		s_sprite_sheet
 {
-  int			row;
   int			col;
+  int			row;
+  int			speed_cursor;
+  int			anim_speed;
   t_bunny_position	pos;
   t_bunny_position	size;
   t_bunny_pixelarray	*pix;
