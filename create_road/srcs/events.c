@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:18:42 2016 Paul Wery
-** Last update Tue Apr 12 00:19:03 2016 Paul Wery
+** Last update Tue Apr 12 15:42:17 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -108,7 +108,7 @@ t_bunny_response		loop(void *data)
   r = (t_road*)data;
   pos = bunny_get_mouse_position();
   pix_initialize_alpha(r->pix);
-  cop_pix(r->pix, r->back);
+  cop_pix(r, r->pix, r->back);
   aff_tmp(r);
   aff_all(r, pos);
   bunny_blit(&r->win->buffer, &r->pix->clipable, NULL);

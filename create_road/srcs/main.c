@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:16:54 2016 Paul Wery
-** Last update Tue Apr 12 03:03:17 2016 Paul Wery
+** Last update Tue Apr 12 16:06:19 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -66,6 +66,21 @@ int	start_loop(t_road *r)
   return (0);
 }
 
+int	create_window(t_road *r)
+{
+  if (r->winl >= 1920 && r->winh >= 1080)
+    {
+      if ((r->win = bunny_start(r->winl, r->winh, true, "Road")) == NULL)
+	return (-1);
+    }
+  else
+      if ((r->win = bunny_start(r->winl, r->winh, false, "Road")) == NULL)
+	return (-1);
+  if ((r->pix = bunny_new_pixelarray(r->winl, r->winh)) == NULL)
+    return (-1);
+  return (0);
+}
+
 int		main(int ac, char **av)
 {
   t_road	r;
@@ -75,12 +90,15 @@ int		main(int ac, char **av)
   r.back = NULL;
   if (ac != 2)
     return (0);
-  if ((r.win = bunny_start(WINL, WINH, true, "Road")) == NULL
-      || (r.pix = bunny_new_pixelarray(WINL, WINH)) == NULL)
+  if ((r.back = bunny_load_pixelarray(av[1])) == NULL)
     return (0);
-  if ((r.back = bunny_load_pixelarray(av[1])) == NULL
-      || (r.back = resize_picture(r.back, WINL, WINH)) == NULL)
-    return (0);
+  r.winl = (r.back->clipable.clip_width > 1920 ? 1920
+	    : r.back->clipable.clip_width);
+  r.winh = (r.back->clipable.clip_height > 1920 ? 1920
+	    : r.back->clipable.clip_height);
+  r.max_x = r.back->clipable.clip_width;
+  r.max_y = r.back->clipable.clip_height;
+  create_window(&r);
   r.image = av[1];
   if (start_loop(&r) == -1)
     return (0);

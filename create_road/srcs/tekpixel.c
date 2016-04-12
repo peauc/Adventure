@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 10 13:57:15 2016 Paul Wery
-** Last update Sun Apr 10 15:49:58 2016 Paul Wery
+** Last update Tue Apr 12 15:43:54 2016 Paul Wery
 */
 
 #include "road.h"
@@ -26,7 +26,23 @@ void		tekpixel(t_bunny_pixelarray *pix,
     }
 }
 
-void			cop_pix(t_bunny_pixelarray *dest,
+void	road_pix(t_road *r, t_bunny_pixelarray *pix,
+		 t_bunny_position *pos, unsigned int color)
+{
+  t_color	*pixel;
+  int		i;
+
+  i = pos->x + (pos->y * pix->clipable.clip_width);
+  if (pos->x >= 0 && pos->x < r->max_x
+      && pos->y >= 0 && pos->y < r->max_y)
+    {
+      pixel = (t_color*)pix->pixels + i;
+      pixel->full = color;
+    }
+}
+
+void			cop_pix(t_road *r,
+				t_bunny_pixelarray *dest,
 				t_bunny_pixelarray *src)
 {
   t_bunny_position	pos;
@@ -43,7 +59,7 @@ void			cop_pix(t_bunny_pixelarray *dest,
 	  color = (t_color*)src->pixels
 	    + (pos.x + (pos.y * src->clipable.clip_width));
 	  if (color->argb[3] != 0)
-	    tekpixel(dest, &pos, color->full);
+	    road_pix(r, dest, &pos, color->full);
 	  pos.x += 1;
 	}
       pos.x = 0;

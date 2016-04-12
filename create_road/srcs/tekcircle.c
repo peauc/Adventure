@@ -5,13 +5,13 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Apr 11 16:07:41 2016 Paul Wery
-** Last update Mon Apr 11 16:36:58 2016 Paul Wery
+** Last update Tue Apr 12 15:47:56 2016 Paul Wery
 */
 
 #include <math.h>
 #include "road.h"
 
-void	zcircle(t_bunny_pixelarray *pix,
+void	zcircle(t_road *r, t_bunny_pixelarray *pix,
 		t_el *el, unsigned int color)
 {
   t_cir	c;
@@ -24,12 +24,12 @@ void	zcircle(t_bunny_pixelarray *pix,
     {
       c.posi.x = el->center.x + (el->zaxe_a*cos(c.i * c.angle));
       c.posi.y = el->center.y + (el->zaxe_b*sin(c.i * c.angle));
-      tekpixel(pix, &c.posi, color);
+      road_pix(r, pix, &c.posi, color);
       c.i = c.i + 1;
     }
 }
 
-void	circle(t_bunny_pixelarray *pix,
+void	circle(t_road *r, t_bunny_pixelarray *pix,
 	       t_el *el, unsigned int color)
 {
   t_cir	c;
@@ -42,7 +42,7 @@ void	circle(t_bunny_pixelarray *pix,
     {
       c.posi.x = el->center.x + (el->axe_a*cos(c.i * c.angle));
       c.posi.y = el->center.y + (el->axe_b*sin(c.i * c.angle));
-      tekpixel(pix, &c.posi, color);
+      road_pix(r, pix, &c.posi, color);
       c.i = c.i + 1;
     }
 }
