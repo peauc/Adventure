@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Mon Apr 11 19:33:05 2016 Poc
+## Last update Mon Apr 11 21:07:02 2016 Poc
 ##
 
 DEBUG=	yes
@@ -15,6 +15,7 @@ SRC=	main.c 			\
 	menu.c			\
 	menu_load.c		\
 	tekpixel.c		\
+	determine_button.c	\
 
 OBJ=	$(addprefix src_menu/, $(SRC:.c=.o))
 

@@ -5,11 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 18:14:27 2016 Poc
-Last update Mon Apr 11 20:31:53 2016 Poc
+** Last update Mon Apr 11 21:09:14 2016 Poc
 */
 
 #include <stdlib.h>
-#include "default.h"
+#include "menu.h"
 
 static int		load_first_button(t_button *button)
 {
@@ -63,16 +63,18 @@ static int	     	load_second_button(t_button *button)
   return (0);
 }
 
-int			load_menu(t_menu **menu)
+int			load_menu()
 {
-  if ((*menu = bunny_malloc(sizeof(t_menu))) == NULL)
-    return (1);
-  if (((*menu)->buttons = bunny_malloc(sizeof(t_button) * 5)) == NULL)
-    return (1);
-  if ((load_first_button(&(*menu)->buttons[0])) ||
-      (load_second_button(&(*menu)->buttons[1])) ||
-      (load_third_button(&(*menu)->buttons[2])) ||
-      (load_fourth_button(&(*menu)->buttons[3])))
-    return (1);
-  return (0);
+  t_menu		*menu;
+
+  if ((menu = bunny_malloc(sizeof(t_menu))) == NULL)
+    return (NULL);
+  if (((menu)->buttons = bunny_malloc(sizeof(t_button) * 5)) == NULL)
+    return (NULL);
+  if ((load_first_button(&menu->buttons[0])) ||
+      (load_second_button(&menu->buttons[1])) ||
+      (load_third_button(&menu->buttons[2])) ||
+      (load_fourth_button(&menu->buttons[3])))
+    return (NULL);
+  return (menu);
 }

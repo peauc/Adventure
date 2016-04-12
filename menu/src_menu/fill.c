@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 16:25:41 2016 Poc
-** Last update Mon Apr 11 16:41:19 2016 Poc
+** Last update Mon Apr 11 21:09:25 2016 Poc
 */
 
-#include "default.h"
+#include "menu.h"
 
 void		my_fill(t_bunny_pixelarray *pixel)
 {

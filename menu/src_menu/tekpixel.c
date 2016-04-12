@@ -5,10 +5,10 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 10 13:57:15 2016 Paul Wery
-** Last update Mon Apr 11 20:16:26 2016 Poc
+** Last update Mon Apr 11 21:09:07 2016 Poc
 */
 
-#include "default.h"
+#include "menu.h"
 
 void		tekpixel(t_bunny_pixelarray *pix,
 			 t_bunny_position *pos,

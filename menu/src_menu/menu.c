@@ -5,11 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 16:24:49 2016 Poc
-** Last update Mon Apr 11 20:26:58 2016 Poc
+** Last update Mon Apr 11 21:10:19 2016 Poc
 */
 
 #include <stdlib.h>
-#include "default.h"
+#include "menu.h"
 
 int		draw_menu_background(t_bunny_pixelarray *pixel)
 {
@@ -27,13 +27,8 @@ int		draw_menu_background(t_bunny_pixelarray *pixel)
   return (0);
 }
 
-int		draw_menu(t_bunny_pixelarray *pixel)
+int		draw_menu(t_bunny_pixelarray *pixel, t_menu *menu)
 {
-  static t_menu	*menu = NULL;
-
-  if (menu == NULL)
-    if (load_menu(&menu))
-      return (1);
   draw_menu_background(pixel);
   pixelarray_copy(pixel, menu->buttons[0].sprite, menu->buttons[0].start);
   pixelarray_copy(pixel, menu->buttons[1].sprite, menu->buttons[1].start);
