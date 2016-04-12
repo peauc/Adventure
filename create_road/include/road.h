@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Mon Apr 11 18:39:32 2016 Paul Wery
+** Last update Tue Apr 12 02:59:07 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -73,6 +73,7 @@ typedef struct		s_points
   t_bunny_position	path_2[2];
   t_bunny_position	path_3[2];
   int			path;
+  char			*image;
   struct s_points	*next;
   struct s_points	*prev;
 }			t_points;
@@ -85,6 +86,7 @@ typedef struct		s_road
   struct s_points	points;
   struct s_points	*list;
   int			state;
+  char			*image;
 }			t_road;
 
 t_bunny_response	my_click(t_bunny_event_state state,
@@ -104,7 +106,9 @@ t_bunny_response	wheel_mouse(int wheelid, int delta,
 
 t_points		*create_list(void);
 int			add_elem_next(t_points *elem, t_points *src);
+void			delete_elem(t_points *list, t_points *elem);
 void			delete_list(t_points **root);
+void			delete_links(t_points *list, t_points *elem);
 
 
 void			pix_initialize(t_bunny_pixelarray *pix);
@@ -141,5 +145,10 @@ void			ini_line(t_line *l, t_bunny_position *posi,
 unsigned int		my_color(const t_bunny_position *pos,
 				 unsigned int *color, t_line *l);
 void			line(t_bunny_pixelarray *pix, t_points *it);
+void			ini_el(t_road *r, const t_bunny_position *pos);
+int			cop_path(t_bunny_position *start, t_points *it);
+int			full_ini(t_points *list);
+int			comp_string(char *one, char *two);
+int			same_name(char *one, char *two);
 
 #endif /* !ROAD */

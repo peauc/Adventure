@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Mon Apr 11 21:07:02 2016 Poc
+## Last update Tue Apr 12 16:00:53 2016 Poc
 ##
 
 DEBUG=	yes
@@ -17,43 +17,49 @@ SRC=	main.c 			\
 	tekpixel.c		\
 	determine_button.c	\
 
-OBJ=	$(addprefix src_menu/, $(SRC:.c=.o))
+SRC_LIB= 	my_strcpy.c			\
+		my_strlen.c			\
+		my_strdup.c			\
 
-RM=	rm -f
+OBJ_LIB=	$(addprefix ../lib/, $(SRC_LIB:.c=.o))
 
-CMD=	 -llapin -lsfml-audio -lsfml-graphics -lsfml-window
-CMD+=	 -lsfml-system -lstdc++ -ldl -L ~/.froot/lib -lm
+OBJ=		$(addprefix src_menu/, $(SRC:.c=.o))
 
-LIB=    -I inc_menu/
+RM=		rm -f
+
+CMD=		 -llapin -lsfml-audio -lsfml-graphics -lsfml-window
+CMD+=		 -lsfml-system -lstdc++ -ldl -L ~/.froot/lib -lm
+
+LIB=    	-I inc_menu/
 
 ifeq ($(DEBUG), yes)
-	CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic -g -D DEBUG
-	CC=		clang
+CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic -g -D DEBUG
+CC=		clang
 else
-	CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic
-	CC=		gcc
+CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic
+CC=		gcc
 endif
 
-NAME=	adv
+NAME=		adv
 
-HEAD=	-I inc/
+HEAD=		-I inc/
 
-$(NAME):                $(OBJ)
+$(NAME):	$(OBJ) $(OBJ_LIB)
 ifeq ($(DEBUG), yes)
-	@tput setaf 1; tput bold
-	@echo " ____________________ ________________________   ____ ___._________________";
-	@echo "/   _____/\_   _____|/  _____/\_   _____/  _  \ |    |   \    | \__    ___/";
-	@echo "\_____  \  |    ___|/   \  ___ |    __)/  / \  \|    |   /    |   |    |";
-	@echo "/        \ |        \    \_\  \|     \/    |    \    |  /|    |___|    |";
-	@echo "/________//_________/\________/\_____/\____|____/______/ |________|____|";
-	@tput sgr0
-	rm -rf TAGS
-	find . -type f -iname "*.[chS]" | xargs etags -a
+		@tput setaf 1; tput bold
+		@echo " ____________________ ________________________   ____ ___._________________";
+		@echo "/   _____/\_   _____|/  _____/\_   _____/  _  \ |    |   \    | \__    ___/";
+		@echo "\_____  \  |    ___|/   \  ___ |    __)/  / \  \|    |   /    |   |    |";
+		@echo "/        \ |        \    \_\  \|     \/    |    \    |  /|    |___|    |";
+		@echo "/________//_________/\________/\_____/\____|____/______/ |________|____|";
+		@tput sgr0
+		rm -rf TAGS
+		find ../ -type f -iname "*.[chS]" | xargs etags -a
 endif
-	@ echo "CC = $(CC)"
-	@ echo "CFLAGS = $(CFLAGS)"
-	@ $(CC) $(OBJ) -o $(NAME) $(CMD)
-	@ echo -e "\033[1;31m \t \t \n \t ♩♪♫ $(NAME) Compiled\033[0;31m®\033[1;31m Created Sucesfully \033[0m"
+		@ echo "CC = $(CC)"
+		@ echo "CFLAGS = $(CFLAGS)"
+		@ $(CC) $(OBJ) $(OBJ_LIB) -o $(NAME) $(CMD)
+		@ echo -e "\033[1;31m \t \t \n \t ♩♪♫ $(NAME) Compiled\033[0;31m®\033[1;31m Created Sucesfully \033[0m"
 
 all:		$(NAME)
 
@@ -65,6 +71,6 @@ fclean: clean
 		@ echo "[ OK ] fclean succesfull"
 
 re:	fclean all
-%.o:                    %.c
-			@ echo "[ OK ] Compiling" $<
-			@ $(CC) -o $@ -c $< $(CFLAGS) $(LIB)
+%.o:		%.c
+		@ echo "[ OK ] Compiling" $<
+		@ $(CC) -o $@ -c $< $(CFLAGS) $(LIB)

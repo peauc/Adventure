@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Mon Apr 11 21:25:00 2016 Poc
+** Last update Tue Apr 12 15:38:15 2016 Poc
 */
 
 #ifndef _MENU_
@@ -13,6 +13,7 @@
 # define _MENU_
 
 # include <lapin.h>
+# include <stdio.h>
 
 # define HEIGHT 720
 # define WIDTH	1280
@@ -21,6 +22,7 @@
 
 typedef	struct	s_button
 {
+  char			*name;
   t_bunny_pixelarray	*sprite;
   t_bunny_position	start;
   t_bunny_position	end;

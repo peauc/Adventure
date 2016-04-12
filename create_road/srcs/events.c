@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:18:42 2016 Paul Wery
-** Last update Mon Apr 11 18:07:15 2016 Paul Wery
+** Last update Tue Apr 12 00:19:03 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -62,19 +62,14 @@ t_bunny_response		my_click(t_bunny_event_state state,
 
   r = (t_road*)data;
   pos = bunny_get_mouse_position();
-  if (in_el(r, pos) == NULL)
+  if (in_el(r, pos) == NULL && r->state <= 2)
     {
       if (state == GO_UP && button == BMB_LEFT && r->state == 0)
-	{
-	  r->points.el.center.x = pos->x;
-	  r->points.el.center.y = pos->y;
-	  r->points.el.axe_a = 10;
-	  r->points.el.axe_b = 5;
-	  r->state += 1;
-	}
+	ini_el(r, pos);
       else if (state == GO_UP && button == BMB_RIGHT && r->state >= 1)
 	{
-	  add_elem_next(r->list, &r->points);
+	  if (add_elem_next(r->list, &r->points) == -1)
+	    return (EXIT_ON_ERROR);
 	  ini_struct(r);
 	}
       else if (state == GO_UP && button == BMB_LEFT && r->state == 1)
@@ -84,12 +79,24 @@ t_bunny_response		my_click(t_bunny_event_state state,
   return (GO_ON);
 }
 
-t_bunny_response	key(t_bunny_event_state state,
-			    t_bunny_keysym keysym,
-			    void *data UNUSED)
+t_bunny_response		key(t_bunny_event_state state,
+				    t_bunny_keysym keysym,
+				    void *data)
 {
+  t_road			*r;
+  t_points			*it;
+  const t_bunny_position	*pos;
+
+  r = (t_road*)data;
+  pos = bunny_get_mouse_position();
+  it = get_elem(r, pos);
   if (state == GO_UP && keysym == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
+  else if (state == GO_UP && keysym == BKS_DELETE && it != NULL)
+    {
+      delete_elem(r->list, it);
+      ini_struct(r);
+    }
   return (GO_ON);
 }
 
