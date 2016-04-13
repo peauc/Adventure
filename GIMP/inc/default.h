@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Wed Apr 13 14:32:49 2016 Poc
+** Last update Wed Apr 13 16:46:48 2016 Poc
 */
 
 #ifndef _DEFAULT_
@@ -22,7 +22,7 @@
 # define WIDTH 1024
 # define HEIGHT 768
 
-typedef struct  s_button
+typedef struct		s_button
 {
   char                  *name;
   t_bunny_pixelarray    *sprite;
@@ -30,12 +30,12 @@ typedef struct  s_button
   t_bunny_position      start;
   t_bunny_position      end;
   int                   is_clicked;
-}               t_button;
+}			t_button;
 
-typedef struct  s_menu
+typedef struct		s_menu
 {
   t_button              *buttons;
-}               t_menu;
+}			t_menu;
 
 typedef struct		s_scene
 {
