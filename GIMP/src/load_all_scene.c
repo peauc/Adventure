@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 11:42:20 2016 marel_m
-** Last update Tue Apr 12 18:26:21 2016 marel_m
+** Last update Wed Apr 13 15:23:19 2016 marel_m
 */
 
 #include "default.h"
@@ -28,7 +28,7 @@ int	load_all_scene(t_data *data)
       || (data->tab[3].back = bunny_load_pixelarray("pictures/harbor_back.png")) == NULL
       || (data->tab[3].back = resize_picture(data->tab[3].back, 2048, 576)) == NULL
       || (data->tab[3].front = bunny_load_pixelarray("pictures/harbor_front.png")) == NULL
-      || (data->tab[3].front = resize_picture(data->tab[3].front, 2048, 576)) == NULL
+      || (data->tab[3].front = resize_picture(data->tab[3].front, 1024, 576)) == NULL
       || (data->tab[3].name = my_strdup("harbor")) == NULL
       || (data->tab[4].back = bunny_load_pixelarray("pictures/house_in_back.png")) == NULL
       || (data->tab[4].back = resize_picture(data->tab[4].back, 1024, 576)) == NULL

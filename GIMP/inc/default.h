@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Tue Apr 12 18:16:32 2016 marel_m
+** Last update Wed Apr 13 14:54:34 2016 marel_m
 */
 
 #ifndef _DEFAULT_
@@ -34,8 +34,6 @@ typedef struct		s_data
   t_bunny_window	*win;
   t_bunny_pixelarray	*new;
   t_bunny_pixelarray	*pixel;
-  t_bunny_pixelarray	*harbor;
-  t_bunny_pixelarray	*harbor_fr;
 }			t_data;
 
 int			load_all_scene(t_data *);
