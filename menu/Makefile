@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Tue Apr 12 16:00:53 2016 Poc
+## Last update Wed Apr 13 13:26:49 2016 Poc
 ##
 
 DEBUG=	yes
@@ -15,6 +15,7 @@ SRC=	main.c 			\
 	menu.c			\
 	menu_load.c		\
 	tekpixel.c		\
+	load_buttons.c		\
 	determine_button.c	\
 
 SRC_LIB= 	my_strcpy.c			\
@@ -54,7 +55,7 @@ ifeq ($(DEBUG), yes)
 		@echo "/________//_________/\________/\_____/\____|____/______/ |________|____|";
 		@tput sgr0
 		rm -rf TAGS
-		find ../ -type f -iname "*.[chS]" | xargs etags -a
+		find . -type f -iname "*.[chS]" | xargs etags -a
 endif
 		@ echo "CC = $(CC)"
 		@ echo "CFLAGS = $(CFLAGS)"
@@ -64,7 +65,7 @@ endif
 all:		$(NAME)
 
 clean:
-		@ $(RM) $(OBJ)
+		@ $(RM) $(OBJ) $(OBJ_LIB)
 		@ echo "[ OK ] clean sucessfull"
 fclean: clean
 		@ $(RM) $(NAME)

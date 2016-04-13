@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 16:24:49 2016 Poc
-** Last update Mon Apr 11 21:10:19 2016 Poc
+** Last update Wed Apr 13 13:26:08 2016 Poc
 */
 
 #include <stdlib.h>
@@ -29,10 +29,17 @@ int		draw_menu_background(t_bunny_pixelarray *pixel)
 
 int		draw_menu(t_bunny_pixelarray *pixel, t_menu *menu)
 {
+  int		i;
+
+  i = 0;
   draw_menu_background(pixel);
-  pixelarray_copy(pixel, menu->buttons[0].sprite, menu->buttons[0].start);
-  pixelarray_copy(pixel, menu->buttons[1].sprite, menu->buttons[1].start);
-  pixelarray_copy(pixel, menu->buttons[2].sprite, menu->buttons[2].start);
-  pixelarray_copy(pixel, menu->buttons[3].sprite, menu->buttons[3].start);
+  while (i < 4)
+    {
+      if (menu->buttons[i].is_clicked == 0)
+	pixelarray_copy(pixel, menu->buttons[i].sprite, menu->buttons[i].start);
+      else
+	pixelarray_copy(pixel, menu->buttons[i].active_sprite, menu->buttons[i].start);
+      i++;
+    }
   return (0);
 }

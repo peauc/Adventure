@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 21:02:11 2016 Poc
-** Last update Mon Apr 11 21:25:32 2016 Poc
+** Last update Wed Apr 13 12:54:59 2016 Poc
 */
 
 #include "menu.h"
@@ -25,8 +25,11 @@ int				determine_button_clicked(t_menu *menu)
 	  pos->y > menu->buttons[i].start.y &&
 	  pos->y < menu->buttons[i].start.y +
 	  menu->buttons[i].sprite->clipable.clip_height)
-	printf("I've found it\n");
+	{
+	  set_all_to_zero(menu->buttons);
+	  menu->buttons[i].is_clicked = 1;
+	}
       i++;
     }
-  printf("%d %d\n", pos->x, pos->y);
+  return (0);
 }
