@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Tue Apr 12 18:26:51 2016 marel_m
+** Last update Wed Apr 13 14:06:24 2016 Poc
 */
 
 #include "default.h"
@@ -85,6 +85,7 @@ void            pix_initialize(t_bunny_pixelarray *pix)
 t_bunny_response       	mainloop(t_data *data)
 {
   street(data);
+  draw_menu(data->pixel, data->menu);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->win);
   return (GO_ON);
@@ -102,10 +103,12 @@ int			main(int ac, char **av)
     return (1);
   if (load_all_scene(&data) == -1)
     return (-1);
-  if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
+  if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL ||
+      (data.menu = load_menu()) == NULL)
     return (1);
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
   bunny_set_key_response((t_bunny_key)&escape);
+  bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
   return (1);

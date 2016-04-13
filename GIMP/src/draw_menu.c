@@ -5,11 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 16:24:49 2016 Poc
-** Last update Wed Apr 13 13:26:08 2016 Poc
+** Last update Wed Apr 13 14:08:14 2016 Poc
 */
 
 #include <stdlib.h>
-#include "menu.h"
+#include "default.h"
 
 int		draw_menu_background(t_bunny_pixelarray *pixel)
 {

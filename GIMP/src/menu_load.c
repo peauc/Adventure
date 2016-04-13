@@ -5,11 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 18:14:27 2016 Poc
-** Last update Tue Apr 12 19:06:57 2016 Poc
+** Last update Wed Apr 13 14:00:23 2016 Poc
 */
 
 #include <stdlib.h>
-#include "menu.h"
+#include "default.h"
 
 t_menu			*load_menu()
 {

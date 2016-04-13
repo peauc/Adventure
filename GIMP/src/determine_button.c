@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 21:02:11 2016 Poc
-** Last update Wed Apr 13 12:54:59 2016 Poc
+** Last update Wed Apr 13 13:59:32 2016 Poc
 */
 
-#include "menu.h"
+#include "default.h"
 
 int				determine_button_clicked(t_menu *menu)
 {

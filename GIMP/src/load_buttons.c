@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Tue Apr 12 16:57:44 2016 Poc
-** Last update Tue Apr 12 19:15:58 2016 Poc
+** Last update Wed Apr 13 14:00:32 2016 Poc
 */
 
-#include "menu.h"
+#include "default.h"
 
 static int		load_first_button(t_button *button)
 {
