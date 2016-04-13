@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Wed Apr 13 14:16:35 2016 Poc
+** Last update Wed Apr 13 14:24:40 2016 marel_m
 */
 
 #include "default.h"
@@ -84,7 +84,7 @@ void            pix_initialize(t_bunny_pixelarray *pix)
 
 t_bunny_response       	mainloop(t_data *data)
 {
-  street(data);
+  beach(data);
   draw_menu(data->pixel, data->menu);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->win);
