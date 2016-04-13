@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:18:42 2016 Paul Wery
-** Last update Tue Apr 12 00:19:03 2016 Paul Wery
+** Last update Tue Apr 12 23:13:10 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -58,14 +58,17 @@ t_bunny_response		my_click(t_bunny_event_state state,
 					 void *data)
 {
   t_road			*r;
-  const t_bunny_position	*pos;
+  const t_bunny_position	*posi;
+  t_bunny_position		pos;
 
   r = (t_road*)data;
-  pos = bunny_get_mouse_position();
-  if (in_el(r, pos) == NULL && r->state <= 2)
+  posi = bunny_get_mouse_position();
+  pos.x = posi->x + r->x;
+  pos.y = posi->y + r->y;
+  if (in_el(r, &pos) == NULL && r->state <= 2)
     {
       if (state == GO_UP && button == BMB_LEFT && r->state == 0)
-	ini_el(r, pos);
+	ini_el(r, &pos);
       else if (state == GO_UP && button == BMB_RIGHT && r->state >= 1)
 	{
 	  if (add_elem_next(r->list, &r->points) == -1)
@@ -75,7 +78,7 @@ t_bunny_response		my_click(t_bunny_event_state state,
       else if (state == GO_UP && button == BMB_LEFT && r->state == 1)
 	r->state += 1;
     }
-  click_next(state, button, pos, r);
+  click_next(state, button, &pos, r);
   return (GO_ON);
 }
 
@@ -85,11 +88,14 @@ t_bunny_response		key(t_bunny_event_state state,
 {
   t_road			*r;
   t_points			*it;
-  const t_bunny_position	*pos;
+  const t_bunny_position	*posi;
+  t_bunny_position		pos;
 
   r = (t_road*)data;
-  pos = bunny_get_mouse_position();
-  it = get_elem(r, pos);
+  posi = bunny_get_mouse_position();
+  pos.x = posi->x + r->x;
+  pos.y = posi->y + r->y;
+  it = get_elem(r, &pos);
   if (state == GO_UP && keysym == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
   else if (state == GO_UP && keysym == BKS_DELETE && it != NULL)
@@ -97,20 +103,25 @@ t_bunny_response		key(t_bunny_event_state state,
       delete_elem(r->list, it);
       ini_struct(r);
     }
+  else
+    key_next(state, keysym, r);
   return (GO_ON);
 }
 
 t_bunny_response		loop(void *data)
 {
   t_road			*r;
-  const t_bunny_position	*pos;
+  const t_bunny_position	*posi;
+  t_bunny_position		pos;
 
   r = (t_road*)data;
-  pos = bunny_get_mouse_position();
+  posi = bunny_get_mouse_position();
+  pos.x = posi->x + r->x;
+  pos.y = posi->y + r->y;
   pix_initialize_alpha(r->pix);
-  cop_pix(r->pix, r->back);
+  cop_pix(r, r->pix, r->back);
   aff_tmp(r);
-  aff_all(r, pos);
+  aff_all(r, &pos);
   bunny_blit(&r->win->buffer, &r->pix->clipable, NULL);
   bunny_display(r->win);
   return (GO_ON);

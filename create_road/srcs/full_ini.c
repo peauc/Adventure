@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 01:28:11 2016 Paul Wery
-** Last update Tue Apr 12 02:59:18 2016 Paul Wery
+** Last update Wed Apr 13 01:02:35 2016 Paul Wery
 */
 
 #include <sys/types.h>
@@ -119,11 +119,11 @@ int			full_ini(t_points *list)
   const char		*scope_name;
   int			fd;
 
-  if ((fd = open("ini/paths.ini", O_CREAT | O_APPEND | O_WRONLY,
+  if ((fd = open("paths.ini", O_CREAT | O_APPEND | O_WRONLY,
 		 S_IRUSR | S_IWUSR)) == -1)
     return (-1);
   close(fd);
-  if ((ini = bunny_load_ini("ini/paths.ini")) == NULL)
+  if ((ini = bunny_load_ini("paths.ini")) == NULL)
     return (-1);
   scope = bunny_ini_first(ini);
   while ((scope = bunny_ini_next(ini, scope)) != NULL)
