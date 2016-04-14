@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Thu Apr 14 14:29:11 2016 marel_m
+** Last update Thu Apr 14 19:09:42 2016 marel_m
 */
 
 #include "default.h"
@@ -41,14 +41,15 @@ t_bunny_response       	mainloop(t_data *data)
 {
   static int		i = 0;
 
-  if (data->mv_s.pos_click->x >= 300 && data->mv_s.pos_click->x <= 400
-      && data->mv_s.pos_click->y >= 300 && data->mv_s.pos_click->y <= 400)
-    {
-      manor_inside(data);
-      i++;
-    }
-  else if (i == 0)
-    manor_outside(data);
+  /* if (data->mv_s.pos_click->x >= 300 && data->mv_s.pos_click->x <= 400 */
+  /*     && data->mv_s.pos_click->y >= 300 && data->mv_s.pos_click->y <= 400) */
+  /*   { */
+  /*     manor_inside(data); */
+  /*     i++; */
+  /*   } */
+  /* else if (i == 0) */
+  /*   manor_outside(data); */
+  basement(data);
   draw_menu(data->pixel, data->menu);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->win);

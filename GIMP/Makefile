@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Thu Apr 14 14:10:16 2016 marel_m
+## Last update Thu Apr 14 19:10:28 2016 marel_m
 ##
 
 DEBUG=	yes
@@ -17,6 +17,7 @@ SRC=	main.c 				\
 	house.c 			\
 	harbor.c			\
 	manor.c				\
+	basement.c			\
 	my_strdup.c 			\
 	determine_button.c		\
 	draw_menu.c			\
