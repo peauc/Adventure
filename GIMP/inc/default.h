@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Thu Apr 14 13:26:21 2016 marel_m
+** Last update Thu Apr 14 15:11:55 2016 marel_m
 */
 
 #ifndef _DEFAULT_
@@ -22,7 +22,7 @@
 # define WIDTH 1024
 # define HEIGHT 768
 
-typedef struct  s_button
+typedef struct		s_button
 {
   char                  *name;
   t_bunny_pixelarray    *sprite;
@@ -30,12 +30,12 @@ typedef struct  s_button
   t_bunny_position      start;
   t_bunny_position      end;
   int                   is_clicked;
-}               t_button;
+}			t_button;
 
-typedef struct  s_menu
+typedef struct		s_menu
 {
   t_button              *buttons;
-}               t_menu;
+}			t_menu;
 
 typedef struct		s_scene
 {
@@ -47,25 +47,25 @@ typedef struct		s_scene
   int			nb_of_item;
 }			t_scene;
 
-typedef struct		s_mv_scene
+typedef struct			s_mv_scene
 {
-  int			mv_bck;
-  int			mv_fr;
-  int			mv_mid;
-  int			mb_s;
-  int			click;
+  int				mv_bck;
+  int				mv_mid;
+  int				mv_fr;
+  int				s_nb;
+  int				click;
   const t_bunny_position	*pos_click;
-}			t_mv_scene;
+}				t_mv_scene;
 
-typedef struct		s_data
+typedef struct			s_data
 {
-  t_scene		tab[11];
-  t_mv_scene		mv_s;
-  t_bunny_window	*win;
-  t_bunny_pixelarray	*new;
-  t_bunny_pixelarray	*pixel;
-  t_menu		*menu;
-}			t_data;
+  t_scene			tab[11];
+  t_mv_scene			mv_s;
+  t_bunny_window		*win;
+  t_bunny_pixelarray		*new;
+  t_bunny_pixelarray		*pixel;
+  t_menu			*menu;
+}				t_data;
 
 int			load_all_scene(t_data *);
 char			*my_strdup(char *);
