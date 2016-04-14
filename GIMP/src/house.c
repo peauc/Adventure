@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:32:57 2016 marel_m
-** Last update Tue Apr 12 18:09:17 2016 marel_m
+** Last update Thu Apr 14 14:08:37 2016 marel_m
 */
 
 #include "default.h"
@@ -18,10 +18,23 @@ void			house_inside(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[4].back, pos);
-  put_pix_in_pix_txt(data->pixel, data->tab[4].middle, pos);
-  put_pix_in_pix_txt(data->pixel, data->tab[4].front, pos);
-  put_pix_in_pix_txt(data->pixel, data->new, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[4].back, pos, data->mv_s.mv_bck);
+  put_pix_in_pix_txt(data->pixel, data->tab[4].middle, pos, data->mv_s.mv_mid);
+  put_pix_in_pix_txt(data->pixel, data->tab[4].front, pos, data->mv_s.mv_fr);
+  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
+}
+
+void			house_outside(t_data *data)
+{
+  t_bunny_position      pos;
+
+  pix_initialize(data->pixel);
+  pix_initialize(data->new);
+  pos.x = 0;
+  pos.y = 0;
+  put_pix_in_pix_txt(data->pixel, data->tab[11].back, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }
 
 void			house_night(t_data *data)
@@ -32,6 +45,6 @@ void			house_night(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[5].front, pos);
-  put_pix_in_pix_txt(data->pixel, data->new, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[5].front, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }

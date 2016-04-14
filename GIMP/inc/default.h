@@ -5,7 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
+<<<<<<< HEAD
 ** Last update Wed Apr 13 16:46:48 2016 Poc
+=======
+** Last update Thu Apr 14 13:26:21 2016 marel_m
+>>>>>>> 311823a2f2912ea5a3c435737975bcf0276c7cee
 */
 
 #ifndef _DEFAULT_
@@ -47,9 +51,20 @@ typedef struct		s_scene
   int			nb_of_item;
 }			t_scene;
 
+typedef struct		s_mv_scene
+{
+  int			mv_bck;
+  int			mv_fr;
+  int			mv_mid;
+  int			mb_s;
+  int			click;
+  const t_bunny_position	*pos_click;
+}			t_mv_scene;
+
 typedef struct		s_data
 {
   t_scene		tab[11];
+  t_mv_scene		mv_s;
   t_bunny_window	*win;
   t_bunny_pixelarray	*new;
   t_bunny_pixelarray	*pixel;
@@ -68,7 +83,8 @@ void			pix_initialize(t_bunny_pixelarray *);
 void			boat(t_data *);
 void			put_pix_in_pix_txt(t_bunny_pixelarray *,
 					   t_bunny_pixelarray *,
-					   t_bunny_position);
+					   t_bunny_position,
+					   int);
 t_bunny_response	clicky(t_bunny_event_state, t_bunny_mouse_button,
 			       t_data *);
 #endif /* _DEFAULT_ */

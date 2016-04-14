@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 11:42:20 2016 marel_m
-** Last update Wed Apr 13 15:23:19 2016 marel_m
+** Last update Thu Apr 14 14:29:52 2016 marel_m
 */
 
 #include "default.h"
@@ -55,14 +55,19 @@ int	load_all_scene(t_data *data)
       || (data->tab[8].front = bunny_load_pixelarray("pictures/shop_front.png")) == NULL
       || (data->tab[8].front = resize_picture(data->tab[8].front, 2048, 576)) == NULL
       || (data->tab[8].name = my_strdup("shop")) == NULL
-      || (data->tab[9].front = bunny_load_pixelarray("pictures/shop_place.png")) == NULL
-      || (data->tab[9].front = resize_picture(data->tab[9].front, 2048, 576)) == NULL
-      || (data->tab[9].name = my_strdup("shop_place")) == NULL
-      || (data->tab[10].back = bunny_load_pixelarray("pictures/street_back.png")) == NULL
-      || (data->tab[10].back = resize_picture(data->tab[10].back, 1024, 576)) == NULL
-      || (data->tab[10].front = bunny_load_pixelarray("pictures/street_front.png")) == NULL
-      || (data->tab[10].front = resize_picture(data->tab[10].front, 1024, 576)) == NULL
-      || (data->tab[10].name = my_strdup("street")) == NULL)
+      /* || (data->tab[9].front = bunny_load_pixelarray("pictures/shop_place.png")) == NULL */
+      /* || (data->tab[9].front = resize_picture(data->tab[9].front, 2048, 576)) == NULL */
+      /* || (data->tab[9].name = my_strdup("shop_place")) == NULL */
+      /* || (data->tab[10].back = bunny_load_pixelarray("pictures/street_back.png")) == NULL */
+      /* || (data->tab[10].back = resize_picture(data->tab[10].back, 1024, 576)) == NULL */
+      /* || (data->tab[10].front = bunny_load_pixelarray("pictures/street_front.png")) == NULL */
+      /* || (data->tab[10].front = resize_picture(data->tab[10].front, 1024, 576)) == NULL */
+      /* || (data->tab[10].name = my_strdup("street")) == NULL */
+      /* || (data->tab[11].back = bunny_load_pixelarray("pictures/house_out_back.png")) == NULL */
+      /* || (data->tab[11].back = resize_picture(data->tab[11].back, 1024, 576)) == NULL */
+      /* || (data->tab[11].front = bunny_load_pixelarray("pictures/house_out_front.png")) == NULL */
+      /* || (data->tab[11].front = resize_picture(data->tab[11].front, 1024, 576)) == NULL */
+      || (data->tab[11].name = my_strdup("house_out")) == NULL)
     return (-1);
   return (0);
 }
