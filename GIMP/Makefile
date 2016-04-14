@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Thu Apr 14 19:10:28 2016 marel_m
+## Last update Thu Apr 14 22:09:51 2016 Poc
 ##
 
 DEBUG=	yes
@@ -23,7 +23,7 @@ SRC=	main.c 				\
 	draw_menu.c			\
 	fill.c				\
 	load_buttons.c			\
-	load_items.c			\
+	item_load.c			\
 	menu.c				\
 	menu_load.c			\
 	pixelarraycpy.c			\

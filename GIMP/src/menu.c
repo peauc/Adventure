@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Thu Apr 14 13:36:15 2016 marel_m
+** Last update Thu Apr 14 13:04:17 2016 Poc
 */
 
 #include "default.h"
@@ -27,7 +27,6 @@ t_bunny_response	clicky(t_bunny_event_state clicked,
 			       t_bunny_mouse_button button,
 			       t_data *data)
 {
-  data = data;
   if (button == BMB_LEFT && clicked == GO_DOWN)
     {
       if ((determine_button_clicked(data->menu)))
