@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Tue Apr 12 16:57:44 2016 Poc
-** Last update Wed Apr 13 14:00:32 2016 Poc
+** Last update Thu Apr 14 13:04:00 2016 marel_m
 */
 
 #include "default.h"
@@ -27,19 +27,19 @@ static int		load_first_button(t_button *button)
   return (0);
 }
 
-static int		load_fourth_button(t_button *button)
+static int	     	load_second_button(t_button *button)
 {
   t_bunny_pixelarray	*pix;
 
-  if ((pix = bunny_load_pixelarray("sprites/give.png")) == NULL ||
+  if ((pix = bunny_load_pixelarray("sprites/use.png")) == NULL ||
       (button->active_sprite =
-       bunny_load_pixelarray("sprites/active_give.png")) == NULL)
+       bunny_load_pixelarray("sprites/active_use.png")) == NULL)
     return (1);
-  if ((button->name = my_strdup("give")) == NULL)
+  if ((button->name = my_strdup("use")) == NULL)
     return (1);
   button->is_clicked = 0;
   button->sprite = pix;
-  button->start.x = 50;
+  button->start.x = 350;
   button->start.y = 680;
   return (0);
 }
@@ -61,19 +61,19 @@ static int		load_third_button(t_button *button)
   return (0);
 }
 
-static int	     	load_second_button(t_button *button)
+static int		load_fourth_button(t_button *button)
 {
   t_bunny_pixelarray	*pix;
 
-  if ((pix = bunny_load_pixelarray("sprites/use.png")) == NULL ||
+  if ((pix = bunny_load_pixelarray("sprites/give.png")) == NULL ||
       (button->active_sprite =
-       bunny_load_pixelarray("sprites/active_use.png")) == NULL)
+       bunny_load_pixelarray("sprites/active_give.png")) == NULL)
     return (1);
-  if ((button->name = my_strdup("use")) == NULL)
+  if ((button->name = my_strdup("give")) == NULL)
     return (1);
   button->is_clicked = 0;
   button->sprite = pix;
-  button->start.x = 350;
+  button->start.x = 50;
   button->start.y = 680;
   return (0);
 }
