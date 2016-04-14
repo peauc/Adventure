@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Wed Apr 13 14:24:40 2016 marel_m
+** Last update Wed Apr 13 18:16:42 2016 marel_m
 */
 
 #include "default.h"
@@ -43,7 +43,7 @@ void                    put_pix_in_pix_txt(t_bunny_pixelarray *pix,
       posi.x = 0;
       while (pos.x < WIDTH)
 	{
-	  i = posi.x + (posi.y * src->clipable.clip_width);
+	  i = pos.x + (pos.y * src->clipable.clip_width);
 	  color = (t_color*)src->pixels + i;
 	  if (color->argb[3] != 0)
 	    tekpixel(pix, &pos, color, 0);
