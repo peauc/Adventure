@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:28:42 2016 marel_m
-** Last update Thu Apr 14 17:36:45 2016 marel_m
+** Last update Fri Apr 15 11:00:42 2016 marel_m
 */
 
 #include "default.h"
@@ -24,6 +24,6 @@ void			basement(t_data *data)
   pos1.y = 50;
   key = bunny_load_pixelarray("pictures/key_poc.png");
   put_pix_in_pix_txt(data->pixel, data->tab[0].front, pos, 0);
-  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
   put_pix_in_pix_txt(data->pixel, key, pos1, 0);
+  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }

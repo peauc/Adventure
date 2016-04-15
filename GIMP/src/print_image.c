@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Thu Apr 14 13:02:01 2016 marel_m
-** Last update Thu Apr 14 13:13:34 2016 marel_m
+** Last update Fri Apr 15 10:55:12 2016 marel_m
 */
 
 #include "default.h"
@@ -37,15 +37,17 @@ void                    put_pix_in_pix_txt(t_bunny_pixelarray *pix,
   t_bunny_position      posi;
   t_color               *color;
   int                   i;
+  int			set;
 
   posi.y = 0;
+  set = pos.x;
   while (pos.y < HEIGHT && posi.y < src->clipable.clip_height)
     {
-      pos.x = 0;
+      pos.x = set;
       posi.x = 0;
-      while (pos.x < WIDTH)
+      while (pos.x < WIDTH && posi.x < src->clipable.clip_width)
 	{
-	  i = pos.x + (pos.y * src->clipable.clip_width) + plus;
+	  i = posi.x + (posi.y * src->clipable.clip_width) + plus;
 	  color = (t_color*)src->pixels + i;
 	  if (color->argb[3] != 0)
 	    tekpixel(pix, &pos, color, 0);
