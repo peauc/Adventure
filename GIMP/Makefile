@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 14:07:48 2016 Poc
+## Last update Fri Apr 15 17:25:18 2016 Poc
 ##
 
 DEBUG=	yes
@@ -21,6 +21,8 @@ SRC=	main.c 				\
 	basement.c			\
 	my_strdup.c 			\
 	determine_button.c		\
+	determine_item.c		\
+	draw_scene.c			\
 	draw_menu.c			\
 	fill.c				\
 	load_buttons.c			\
