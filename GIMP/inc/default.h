@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Thu Apr 14 22:11:50 2016 Poc
+** Last update Fri Apr 15 12:32:30 2016 Poc
 */
 
 #ifndef _DEFAULT_
@@ -35,7 +35,6 @@ typedef struct		s_button
 typedef struct		s_menu
 {
   t_button              *buttons;
-  t_item		**item;
 }			t_menu;
 
 typedef struct		s_scene
@@ -43,8 +42,8 @@ typedef struct		s_scene
   t_bunny_pixelarray	*back;
   t_bunny_pixelarray	*middle;
   t_bunny_pixelarray	*front;
+  t_item		item;
   char			*name;
-  int			nb_of_item;
 }			t_scene;
 
 typedef struct			s_mv_scene
