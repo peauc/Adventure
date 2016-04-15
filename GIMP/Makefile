@@ -5,15 +5,16 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 13:16:31 2016 Poc
+## Last update Fri Apr 15 14:07:48 2016 Poc
 ##
 
-DEBUG=	no
+DEBUG=	yes
 
 SRC=	main.c 				\
 	resize.c 			\
 	load_all_scene.c 		\
 	print_image.c 			\
+	draw_items.c			\
 	house.c 			\
 	harbor.c			\
 	manor.c				\
