@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:22:50 2016 marel_m
-** Last update Tue Apr 12 17:43:52 2016 marel_m
+** Last update Fri Apr 15 11:38:13 2016 marel_m
 */
 
 #include "default.h"
@@ -18,7 +18,7 @@ void	boat(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[2].back, pos);
-  put_pix_in_pix_txt(data->pixel, data->tab[2].front, pos);
-  put_pix_in_pix_txt(data->pixel, data->new, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[1].back, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->tab[1].front, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }

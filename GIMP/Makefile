@@ -5,23 +5,29 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Tue Apr 12 18:15:04 2016 marel_m
+## Last update Fri Apr 15 15:10:45 2016 marel_m
 ##
 
 DEBUG=	yes
 
-SRC=	main.c \
-	resize.c \
-	load_all_scene.c \
-	basement.c \
-	beach.c \
-	boat.c \
-	harbor.c \
-	house.c \
-	manor.c \
-	shop.c \
-	street.c \
-	my_strdup.c \
+SRC=	main.c 				\
+	resize.c 			\
+	load_all_scene.c 		\
+	print_image.c 			\
+	house.c 			\
+	harbor.c			\
+	manor.c				\
+	basement.c			\
+	my_strdup.c 			\
+	determine_button.c		\
+	draw_scene.c			\
+	draw_menu.c			\
+	fill.c				\
+	load_buttons.c			\
+	item_load.c			\
+	menu.c				\
+	menu_load.c			\
+	pixelarraycpy.c			\
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 

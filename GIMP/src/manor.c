@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Tue Apr 12 18:17:54 2016 marel_m
+** Last update Fri Apr 15 15:12:18 2016 marel_m
 */
 
 #include "default.h"
@@ -13,14 +13,15 @@
 void			manor_inside(t_data *data)
 {
   t_bunny_position      pos;
+  t_bunny_position      pos1;
 
   pix_initialize(data->pixel);
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[6].back, pos);
-  put_pix_in_pix_txt(data->pixel, data->tab[6].front, pos);
-  put_pix_in_pix_txt(data->pixel, data->new, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[9].back, pos, data->mv_s->mv_bck);
+  put_pix_in_pix_txt(data->pixel, data->tab[9].front, pos, data->mv_s->mv_fr);
+  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }
 
 void			manor_outside(t_data *data)
@@ -31,6 +32,6 @@ void			manor_outside(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[7].front, pos);
-  put_pix_in_pix_txt(data->pixel, data->new, pos);
+  put_pix_in_pix_txt(data->pixel, data->tab[8].front, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }
