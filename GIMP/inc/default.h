@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Fri Apr 15 12:32:30 2016 Poc
+** Last update Fri Apr 15 15:10:16 2016 marel_m
 */
 
 #ifndef _DEFAULT_
@@ -54,12 +54,13 @@ typedef struct			s_mv_scene
   int				s_nb;
   int				click;
   const t_bunny_position	*pos_click;
+  const t_bunny_position	*mouse;
 }				t_mv_scene;
 
 typedef struct			s_data
 {
-  t_scene			tab[11];
-  t_mv_scene			mv_s;
+  t_scene			tab[14];
+  t_mv_scene			*mv_s;
   t_bunny_window		*win;
   t_bunny_pixelarray		*new;
   t_bunny_pixelarray		*pixel;

@@ -5,10 +5,28 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 11:42:20 2016 marel_m
-** Last update Fri Apr 15 13:27:19 2016 Poc
+** Last update Fri Apr 15 13:56:25 2016 marel_m
 */
 
 #include "default.h"
+
+int	load_arrow(t_data *data)
+{
+  if ((data->tab[10].front =
+       bunny_load_pixelarray("pictures/arrow_down.png")) == NULL
+      || (data->tab[10].name = my_strdup("down")) == NULL
+      || (data->tab[11].front =
+	  bunny_load_pixelarray("pictures/arrow_up.png")) == NULL
+      || (data->tab[11].name = my_strdup("up")) == NULL
+      || (data->tab[12].front =
+	  bunny_load_pixelarray("pictures/arrow_left.png")) == NULL
+      || (data->tab[12].name = my_strdup("left")) == NULL
+      || (data->tab[13].front =
+	  bunny_load_pixelarray("pictures/arrow_right.png")) == NULL
+      || (data->tab[13].name = my_strdup("right")) == NULL)
+    return (-1);
+  return (0);
+}
 
 int	load_manor(t_data *data)
 {
@@ -100,8 +118,8 @@ int	load_basement(t_data *data)
        bunny_load_pixelarray("pictures/basement.png")) == NULL
       || (data->tab[7].front =
 	  resize_picture(data->tab[7].front, 1024, 576)) == NULL
-      || (data->tab[7].name = my_strdup("basement")) == NULL
-      /* || (load_item_basement(&(data->tab[7].item))) */)
+      || (data->tab[7].name = my_strdup("basement")) == NULL)
+      /* || (load_item_basement(&(data->tab[7].item)))) */
     return (-1);
   return (0);
 }
@@ -141,7 +159,8 @@ int	load_all_scene(t_data *data)
       || load_beach(data) == -1
       || load_shop(data) == -1
       || load_basement(data) == -1
-      || load_house(data) == -1)
+      || load_house(data) == -1
+      || load_arrow(data) == -1)
         return (-1);
   return (0);
 }

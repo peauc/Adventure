@@ -5,10 +5,10 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 13:16:31 2016 Poc
+## Last update Fri Apr 15 15:10:45 2016 marel_m
 ##
 
-DEBUG=	no
+DEBUG=	yes
 
 SRC=	main.c 				\
 	resize.c 			\
@@ -20,6 +20,7 @@ SRC=	main.c 				\
 	basement.c			\
 	my_strdup.c 			\
 	determine_button.c		\
+	draw_scene.c			\
 	draw_menu.c			\
 	fill.c				\
 	load_buttons.c			\
