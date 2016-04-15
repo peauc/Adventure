@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 19:29:30 2016 marel_m
+## Last update Fri Apr 15 21:25:41 2016 Poc
 ##
 
 DEBUG=	yes
@@ -29,9 +29,10 @@ SRC=	main.c 				\
 	draw_menu.c			\
 	fill.c				\
 	load_buttons.c			\
-	item_load.c			\
+	load_item_basement.c		\
 	menu.c				\
 	menu_load.c			\
+	init_tab.c			\
 	pixelarraycpy.c			\
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
