@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Fri Apr 15 12:24:48 2016 Poc
+** Last update Fri Apr 15 13:28:26 2016 Poc
 */
 
 #include "default.h"
@@ -68,8 +68,10 @@ int			main(int ac, char **av)
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if (load_all_scene(&data) == -1)
-    return (-1);
+    return (1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
+    return (1);
+  data.menu = load_menu();
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
   bunny_set_key_response((t_bunny_key)&escape);
   bunny_set_click_response((t_bunny_click)&clicky);

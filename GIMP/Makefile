@@ -5,10 +5,10 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 12:33:13 2016 Poc
+## Last update Fri Apr 15 13:16:31 2016 Poc
 ##
 
-DEBUG=	yes
+DEBUG=	no
 
 SRC=	main.c 				\
 	resize.c 			\
