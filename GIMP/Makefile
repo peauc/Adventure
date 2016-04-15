@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 15:40:23 2016 marel_m
+## Last update Fri Apr 15 19:29:30 2016 marel_m
 ##
 
 DEBUG=	yes
@@ -21,8 +21,10 @@ SRC=	main.c 				\
 	scene/boat.c 			\
 	scene/beach.c			\
 	scene/shop.c 			\
+	draw_items.c			\
 	my_strdup.c 			\
 	determine_button.c		\
+	determine_item.c		\
 	draw_scene.c			\
 	draw_menu.c			\
 	fill.c				\

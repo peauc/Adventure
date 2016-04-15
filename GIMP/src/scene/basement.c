@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:28:42 2016 marel_m
-** Last update Fri Apr 15 13:57:19 2016 marel_m
+** Last update Fri Apr 15 19:26:56 2016 marel_m
 */
 
 #include "default.h"
@@ -21,4 +21,5 @@ void			basement(t_data *data)
   put_pix_in_pix_txt(data->pixel, data->tab[7].front, pos, 0);
   put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
+  draw_items(&data->tab[7].item, data->pixel);
 }

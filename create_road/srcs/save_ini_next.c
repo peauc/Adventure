@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr 13 00:02:03 2016 Paul Wery
-** Last update Wed Apr 13 00:10:32 2016 Paul Wery
+** Last update Fri Apr 15 15:48:31 2016 Paul Wery
 */
 
 #include <unistd.h>
@@ -24,11 +24,6 @@ void	write_w(t_points *it, int fd)
 
 void	write_next(t_points *it, int fd)
 {
-  write_str("path_0=", fd);
-  write_nb(it->path_0[1].x, fd);
-  write_str(",", fd);
-  write_nb(it->path_0[1].y, fd);
-  write_str("\n", fd);
   write_str("path_1=", fd);
   write_nb(it->path_1[1].x, fd);
   write_str(",", fd);

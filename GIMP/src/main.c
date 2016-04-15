@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Fri Apr 15 17:58:19 2016 marel_m
+** Last update Fri Apr 15 19:29:56 2016 marel_m
 */
 
 #include "default.h"
@@ -51,8 +51,6 @@ int			main(int ac, char **av)
 {
   t_data		data;
 
-  ac = ac;
-  av = av;
   bunny_set_maximum_ram(10000000000);
   data.win = bunny_start(WIDTH, HEIGHT, false, "test");
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
@@ -61,7 +59,8 @@ int			main(int ac, char **av)
     return (1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
-  data.menu = load_menu();
+  if ((data.menu = load_menu()) == NULL)
+    return (1);
   if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
     return (1);
   data.mv_s->s_nb = 0;

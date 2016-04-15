@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 11:42:20 2016 marel_m
-** Last update Fri Apr 15 13:56:25 2016 marel_m
+** Last update Fri Apr 15 19:21:30 2016 Poc
 */
 
 #include "default.h"
@@ -118,8 +118,8 @@ int	load_basement(t_data *data)
        bunny_load_pixelarray("pictures/basement.png")) == NULL
       || (data->tab[7].front =
 	  resize_picture(data->tab[7].front, 1024, 576)) == NULL
-      || (data->tab[7].name = my_strdup("basement")) == NULL)
-      /* || (load_item_basement(&(data->tab[7].item)))) */
+      || (data->tab[7].name = my_strdup("basement")) == NULL
+      || (load_item_basement(data)))
     return (-1);
   return (0);
 }
