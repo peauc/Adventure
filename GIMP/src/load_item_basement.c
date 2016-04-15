@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Apr 14 21:52:45 2016 Poc
-** Last update Fri Apr 15 20:47:21 2016 Poc
+** Last update Fri Apr 15 22:34:53 2016 Poc
 */
 
 #include <stdio.h>
@@ -14,7 +14,8 @@
 
 int	load_item_basement(t_data *data)
 {
-  if ((data->tab[7].item->sprite =
+  if ((data->tab[7].item = malloc(sizeof(t_item))) == NULL ||
+      (data->tab[7].item->sprite =
        malloc(sizeof(t_bunny_pixelarray) * 2)) == NULL)
     return (1);
   if ((data->tab[7].item->selected = malloc(sizeof(int))) == NULL)
