@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Fri Apr 15 15:17:28 2016 marel_m
+** Last update Fri Apr 15 17:58:19 2016 marel_m
 */
 
 #include "default.h"
@@ -18,11 +18,28 @@ t_bunny_response	escape(t_bunny_event_state state,
   state = state;
   if (key == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
+  if (key == BKS_LEFT)
+    {
+      if (data->mv_s->mv_bck > 3)
+	{
+	  data->mv_s->mv_bck -= 3;
+	  data->mv_s->mv_fr -= 3;
+	}
+    }
+  if (key == BKS_RIGHT)
+    {
+      if (data->mv_s->mv_bck < WIDTH - 3)
+	{
+	  data->mv_s->mv_bck += 3;
+	  data->mv_s->mv_fr += 3;
+	}
+    }
   return (GO_ON);
 }
 
 t_bunny_response       	mainloop(t_data *data)
 {
+  data->mv_s->mouse = bunny_get_mouse_position();
   draw_scene(data);
   draw_menu(data->pixel, data->menu);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
@@ -48,6 +65,9 @@ int			main(int ac, char **av)
   if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
     return (1);
   data.mv_s->s_nb = 0;
+  data.mv_s->mv_bck = 0;
+  data.mv_s->mv_fr = 0;
+  data.mv_s->click = 0;
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
   bunny_set_key_response((t_bunny_key)&escape);
   bunny_set_click_response((t_bunny_click)&clicky);

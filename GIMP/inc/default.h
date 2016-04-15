@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Fri Apr 15 15:10:16 2016 marel_m
+** Last update Fri Apr 15 17:59:05 2016 marel_m
 */
 
 #ifndef _DEFAULT_
@@ -67,6 +67,27 @@ typedef struct			s_data
   t_menu			*menu;
 }				t_data;
 
+enum			scene
+  {
+    HARBOR,
+    BOAT,
+    SHOP_PLACE,
+    SHOP,
+    BEACH,
+    HOUSE_OUT,
+    HOUSE_IN,
+    BASEMENT,
+    MANOR,
+    MANOR_IN,
+    MAX_SCENE
+  };
+
+typedef struct		s_scene_nb
+{
+  int			scene_nb;
+  void			(*ft_scene_nb)(t_data *data);
+}			t_scene_nb;
+
 int			load_all_scene(t_data *);
 int			load_item(t_menu *, t_bunny_ini *);
 char			*my_strdup(char *);
@@ -84,4 +105,20 @@ void			put_pix_in_pix_txt(t_bunny_pixelarray *,
 					   int);
 t_bunny_response	clicky(t_bunny_event_state, t_bunny_mouse_button,
 			       t_data *);
+
+/*
+** SCENE
+*/
+
+void			harbor(t_data *);
+void			boat(t_data *);
+void			shop_place(t_data *);
+void			shop(t_data *);
+void			beach(t_data *);
+void			house_out(t_data *);
+void			house_in(t_data *);
+void			basement(t_data *);
+void			manor(t_data *);
+void			manor_in(t_data *);
+
 #endif /* _DEFAULT_ */

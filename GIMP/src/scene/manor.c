@@ -5,12 +5,12 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Fri Apr 15 15:12:18 2016 marel_m
+** Last update Fri Apr 15 15:36:46 2016 marel_m
 */
 
 #include "default.h"
 
-void			manor_inside(t_data *data)
+void			manor_in(t_data *data)
 {
   t_bunny_position      pos;
   t_bunny_position      pos1;
@@ -24,7 +24,7 @@ void			manor_inside(t_data *data)
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }
 
-void			manor_outside(t_data *data)
+void			manor(t_data *data)
 {
   t_bunny_position      pos;
 

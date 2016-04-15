@@ -5,12 +5,12 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:32:57 2016 marel_m
-** Last update Fri Apr 15 15:12:38 2016 marel_m
+** Last update Fri Apr 15 15:37:05 2016 marel_m
 */
 
 #include "default.h"
 
-void			house_inside(t_data *data)
+void			house_in(t_data *data)
 {
   t_bunny_position      pos;
 
@@ -24,7 +24,7 @@ void			house_inside(t_data *data)
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }
 
-void			house_outside(t_data *data)
+void			house_out(t_data *data)
 {
   t_bunny_position      pos;
 

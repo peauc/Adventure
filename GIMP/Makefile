@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 15:10:45 2016 marel_m
+## Last update Fri Apr 15 15:40:23 2016 marel_m
 ##
 
 DEBUG=	yes
@@ -14,10 +14,13 @@ SRC=	main.c 				\
 	resize.c 			\
 	load_all_scene.c 		\
 	print_image.c 			\
-	house.c 			\
-	harbor.c			\
-	manor.c				\
-	basement.c			\
+	scene/house.c 			\
+	scene/harbor.c			\
+	scene/manor.c			\
+	scene/basement.c		\
+	scene/boat.c 			\
+	scene/beach.c			\
+	scene/shop.c 			\
 	my_strdup.c 			\
 	determine_button.c		\
 	draw_scene.c			\
