@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 14:17:51 2016 marel_m
+** Last update Sat Apr 16 14:29:10 2016 Poc
 */
 
 #include "scene.h"
@@ -38,8 +38,6 @@ t_bunny_response	clicky(t_bunny_event_state clicked,
       data->mv_s->pos_click = bunny_get_mouse_position();
     }
   if (button == BMB_RIGHT && clicked == GO_DOWN)
-    {
-      printf("Deplacement\n");
-    }
+    ;
   return (GO_ON);
 }
