@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Fri Apr 15 17:30:48 2016 Mathieu Sauvau
-** Last update Sat Apr 16 14:19:20 2016 Mathieu Sauvau
+** Last update Sat Apr 16 17:11:19 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -17,10 +17,10 @@ t_points		*look_up(t_dict *dict, int key)
       printf("dict key %d ", dict->key);
       printf("compare %d \n", key);
       if (dict->key == key)
-	return (dict->val);
+	return (printf("add %d %d\n", dict->val->el.center.x,
+		       dict->val->el.center.y), dict->val);
       dict = dict->next;
     }
-  printf("NULL\n");
   return (NULL);
 }
 
@@ -31,7 +31,7 @@ t_dict			*new_entry(int key, t_points *val)
   if ((new = malloc(sizeof(t_dict))) == NULL)
     return (NULL);
   new->key = key;
-  new->val = val;
+  new->val = cpy_node(val);
   new->next = NULL;
   return (new);
 }

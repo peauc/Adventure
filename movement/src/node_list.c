@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sat Apr 16 09:59:29 2016 Mathieu Sauvau
-** Last update Sat Apr 16 14:14:47 2016 Mathieu Sauvau
+** Last update Sat Apr 16 17:45:06 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -14,7 +14,8 @@ t_points	*cpy_node(t_points *point)
 {
   t_points	*p;
 
-  if ((p = malloc(sizeof(t_points))) == NULL)
+  if (point == NULL ||
+      (p = malloc(sizeof(t_points))) == NULL)
     return (NULL);
   p->index = point->index;
   p->el.center = point->el.center;
@@ -95,27 +96,29 @@ void		del_node(t_points **list, t_points *node)
   t_points	*prev;
   t_points	*save;
 
-  if (cmp_node(*list,  node))
+  if (!*list || !node)
+    return ;
+  if (cmp_node(*list, node))
     {
       prev = *list;
       *list = (*list)->next;
       free(prev);
       return ;
     }
-  save = *list;
-  prev = *list;
-  while (*list)
-    {
-      if (cmp_node(*list, node))
-	{
-	  prev->next = (*list)->next;
-	  free(*list);
-	  break;
-	}
-      prev = *list;
-      *list = (*list)->next;
-    }
-  *list = save;
+  /* save = *list; */
+  /* prev = *list; */
+  /* while (*list) */
+  /*   { */
+  /*     if (cmp_node(*list, node)) */
+  /* 	{ */
+  /* 	  prev->next = (*list)->next; */
+  /* 	  free(*list); */
+  /* 	  break; */
+  /* 	} */
+  /*     prev = *list; */
+  /*     *list = (*list)->next; */
+  /*   } */
+  /* *list = save; */
 }
 
 void		free_node(t_points *list)
