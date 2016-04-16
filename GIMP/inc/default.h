@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Fri Apr 15 20:40:22 2016 Poc
+** Last update Sat Apr 16 12:02:14 2016 Poc
 */
 
 #ifndef _DEFAULT_
@@ -95,6 +95,7 @@ t_menu			*load_menu();
 void			pixelarray_copy(t_bunny_pixelarray *,
 					 t_bunny_pixelarray *,
 					 t_bunny_position);
+t_bunny_position	get_pos(int, int);
 t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *, int, int);
 void			set_all_to_zero(t_button *);
 void			pix_initialize(t_bunny_pixelarray *);

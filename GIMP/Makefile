@@ -5,12 +5,13 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Fri Apr 15 21:25:41 2016 Poc
+## Last update Sat Apr 16 12:00:25 2016 Poc
 ##
 
 DEBUG=	yes
 
 SRC=	main.c 				\
+	draw_inventory.c		\
 	resize.c 			\
 	load_all_scene.c 		\
 	print_image.c 			\
@@ -28,6 +29,7 @@ SRC=	main.c 				\
 	draw_scene.c			\
 	draw_menu.c			\
 	fill.c				\
+	get_pos.c			\
 	load_buttons.c			\
 	load_item_basement.c		\
 	menu.c				\

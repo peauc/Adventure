@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 11:26:03 2016 marel_m
+** Last update Sat Apr 16 12:08:09 2016 Poc
 */
 
 #include "default.h"
@@ -42,6 +42,7 @@ t_bunny_response       	mainloop(t_data *data)
   data->mv_s->mouse = bunny_get_mouse_position();
   draw_scene(data);
   draw_menu(data->pixel, data->menu);
+  draw_inventory(data->pixel, data->tab);
   data->mv_s->click = 0;
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->win);
@@ -81,11 +82,12 @@ int			main(int ac, char **av)
       printf("init tab\n");
       return (1);
     }
-  data.mv_s->s_nb = 0;
+  data.mv_s->s_nb = 7;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
+
   bunny_set_key_response((t_bunny_key)&escape);
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
