@@ -1,4 +1,0 @@
-La fonction basement est appelée dans la fonction mainloop du main.c
-si tu veux ajouter une clé, je t'ai découpé une clé -> pictures/key_poc.png
-pour l'instant j'ai essayé de l'afficher, pas moyen je vais chercher du coup comment faire...
-si tu veux appeler la fonction manor, décommente juste les éléments se trouvant dans le main_loop
