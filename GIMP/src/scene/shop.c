@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:37:21 2016 marel_m
-** Last update Sat Apr 16 10:47:29 2016 marel_m
+** Last update Sat Apr 16 11:35:43 2016 marel_m
 */
 
 #include "default.h"
@@ -14,7 +14,7 @@ void                    change_scene_three_two(t_data *data)
 {
   t_bunny_position      pos;
 
-  pos.x = 250;
+  pos.x = 250 - data->mv_s->mv_bck;
   pos.y = 350;
   if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 250
       && data->mv_s->mouse->x + data->mv_s->mv_bck <= 350
@@ -41,8 +41,8 @@ void			shop(t_data *data)
   pos.y = 0;
   put_pix_in_pix_txt(data->pixel, data->tab[3].back, pos, data->mv_s->mv_bck);
   change_scene_three_two(data);
-  put_pix_in_pix_txt(data->pixel, data->tab[3].middle, pos, 0);
-  put_pix_in_pix_txt(data->pixel, data->tab[3].front, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->tab[3].middle, pos, data->mv_s->mv_fr);
+  put_pix_in_pix_txt(data->pixel, data->tab[3].front, pos, data->mv_s->mv_fr);
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }
 

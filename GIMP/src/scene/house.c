@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:32:57 2016 marel_m
-** Last update Fri Apr 15 22:45:38 2016 marel_m
+** Last update Sat Apr 16 11:26:32 2016 marel_m
 */
 
 #include "default.h"
@@ -60,11 +60,11 @@ void			house_in(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[6].back, pos, data->mv_s->mv_bck);
+  put_pix_in_pix_txt(data->pixel, data->tab[6].back, pos, 0);
   change_scene_six_five(data);
   change_scene_six_seven(data);
-  put_pix_in_pix_txt(data->pixel, data->tab[6].middle, pos, data->mv_s->mv_mid);
-  put_pix_in_pix_txt(data->pixel, data->tab[6].front, pos, data->mv_s->mv_fr);
+  put_pix_in_pix_txt(data->pixel, data->tab[6].middle, pos, 0);
+  put_pix_in_pix_txt(data->pixel, data->tab[6].front, pos, 0);
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }
 
