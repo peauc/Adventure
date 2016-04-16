@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:32:57 2016 marel_m
-** Last update Sat Apr 16 12:44:01 2016 marel_m
+** Last update Sat Apr 16 13:52:07 2016 marel_m
 */
 
 #include "default.h"
@@ -119,6 +119,8 @@ void			house_out(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
+  if (data->mv_s->mv_bck <= 3)
+    data->mv_s->mv_bck = 4;
   if (i % 2 == 0)
     {
       if (data->mv_s->mv_bck == WIDTH - 3)

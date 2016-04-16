@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 12:54:41 2016 marel_m
+** Last update Sat Apr 16 12:59:49 2016 marel_m
 */
 
 #include "default.h"
@@ -82,7 +82,7 @@ int			main(int ac, char **av)
       printf("init tab\n");
       return (1);
     }
-  data.mv_s->s_nb = 0;
+  data.mv_s->s_nb = 5;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
