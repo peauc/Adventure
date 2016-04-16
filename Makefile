@@ -5,13 +5,40 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Mon Apr 11 20:42:39 2016 Mathieu Sauvau
+## Last update Sat Apr 16 14:14:34 2016 marel_m
 ##
 
 DEBUG=	yes
 
-SRC=	main.c \
-	../menu/src_menu/tekpixel.c \
+SRC=	main.c					\
+	draw_inventory.c			\
+	resize.c				\
+	load_scene_beach_harbor_manor_arrow.c	\
+	load_scene_house_shop.c			\
+	print_image.c				\
+	scene/house_outside.c			\
+	scene/house_inside.c			\
+	scene/harbor.c				\
+	scene/manor.c				\
+	scene/basement.c			\
+	scene/boat.c				\
+	scene/beach.c				\
+	scene/shop.c				\
+	scene/shop_place.c			\
+	draw_items.c				\
+	my_strdup.c				\
+	determine_button.c			\
+	determine_item.c			\
+	draw_scene.c				\
+	draw_menu.c				\
+	fill.c					\
+	get_pos.c				\
+	load_buttons.c				\
+	load_item_basement.c			\
+	menu.c					\
+	menu_load.c				\
+	init_tab.c				\
+	pixelarraycpy.c
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 
