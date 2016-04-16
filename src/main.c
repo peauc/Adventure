@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 14:21:29 2016 marel_m
+** Last update Sat Apr 16 15:28:12 2016 marel_m
 */
 
 #include "scene.h"
@@ -15,7 +15,10 @@ t_bunny_response	escape(t_bunny_event_state state,
 			       t_data *data)
 {
   if (key == BKS_ESCAPE && state == GO_DOWN)
-    return (EXIT_ON_SUCCESS);
+    {
+      free_scene(data);
+      return (EXIT_ON_SUCCESS);
+    }
   if (key == BKS_LEFT)
     {
       if (data->mv_s->mv_bck > 10)
