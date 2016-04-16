@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Fri Apr 15 19:29:56 2016 marel_m
+** Last update Fri Apr 15 22:54:34 2016 marel_m
 */
 
 #include "default.h"
@@ -20,18 +20,18 @@ t_bunny_response	escape(t_bunny_event_state state,
     return (EXIT_ON_SUCCESS);
   if (key == BKS_LEFT)
     {
-      if (data->mv_s->mv_bck > 3)
+      if (data->mv_s->mv_bck > 6)
 	{
-	  data->mv_s->mv_bck -= 3;
-	  data->mv_s->mv_fr -= 3;
+	  data->mv_s->mv_bck -= 6;
+	  data->mv_s->mv_fr -= 6;
 	}
     }
   if (key == BKS_RIGHT)
     {
-      if (data->mv_s->mv_bck < WIDTH - 3)
+      if (data->mv_s->mv_bck < WIDTH - 6)
 	{
-	  data->mv_s->mv_bck += 3;
-	  data->mv_s->mv_fr += 3;
+	  data->mv_s->mv_bck += 6;
+	  data->mv_s->mv_fr += 6;
 	}
     }
   return (GO_ON);
@@ -42,6 +42,7 @@ t_bunny_response       	mainloop(t_data *data)
   data->mv_s->mouse = bunny_get_mouse_position();
   draw_scene(data);
   draw_menu(data->pixel, data->menu);
+  data->mv_s->click = 0;
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->win);
   return (GO_ON);

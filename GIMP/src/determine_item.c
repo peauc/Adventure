@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Apr 15 15:35:00 2016 Poc
-** Last update Fri Apr 15 19:23:56 2016 Poc
+** Last update Fri Apr 15 19:42:57 2016 marel_m
 */
 
 #include "default.h"
@@ -24,7 +24,7 @@ int				determine_item(t_scene *scene)
 {
   const	t_bunny_position	*pos;
   int				i;
-
+  return (0);
   i = 0;
   pos = bunny_get_mouse_position();
   if (is_clicked(pos,

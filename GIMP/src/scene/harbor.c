@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:17:55 2016 marel_m
-** Last update Fri Apr 15 18:58:01 2016 marel_m
+** Last update Fri Apr 15 23:11:04 2016 marel_m
 */
 
 #include "default.h"
@@ -45,6 +45,29 @@ void			change_scene_zero_eight(t_data *data)
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 8;
+	  data->mv_s->mv_fr = 0;
+	  data->mv_s->mv_bck = 0;
+	  data->mv_s->click = 0;
+	}
+    }
+}
+
+void			change_scene_zero_one(t_data *data)
+{
+  t_bunny_position	pos;
+
+  pos.x = 1300;
+  pos.y = 100;
+  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 1300
+      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1400
+      && data->mv_s->mouse->y <= 200 && data->mv_s->mouse->y >= 100)
+    {
+      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      if (data->mv_s->click == 1)
+	{
+	  data->mv_s->s_nb = 1;
+	  data->mv_s->mv_fr = 0;
+	  data->mv_s->mv_bck = 0;
 	  data->mv_s->click = 0;
 	}
     }
@@ -61,6 +84,7 @@ void			harbor(t_data *data)
   put_pix_in_pix_txt(data->pixel, data->tab[0].back, pos, data->mv_s->mv_bck);
   change_scene_zero_two(data);
   change_scene_zero_eight(data);
+  change_scene_zero_one(data);
   put_pix_in_pix_txt(data->pixel, data->tab[0].front, pos, data->mv_s->mv_fr);
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }

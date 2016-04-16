@@ -5,10 +5,31 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:28:42 2016 marel_m
-** Last update Fri Apr 15 19:26:56 2016 marel_m
+** Last update Fri Apr 15 22:47:57 2016 marel_m
 */
 
 #include "default.h"
+
+void                    change_scene_seven_six(t_data *data)
+{
+  t_bunny_position      pos;
+
+  pos.x = 300;
+  pos.y = 100;
+  if (data->mv_s->mouse->x >= 300
+      && data->mv_s->mouse->x <= 400
+      && data->mv_s->mouse->y <= 200 && data->mv_s->mouse->y >= 100)
+    {
+      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      if (data->mv_s->click == 1)
+	{
+	  data->mv_s->s_nb = 6;
+	  data->mv_s->mv_fr = 0;
+	  data->mv_s->mv_bck = 0;
+	  data->mv_s->click = 0;
+	}
+    }
+}
 
 void			basement(t_data *data)
 {
@@ -19,7 +40,7 @@ void			basement(t_data *data)
   pos.x = 0;
   pos.y = 0;
   put_pix_in_pix_txt(data->pixel, data->tab[7].front, pos, 0);
-  put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+  change_scene_seven_six(data);
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
   draw_items(&data->tab[7].item, data->pixel);
 }
