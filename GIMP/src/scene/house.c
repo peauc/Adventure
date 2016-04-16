@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:32:57 2016 marel_m
-** Last update Sat Apr 16 11:26:32 2016 marel_m
+** Last update Sat Apr 16 12:44:01 2016 marel_m
 */
 
 #include "default.h"
@@ -113,12 +113,22 @@ void                    change_scene_five_six(t_data *data)
 void			house_out(t_data *data)
 {
   t_bunny_position      pos;
+  static int		i;
 
   pix_initialize(data->pixel);
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[5].back, pos, 0);
+  if (i % 2 == 0)
+    {
+      if (data->mv_s->mv_bck == WIDTH - 3)
+	data->mv_s->mv_bck = 2;
+      else
+	data->mv_s->mv_bck++;
+    }
+  i++;
+  put_pix_in_pix_txt(data->pixel, data->tab[5].back, pos, data->mv_s->mv_bck);
+  put_pix_in_pix_txt(data->pixel, data->tab[5].middle, pos, 0);
   change_scene_five_four(data);
   change_scene_five_six(data);
   put_pix_in_pix_txt(data->pixel, data->tab[5].front, pos, 0);
