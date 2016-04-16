@@ -5,12 +5,12 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Apr 11 18:25:58 2016 Paul Wery
-** Last update Mon Apr 11 18:34:21 2016 Paul Wery
+** Last update Tue Apr 12 22:54:33 2016 Paul Wery
 */
 
 #include "road.h"
 
-void			excp2(t_bunny_pixelarray *pix, t_bunny_position *pos,
+void			excp2(t_road *r, t_bunny_position *pos,
 			      t_color *color, t_line *l)
 {
   t_bunny_position	posi;
@@ -23,7 +23,7 @@ void			excp2(t_bunny_pixelarray *pix, t_bunny_position *pos,
   if (l->check == 0)
     while (posi.x != pos[1].x && posi.y == pos[1].y)
       {
-        tekpixel(pix, &posi, l->mew.full);
+        road_pix(r, r->pix, &posi, l->mew.full);
         if (l->i > 0)
           posi.x = posi.x - 1;
         if (l->i < 0)
@@ -31,10 +31,10 @@ void			excp2(t_bunny_pixelarray *pix, t_bunny_position *pos,
         l->mew.full = my_color(pos, col, l);
         l->check = 1;
       }
-  tekpixel(pix, &posi, color->full);
+  road_pix(r, r->pix, &posi, color->full);
 }
 
-void			excp1(t_bunny_pixelarray *pix, t_bunny_position *pos,
+void			excp1(t_road *r, t_bunny_position *pos,
 			      t_color *color, t_line *l)
 {
   t_bunny_position	posi;
@@ -47,7 +47,7 @@ void			excp1(t_bunny_pixelarray *pix, t_bunny_position *pos,
   if (l->check == 0)
     while (posi.x == pos[1].x && posi.y != pos[1].y)
       {
-        tekpixel(pix, &posi, l->mew.full);
+        road_pix(r, r->pix, &posi, l->mew.full);
         if (l->y > 0)
           posi.y = posi.y - 1;
         if (l->y < 0)
@@ -55,8 +55,8 @@ void			excp1(t_bunny_pixelarray *pix, t_bunny_position *pos,
         l->mew.full = my_color(pos, col, l);
         l->check = 1;
       }
-  tekpixel(pix, &posi, color->full);
-  excp2(pix, pos, color, l);
+  road_pix(r, r->pix, &posi, color->full);
+  excp2(r, pos, color, l);
 }
 
 int	my_liss2(t_bunny_position *posi, int z, t_bunny_position *pos)
@@ -85,7 +85,7 @@ int	my_liss1(t_bunny_position *posi, int j, t_bunny_position *pos)
   return (j);
 }
 
-void			tekline(t_bunny_pixelarray *pix,
+void			tekline(t_road *r,
 				t_bunny_position *pos,
 				t_color *color)
 {
@@ -99,7 +99,7 @@ void			tekline(t_bunny_pixelarray *pix,
     {
       l.j = l.i;
       l.z = l.y;
-      tekpixel(pix, &posi, l.mew.full);
+      road_pix(r, r->pix, &posi, l.mew.full);
       if (l.j > 0 || l.j < 0)
 	l.i = l.i - l.j;
       l.j = my_liss1(&posi, l.j, pos);
@@ -111,6 +111,6 @@ void			tekline(t_bunny_pixelarray *pix,
       l.mew.full = my_color(pos, col, &l);
       l.check = 1;
     }
-  tekpixel(pix, &posi, color->full);
-  excp1(pix, pos, color, &l);
+  road_pix(r, r->pix, &posi, color->full);
+  excp1(r, pos, color, &l);
 }

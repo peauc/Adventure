@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 00:17:23 2016 Paul Wery
-** Last update Tue Apr 12 01:00:43 2016 Paul Wery
+** Last update Fri Apr 15 16:05:14 2016 Paul Wery
 */
 
 #include "road.h"
@@ -28,6 +28,7 @@ void	cop_path_next(t_bunny_position *start, t_points *it)
       it->path_2[0].y = it->el.center.y;
       it->path_2[1].x = start->x;
       it->path_2[1].y = start->y;
+      it->path += 1;
     }
   else if (it->path == 3)
     {
@@ -35,6 +36,7 @@ void	cop_path_next(t_bunny_position *start, t_points *it)
       it->path_3[0].y = it->el.center.y;
       it->path_3[1].x = start->x;
       it->path_3[1].y = start->y;
+      it->path += 1;
     }
 }
 
@@ -48,6 +50,7 @@ int	cop_path(t_bunny_position *start, t_points *it)
       it->path_0[0].y = it->el.center.y;
       it->path_0[1].x = start->x;
       it->path_0[1].y = start->y;
+      it->path += 1;
     }
   else if (it->path == 1)
     {
@@ -55,6 +58,7 @@ int	cop_path(t_bunny_position *start, t_points *it)
       it->path_1[0].y = it->el.center.y;
       it->path_1[1].x = start->x;
       it->path_1[1].y = start->y;
+      it->path += 1;
     }
   else
     cop_path_next(start, it);
