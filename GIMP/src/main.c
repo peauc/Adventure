@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 14:00:46 2016 Poc
+** Last update Sat Apr 16 14:02:56 2016 Poc
 */
 
 #include "default.h"
@@ -56,36 +56,20 @@ int			main()
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if (load_all_scene(&data) == -1)
-    {
-      printf("load all scene\n");
       return (1);
-    }
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
-    {
-      printf("pixelarray broke\n");
       return (1);
-    }
   if ((data.menu = load_menu()) == NULL)
-    {
-      printf("load menu failed\n");
       return (1);
-    }
   if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
-    {
-      printf("scene broke\n");
       return (1);
-    }
   if ((load_scene_tab(data.tab)))
-    {
-      printf("init tab\n");
       return (1);
-    }
   data.mv_s->s_nb = 0;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
-
   bunny_set_key_response((t_bunny_key)&escape);
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)

@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Mon Apr 11 18:14:27 2016 Poc
-** Last update Fri Apr 15 20:58:15 2016 Poc
+** Last update Sat Apr 16 14:05:31 2016 Poc
 */
 
 #include <stdlib.h>
@@ -14,7 +14,6 @@
 t_menu			*load_menu()
 {
   t_menu		*menu;
-  t_bunny_ini		*items;
 
   if ((menu = bunny_malloc(sizeof(t_menu))) == NULL)
     return (NULL);

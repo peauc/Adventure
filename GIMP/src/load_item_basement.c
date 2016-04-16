@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Apr 14 21:52:45 2016 Poc
-** Last update Sat Apr 16 13:46:23 2016 Poc
+** Last update Sat Apr 16 14:05:14 2016 Poc
 */
 
 #include <stdio.h>
@@ -18,10 +18,9 @@ int	load_item_basement(t_scene *scene)
       (scene->item->sprite =
        bunny_malloc(sizeof(t_bunny_pixelarray) * 2)) == NULL)
     return (1);
-  if ((scene->item->selected = bunny_malloc(sizeof(int) * 2)) == NULL)
+  if ((scene->item->selected = bunny_malloc(sizeof(int))) == NULL)
     return (1);
   scene->item->sprite[1] = NULL;
-  scene->item->selected[1] = NULL;
   if ((scene->item->sprite[0] =
        bunny_load_pixelarray("./pictures/key_poc.png")) == NULL)
     return (1);

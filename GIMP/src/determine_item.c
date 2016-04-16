@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Apr 15 15:35:00 2016 Poc
-** Last update Sat Apr 16 13:59:43 2016 Poc
+** Last update Sat Apr 16 14:03:59 2016 Poc
 */
 
 #include "default.h"
@@ -28,15 +28,11 @@ int				determine_item(t_scene scene)
 
   i = 0;
   pos = bunny_get_mouse_position();
-  printf("scene %s\n", scene.name);
   while (scene.item && scene.item->sprite[i])
     {
       if (is_clicked((t_bunny_position *)pos, scene.item->sprite[i],
 		     scene.item->pos[i]))
-	{
-	  printf("pickedup\n");
 	  scene.item->selected[i] = 1;
-	}
       i++;
     }
   return (0);
