@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Fri Apr 15 22:20:10 2016 marel_m
+** Last update Sat Apr 16 11:41:18 2016 marel_m
 */
 
 #include "default.h"
@@ -14,11 +14,11 @@ void                    change_scene_nine_eight(t_data *data)
 {
   t_bunny_position      pos;
 
-  pos.x = 200;
-  pos.y = 350;
+  pos.x = 200 - data->mv_s->mv_bck;
+  pos.y = 250;
   if (data->mv_s->mouse->x + data->mv_s->mv_bck>= 200
             && data->mv_s->mouse->x +data->mv_s->mv_bck <= 300
-      && data->mv_s->mouse->y <= 450 && data->mv_s->mouse->y >= 350)
+      && data->mv_s->mouse->y <= 350 && data->mv_s->mouse->y >= 250)
     {
       put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)

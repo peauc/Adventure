@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:17:55 2016 marel_m
-** Last update Fri Apr 15 23:11:04 2016 marel_m
+** Last update Sat Apr 16 11:42:35 2016 marel_m
 */
 
 #include "default.h"
@@ -56,11 +56,11 @@ void			change_scene_zero_one(t_data *data)
 {
   t_bunny_position	pos;
 
-  pos.x = 1300;
-  pos.y = 100;
-  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 1300
-      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1400
-      && data->mv_s->mouse->y <= 200 && data->mv_s->mouse->y >= 100)
+  pos.x = 1350 - data->mv_s->mv_bck;
+  pos.y = 50;
+  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 1350
+      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1450
+      && data->mv_s->mouse->y <= 150 && data->mv_s->mouse->y >= 50)
     {
       put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)

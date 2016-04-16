@@ -5,7 +5,8 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 12:12:24 2016 Poc
+<<<<<<< HEAD
+** Last update Sat Apr 16 12:48:33 2016 Poc
 */
 
 #include "default.h"

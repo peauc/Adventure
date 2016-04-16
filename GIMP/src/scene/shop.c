@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:37:21 2016 marel_m
-** Last update Sat Apr 16 11:35:43 2016 marel_m
+** Last update Sat Apr 16 11:39:54 2016 marel_m
 */
 
 #include "default.h"
@@ -71,7 +71,7 @@ void                    change_scene_two_three(t_data *data)
 {
   t_bunny_position      pos;
 
-  pos.x = WIDTH - 600;
+  pos.x = 1650 - data->mv_s->mv_bck;
   pos.y = 400;
   if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 1650
       && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1750
@@ -92,7 +92,7 @@ void                    change_scene_two_four(t_data *data)
 {
   t_bunny_position      pos;
 
-  pos.x = 2048 - (1150 + data->mv_s->mv_bck);
+  pos.x = 1150 - data->mv_s->mv_bck;
   pos.y = 300;
   if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 1150
       && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1250
