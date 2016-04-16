@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Fri Apr 15 19:29:12 2016 marel_m
+** Last update Fri Apr 15 20:40:22 2016 Poc
 */
 
 #ifndef _DEFAULT_
@@ -42,7 +42,7 @@ typedef struct		s_scene
   t_bunny_pixelarray	*back;
   t_bunny_pixelarray	*middle;
   t_bunny_pixelarray	*front;
-  t_item		item;
+  t_item		*item;
   char			*name;
 }			t_scene;
 
