@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 14:21:29 2016 marel_m
+** Last update Sat Apr 16 15:17:29 2016 Poc
 */
 
 #include "scene.h"
@@ -80,7 +80,7 @@ int			main()
       printf("init tab\n");
       return (1);
     }
-  data.mv_s->s_nb = 0;
+  data.mv_s->s_nb = 7;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
