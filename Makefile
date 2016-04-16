@@ -5,13 +5,27 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Mon Apr 11 20:42:39 2016 Mathieu Sauvau
+## Last update Sat Apr 16 10:13:07 2016 Mathieu Sauvau
 ##
 
 DEBUG=	yes
 
 SRC=	main.c \
-	../menu/src_menu/tekpixel.c \
+	anim_sprite.c \
+	helper.c \
+	dictionary.c \
+	node_list.c \
+	../create_road/srcs/full_ini.c \
+	../create_road/srcs/my_list.c \
+	../create_road/srcs/delete_links.c \
+	../create_road/srcs/comp_string.c \
+	../create_road/srcs/tekcircle.c \
+	../create_road/srcs/tekpixel.c \
+	../create_road/srcs/create_tmp.c \
+	../create_road/srcs/line/ini_line.c \
+	../create_road/srcs/line/line.c \
+	../create_road/srcs/line/tekline.c \
+	../create_road/srcs/line/my_color.c \
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 
@@ -20,7 +34,7 @@ RM=	rm -f
 CMD=	 -llapin -lsfml-audio -lsfml-graphics -lsfml-window
 CMD+=	 -lsfml-system -lstdc++ -ldl -L ~/.froot/lib -lm
 
-LIB=    -I inc/
+LIB=	-I inc/
 
 ifeq ($(DEBUG), yes)
 	CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic -g -D DEBUG

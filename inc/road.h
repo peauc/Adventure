@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Tue Apr 12 17:12:44 2016 Mathieu Sauvau
+** Last update Sat Apr 16 13:40:45 2016 Mathieu Sauvau
 */
 
 #ifndef ROAD
@@ -73,6 +73,7 @@ typedef struct		s_points
   t_bunny_position	path_2[2];
   t_bunny_position	path_3[2];
   int			path;
+  int			index;
   char			*image;
   struct s_points	*next;
   struct s_points	*prev;
@@ -125,6 +126,10 @@ void			tekpixel(t_bunny_pixelarray *pix,
 void			ini_struct(t_road *r);
 void			aff_tmp(t_road *r);
 void			aff_all(t_road *r, const t_bunny_position *pos);
+void			aff_all2(t_bunny_pixelarray *pix,
+			t_points *list,
+			const t_bunny_position *pos,
+			char *image);
 int			in_a_el(t_points *it, const t_bunny_position *pos);
 t_bunny_position	*in_el(t_road *r,
 			      const t_bunny_position *pos);
