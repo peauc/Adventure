@@ -5,40 +5,27 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sat Apr 16 14:39:32 2016 Mathieu Sauvau
+## Last update Sat Apr 16 15:08:45 2016 Mathieu Sauvau
 ##
 
 DEBUG=	yes
 
-SRC=	main.c					\
-	draw_inventory.c			\
-	resize.c				\
-	load_scene_beach_harbor_manor_arrow.c	\
-	load_scene_house_shop.c			\
-	print_image.c				\
-	scene/house_outside.c			\
-	scene/house_inside.c			\
-	scene/harbor.c				\
-	scene/manor.c				\
-	scene/basement.c			\
-	scene/boat.c				\
-	scene/beach.c				\
-	scene/shop.c				\
-	scene/shop_place.c			\
-	draw_items.c				\
-	my_strdup.c				\
-	determine_button.c			\
-	determine_item.c			\
-	draw_scene.c				\
-	draw_menu.c				\
-	fill.c					\
-	get_pos.c				\
-	load_buttons.c				\
-	load_item_basement.c			\
-	menu.c					\
-	menu_load.c				\
-	init_tab.c				\
-	pixelarraycpy.c
+SRC=	new_main.c \
+	anim_sprite.c \
+	helper.c \
+	dictionary.c \
+	node_list.c \
+	../../create_road/srcs/full_ini.c \
+	../../create_road/srcs/my_list.c \
+	../../create_road/srcs/delete_links.c \
+	../../create_road/srcs/comp_string.c \
+	../../create_road/srcs/tekcircle.c \
+	../../create_road/srcs/tekpixel.c \
+	../../create_road/srcs/create_tmp.c \
+	../../create_road/srcs/line/ini_line.c \
+	../../create_road/srcs/line/line.c \
+	../../create_road/srcs/line/tekline.c \
+	../../create_road/srcs/line/my_color.c \
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 

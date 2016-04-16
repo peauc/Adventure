@@ -5,7 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Apr 11 02:24:44 2016 Paul Wery
+<<<<<<< HEAD
+** Last update Wed Apr 13 11:57:22 2016 Mathieu Sauvau
+=======
 ** Last update Tue Apr 12 22:56:30 2016 Paul Wery
+>>>>>>> 58a9dc824a5a78dd5ee44bbee7b0a8493c20ad5d
 */
 
 #include "road.h"
