@@ -6,7 +6,7 @@
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
 <<<<<<< HEAD
-** Last update Sat Apr 16 12:48:33 2016 Poc
+** Last update Sat Apr 16 13:51:55 2016 Poc
 */
 
 #include "default.h"
@@ -31,16 +31,12 @@ t_bunny_response	clicky(t_bunny_event_state clicked,
   if (button == BMB_LEFT && clicked == GO_DOWN)
     {
       if ((determine_button_clicked(data->menu)))
-	{
-	  printf("Broke clicky\n");
 	  return (EXIT_ON_ERROR);
-	}
       data->mv_s->click = 1;
       if (data->menu->buttons[2].is_clicked == 1 &&
 	  (determine_item(data->tab[data->mv_s->s_nb])))
       	return (EXIT_ON_ERROR);
       data->mv_s->pos_click = bunny_get_mouse_position();
-      printf("clicky\n");
     }
   if (button == BMB_RIGHT && clicked == GO_DOWN)
     {
