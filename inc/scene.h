@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sat Apr 16 14:17:11 2016 marel_m
+** Last update Sat Apr 16 14:30:58 2016 marel_m
 */
 
 #ifndef _SCENE_
@@ -134,5 +134,9 @@ void			house_in(t_data *);
 void			basement(t_data *);
 void			manor(t_data *);
 void			manor_in(t_data *);
+int			load_manor(t_data *);
+int			load_harbor(t_data *);
+int			load_beach(t_data *);
+int			load_arrow(t_data *);
 
 #endif /* _SCENE_ */
