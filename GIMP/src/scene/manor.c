@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Sat Apr 16 11:41:18 2016 marel_m
+** Last update Sat Apr 16 12:55:10 2016 marel_m
 */
 
 #include "default.h"
@@ -78,7 +78,8 @@ void                    change_scene_eight_nine(t_data *data)
       && data->mv_s->mouse->y <= 425 && data->mv_s->mouse->y >= 325)
     {
       put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
-      if (data->mv_s->click == 1)
+      if (data->mv_s->click == 1 && data->menu->buttons[1].is_clicked == 1
+	  && data->tab[7].item[0].selected[0] == 1)
 	{
 	  data->mv_s->s_nb = 9;
 	  data->mv_s->mv_fr = 0;

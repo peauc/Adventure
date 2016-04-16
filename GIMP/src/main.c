@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 13:55:36 2016 Poc
+** Last update Sat Apr 16 14:00:46 2016 Poc
 */
 
 #include "default.h"
@@ -18,18 +18,18 @@ t_bunny_response	escape(t_bunny_event_state state,
     return (EXIT_ON_SUCCESS);
   if (key == BKS_LEFT)
     {
-      if (data->mv_s->mv_bck > 6)
+      if (data->mv_s->mv_bck > 10)
 	{
-	  data->mv_s->mv_bck -= 6;
-	  data->mv_s->mv_fr -= 6;
+	  data->mv_s->mv_bck -= 10;
+	  data->mv_s->mv_fr -= 10;
 	}
     }
   if (key == BKS_RIGHT)
     {
-      if (data->mv_s->mv_bck < WIDTH - 6)
+      if (data->mv_s->mv_bck < WIDTH - 10)
 	{
-	  data->mv_s->mv_bck += 6;
-	  data->mv_s->mv_fr += 6;
+	  data->mv_s->mv_bck += 10;
+	  data->mv_s->mv_fr += 10;
 	}
     }
   return (GO_ON);
@@ -80,7 +80,7 @@ int			main()
       printf("init tab\n");
       return (1);
     }
-  data.mv_s->s_nb = 7;
+  data.mv_s->s_nb = 0;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;

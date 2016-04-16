@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 11:42:20 2016 marel_m
-** Last update Fri Apr 15 20:20:36 2016 Poc
+** Last update Sat Apr 16 12:18:53 2016 marel_m
 */
 
 #include "default.h"
@@ -66,7 +66,7 @@ int	load_harbor(t_data *data)
       || (data->tab[0].front =
 	  bunny_load_pixelarray("pictures/harbor_front.png")) == NULL
       || (data->tab[0].front =
-	  resize_picture(data->tab[0].front, 1024, 576)) == NULL
+	  resize_picture(data->tab[0].front, 2048, 576)) == NULL
       || (data->tab[0].name = my_strdup("harbor")) == NULL)
     return (-1);
   return (0);
@@ -142,6 +142,10 @@ int	load_house(t_data *data)
 	  bunny_load_pixelarray("pictures/house_out_back.png")) == NULL
       || (data->tab[5].back =
 	  resize_picture(data->tab[5].back, 1024, 576)) == NULL
+      || (data->tab[5].middle =
+	  bunny_load_pixelarray("pictures/house_out_middle.png")) == NULL
+      || (data->tab[5].middle =
+	  resize_picture(data->tab[5].middle, 1024, 576)) == NULL
       || (data->tab[5].front =
 	  bunny_load_pixelarray("pictures/house_out_front.png")) == NULL
       || (data->tab[5].front =
