@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Fri Apr 15 21:01:15 2016 Poc
+** Last update Sat Apr 16 11:35:16 2016 Poc
 */
 
 #include "default.h"
@@ -35,8 +35,8 @@ t_bunny_response	clicky(t_bunny_event_state clicked,
 	  return (EXIT_ON_ERROR);
 	}
       data->mv_s->click = 1;
-      /* if ((determine_item(data->tab[data->mv_s->s_nb]))) */
-      /* 	return (EXIT_ON_ERROR); */
+      if ((determine_item(data->tab[data->mv_s->s_nb])))
+      	return (EXIT_ON_ERROR);
       data->mv_s->pos_click = bunny_get_mouse_position();
       printf("clicky\n");
     }

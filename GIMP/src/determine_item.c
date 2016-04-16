@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Apr 15 15:35:00 2016 Poc
-** Last update Sat Apr 16 11:21:55 2016 marel_m
+** Last update Sat Apr 16 11:34:53 2016 Poc
 */
 
 #include "default.h"
@@ -25,9 +25,10 @@ int				determine_item(t_scene scene)
 {
   const	t_bunny_position	*pos;
   int				i;
-  return (0);
+
   i = 0;
   pos = bunny_get_mouse_position();
+  printf("scene %s\n", scene.name);
   while (scene.item->sprite[i])
     {
       if (is_clicked(pos, scene.item->sprite[i], scene.item->pos[i]))
