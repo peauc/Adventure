@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Apr 15 20:31:58 2016 Poc
-** Last update Sat Apr 16 11:38:44 2016 Poc
+** Last update Sat Apr 16 13:47:45 2016 Poc
 */
 
 #include "default.h"
@@ -13,7 +13,7 @@
 int	load_scene_tab(t_scene tab[14])
 {
   init_scene(tab);
-  if (load_item_basement(tab[7]))
+  if (load_item_basement(&tab[7]))
     return (1);
   return (0);
 }

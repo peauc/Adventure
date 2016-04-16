@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 12:59:49 2016 marel_m
+** Last update Sat Apr 16 14:01:32 2016 marel_m
 */
 
 #include "default.h"
@@ -14,9 +14,7 @@ t_bunny_response	escape(t_bunny_event_state state,
 			       t_bunny_keysym key,
 			       t_data *data)
 {
-  data = data;
-  state = state;
-  if (key == BKS_ESCAPE)
+  if (key == BKS_ESCAPE && state == GO_DOWN)
     return (EXIT_ON_SUCCESS);
   if (key == BKS_LEFT)
     {
@@ -49,7 +47,7 @@ t_bunny_response       	mainloop(t_data *data)
   return (GO_ON);
 }
 
-int			main(int ac, char **av)
+int			main()
 {
   t_data		data;
 
@@ -82,12 +80,11 @@ int			main(int ac, char **av)
       printf("init tab\n");
       return (1);
     }
-  data.mv_s->s_nb = 5;
+  data.mv_s->s_nb = 0;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
-
   bunny_set_key_response((t_bunny_key)&escape);
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)

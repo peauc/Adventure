@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sat Apr 16 12:02:14 2016 Poc
+** Last update Sat Apr 16 13:59:07 2016 Poc
 */
 
 #ifndef _DEFAULT_
@@ -88,8 +88,21 @@ typedef struct		s_scene_nb
   void			(*ft_scene_nb)(t_data *data);
 }			t_scene_nb;
 
+int			determine_button_clicked(t_menu *);
+int			draw_scene(t_data *);
+int			load_scene_tab(t_scene[14]);
+int			draw_menu(t_bunny_pixelarray *, t_menu *);
+int			draw_inventory(t_bunny_pixelarray *, t_scene[14]);
+int			determine_item(t_scene);
+int			init_scene(t_scene[14]);
+int			load_buttons(t_menu *);
+int			draw_items(t_item *, t_bunny_pixelarray *);
+int			is_clicked(t_bunny_position *,
+				   t_bunny_pixelarray *,
+				   t_bunny_position);
 int			load_all_scene(t_data *);
 int			load_item(t_menu *, t_bunny_ini *);
+int			load_item_basement(t_scene *);
 char			*my_strdup(char *);
 t_menu			*load_menu();
 void			pixelarray_copy(t_bunny_pixelarray *,
