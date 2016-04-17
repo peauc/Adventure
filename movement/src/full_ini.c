@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 01:28:11 2016 Paul Wery
-** Last update Sun Apr 17 17:46:13 2016 Paul Wery
+** Last update Sun Apr 17 17:49:17 2016 Paul Wery
 */
 
 #include <sys/types.h>
@@ -111,7 +111,20 @@ int		full_elem(t_bunny_ini *ini, const char *scope,
   return (0);
 }
 
-int			full_ini(t_points *list)
+int		ok(t_bunny_ini *ini,
+		   t_bunny_ini_scope *scope,
+		   char *name)
+{
+  const char	*elem;
+
+  if ((elem = bunny_ini_get_field(ini, scope, "image", 0)) == NULL)
+    return (-1);
+  if (same_name(name, (char*)elem) == 1)
+    return (1);
+  return (0);
+}
+
+int			full_ini(t_points *list, char *name)
 {
   t_points		it;
   t_bunny_ini		*ini;
@@ -129,7 +142,8 @@ int			full_ini(t_points *list)
   while ((scope = bunny_ini_next(ini, scope)) != NULL)
     {
       scope_name = bunny_ini_scope_name(ini, scope);
-      if (comp_string("node_", (char*)scope_name) == 1)
+      if (comp_string("node_", (char*)scope_name) == 1
+	  && ok(ini, scope_name, name) == 1)
 	{
 	  if (full_elem(ini, scope_name, &it) == -1)
 	    return (-1);
