@@ -5,14 +5,14 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Sun Apr 17 21:11:06 2016 Poc
+** Last update Sun Apr 17 21:20:30 2016 Poc
 */
 
 #include "tekadv.h"
 
-int                    change_scene_nine_eight(t_data *data)
+int			change_scene_nine_eight(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pos.x = 200 - data->mv_s->mv_bck;
   pos.y = 250;
@@ -38,7 +38,7 @@ int                    change_scene_nine_eight(t_data *data)
 
 int			manor_in(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pix_initialize(data->pixel);
   pix_initialize(data->new);
@@ -52,9 +52,9 @@ int			manor_in(t_data *data)
   return (0);
 }
 
-void                    change_scene_eight_zero(t_data *data)
+int			change_scene_eight_zero(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pos.x = 0;
   pos.y = 475;
@@ -75,11 +75,12 @@ void                    change_scene_eight_zero(t_data *data)
 	  pos_player(data->player, data->node);
 	}
     }
+  return (0);
 }
 
 int			change_scene_eight_nine(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pos.x = 300;
   pos.y = 325;

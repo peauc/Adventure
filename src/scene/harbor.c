@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:17:55 2016 marel_m
-** Last update Sun Apr 17 21:15:26 2016 Poc
+** Last update Sun Apr 17 21:19:24 2016 Poc
 */
 
 #include "tekadv.h"
@@ -89,7 +89,7 @@ int			change_scene_zero_one(t_data *data)
   return (0);
 }
 
-void			harbor(t_data *data)
+int			harbor(t_data *data)
 {
   t_bunny_position	pos;
 
@@ -101,6 +101,8 @@ void			harbor(t_data *data)
   if (change_scene_zero_two(data) ||
       change_scene_zero_eight(data) ||
       change_scene_zero_one(data))
+    return (1);
   put_pix_in_pix(data->pixel, data->tab[0].front, pos, data->mv_s->mv_fr);
   put_pix_in_pix(data->pixel, data->new, pos, 0);
+  return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 14:06:48 2016 marel_m
-** Last update Sun Apr 17 20:59:45 2016 Poc
+** Last update Sun Apr 17 21:21:12 2016 Poc
 */
 
 #include "tekadv.h"
@@ -37,17 +37,19 @@ int                    change_scene_three_two(t_data *data)
   return (0);
 }
 
-void			shop(t_data *data)
+int			shop(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pix_initialize(data->pixel);
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
   put_pix_in_pix(data->pixel, data->tab[3].back, pos, data->mv_s->mv_bck);
-  change_scene_three_two(data);
+  if (change_scene_three_two(data))
+    return (1);
   put_pix_in_pix(data->pixel, data->tab[3].middle, pos, data->mv_s->mv_fr);
   put_pix_in_pix(data->pixel, data->tab[3].front, pos, data->mv_s->mv_fr);
   put_pix_in_pix(data->pixel, data->new, pos, 0);
+  return (0);
 }
