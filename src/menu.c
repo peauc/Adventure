@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 19:52:33 2016 marel_m
+** Last update Sun Apr 17 21:35:38 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -23,9 +23,9 @@ void			set_all_to_zero(t_button *buttons)
 
 }
 
-t_bunny_response	clicky(t_bunny_event_state state,
-			       t_bunny_mouse_button button,
-			       t_data *data)
+void				mv_perso(t_bunny_event_state state,
+					 t_bunny_mouse_button button,
+					 t_data *data)
 {
   const t_bunny_position        *pos;
   t_dict                        *came_from;
@@ -33,16 +33,6 @@ t_bunny_response	clicky(t_bunny_event_state state,
   t_points                      *path;
   bool                          clicked;
 
-  if (button == BMB_LEFT && state == GO_DOWN)
-    {
-      if ((determine_button_clicked(data->menu)))
-	  return (EXIT_ON_ERROR);
-      data->mv_s->click = 1;
-      if (data->menu->buttons[2].is_clicked == 1 &&
-	  (determine_item(data->tab[data->mv_s->s_nb])))
-      	return (EXIT_ON_ERROR);
-      data->mv_s->pos_click = bunny_get_mouse_position();
-    }
   clicked = false;
   pos = bunny_get_mouse_position();
   path = NULL;
@@ -62,5 +52,22 @@ t_bunny_response	clicky(t_bunny_event_state state,
 	    }
 	}
     }
+}
+
+t_bunny_response	clicky(t_bunny_event_state state,
+			       t_bunny_mouse_button button,
+			       t_data *data)
+{
+  if (button == BMB_LEFT && state == GO_DOWN)
+    {
+      if ((determine_button_clicked(data->menu)))
+	  return (EXIT_ON_ERROR);
+      data->mv_s->click = 1;
+      if (data->menu->buttons[2].is_clicked == 1 &&
+	  (determine_item(data->tab[data->mv_s->s_nb])))
+      	return (EXIT_ON_ERROR);
+      data->mv_s->pos_click = bunny_get_mouse_position();
+    }
+  mv_perso(state, button, data);
   return (GO_ON);
 }
