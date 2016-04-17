@@ -5,11 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-<<<<<<< HEAD
-** Last update Sun Apr 17 12:37:52 2016 Poc
-=======
-** Last update Sun Apr 17 11:50:51 2016 marel_m
->>>>>>> 3760f9526023d9479ab0fccefd6b69918f4d4bc1
+** Last update Sun Apr 17 12:46:39 2016 marel_m
 */
 
 #include "scene.h"

@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 15:10:11 2016 marel_m
-** Last update Sun Apr 17 12:30:35 2016 Poc
+** Last update Sun Apr 17 12:55:59 2016 marel_m
 */
 
 #include "scene.h"
@@ -34,7 +34,7 @@ void	free_data(t_data *data)
   while (++i < 14)
     {
       printf("%s\n", data->tab[i].name);
-      free(data->tab[i].name);
+      bunny_free(data->tab[i].name);
       bunny_delete_clipable(&data->tab[i].front->clipable);
       delete_item(data->tab[i].item);
       if (i == 0 || i == 1 || i == 4 || i == 9)
