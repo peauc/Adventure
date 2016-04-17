@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 01:28:11 2016 Paul Wery
-** Last update Sun Apr 17 18:48:39 2016 Mathieu Sauvau
+** Last update Sun Apr 17 22:05:13 2016 Paul Wery
 */
 
 #include <sys/types.h>
@@ -13,23 +13,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "road.h"
-
-int	get_nb(const char *str, int val, int n, int neg)
-{
-  if (str[n] == '-')
-    {
-      n += 1;
-      neg = 1;
-    }
-  while (str[n] != '\0')
-    {
-      val = (val * 10) + (str[n] - 48);
-      n += 1;
-    }
-  if (neg == 1)
-    val = val * -1;
-  return (val);
-}
 
 int		full_elem_c(t_bunny_ini *ini, const char *scope,
 			    t_points *it, const char *elem)
