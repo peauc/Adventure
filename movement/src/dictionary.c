@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Fri Apr 15 17:30:48 2016 Mathieu Sauvau
-** Last update Sun Apr 17 11:49:05 2016 marel_m
+** Last update Sun Apr 17 15:35:55 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -74,4 +74,17 @@ bool			is_in_dict(t_dict *dict, int key)
       dict = dict->next;
     }
   return (false);
+}
+
+void			clear_dict(t_dict *dict)
+{
+  t_dict		*tmp;
+
+  while (dict)
+    {
+      tmp = dict;
+      dict = dict->next;
+      bunny_free(tmp);
+    }
+  bunny_free(dict);
 }

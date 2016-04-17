@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sat Apr 16 09:59:29 2016 Mathieu Sauvau
-** Last update Sun Apr 17 14:41:05 2016 Mathieu Sauvau
+** Last update Sun Apr 17 15:35:09 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -85,7 +85,7 @@ void		del_node(t_points **list, t_points *node)
     }
 }
 
-void		free_node(t_points *list)
+void		clear_node(t_points *list)
 {
   t_points	*tmp;
 

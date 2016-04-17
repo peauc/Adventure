@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 15:11:29 2016 Mathieu Sauvau
+** Last update Sun Apr 17 15:39:31 2016 Mathieu Sauvau
 */
 
 #include <math.h>
@@ -58,6 +58,8 @@ t_bunny_response		click(t_bunny_event_state state,
 	    {
 	      path = construct_path(came_from, data->player->node, dest);
 	      move(data, path, data->player);
+	      clear_dict(came_from);
+	      //	      clear_
 	    }
 	}
     }

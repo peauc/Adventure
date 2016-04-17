@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 14:49:20 2016 Mathieu Sauvau
-** Last update Sun Apr 17 15:07:15 2016 Mathieu Sauvau
+** Last update Sun Apr 17 15:48:40 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -33,7 +33,7 @@ t_points		*construct_path(t_dict *came_from,
 }
 
 void			check_last(t_points *list, t_dict **came_from,
-				   t_points *frontier, t_points *current)
+				   t_points **frontier, t_points *current)
 {
   t_points		*neighbor;
 
@@ -41,20 +41,20 @@ void			check_last(t_points *list, t_dict **came_from,
       && !is_in_dict(*came_from, neighbor->index))
     {
       printf("ADD TO FRONTIER PATH 2 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-      add_cpy_node(&frontier, neighbor);
+      add_cpy_node(frontier, neighbor);
       add_dict(came_from, new_entry(neighbor->index, current));
     }
   if ((neighbor = get_node_bycoord(list, current->path_3[1])) != NULL
       && !is_in_dict(*came_from, neighbor->index))
     {
       printf("ADD TO FRONTIER PATH 3 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-      add_cpy_node(&frontier, neighbor);
+      add_cpy_node(frontier, neighbor);
       add_dict(came_from, new_entry(neighbor->index, current));
     }
 }
 
 void			check_all_path(t_points *list, t_dict **came_from,
-				       t_points *frontier, t_points *current)
+				       t_points **frontier, t_points *current)
 {
   t_points		*neighbor;
 
@@ -62,14 +62,14 @@ void			check_all_path(t_points *list, t_dict **came_from,
       && !is_in_dict(*came_from, neighbor->index))
     {
       printf("ADD TO FRONTIER PATH 0 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-      add_cpy_node(&frontier, neighbor);
+      add_cpy_node(frontier, neighbor);
       add_dict(came_from, new_entry(neighbor->index, current));
     }
   if ((neighbor = get_node_bycoord(list, current->path_1[1])) != NULL
       && !is_in_dict(*came_from, neighbor->index))
     {
       printf("ADD TO FRONTIER PATH 1 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-      add_cpy_node(&frontier, neighbor);
+      add_cpy_node(frontier, neighbor);
       add_dict(came_from, new_entry(neighbor->index, current));
     }
   check_last(list, came_from, frontier, current);
@@ -80,6 +80,7 @@ t_dict			*find_way(t_points *list, t_points *start, t_points *dest)
   t_dict		*came_from;
   t_points		*current;
   t_points		*frontier;
+  t_points		*neighbor;
 
   if (dest == NULL || cmp_node(start, dest))
     return (NULL);
@@ -100,7 +101,7 @@ t_dict			*find_way(t_points *list, t_points *start, t_points *dest)
       	  printf("BREAK\n");
       	  break;
       	}
-      check_all_path(list, &came_from, frontier, current);
+      check_all_path(list, &came_from, &frontier, current);
     }
   print_dict(came_from);
   return (came_from);
