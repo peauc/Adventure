@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 21:06:38 2016 Mathieu Sauvau
+** Last update Sun Apr 17 21:39:20 2016 Mathieu Sauvau
 */
 
 #ifndef _SCENE_
@@ -158,16 +158,16 @@ int			load_manor(t_data *);
 int			load_harbor(t_data *);
 int			load_beach(t_data *);
 int			load_arrow(t_data *);
-void			harbor(t_data *);
-void			boat(t_data *);
-void			shop_place(t_data *);
-void			shop(t_data *);
-void			beach(t_data *);
-void			house_out(t_data *);
-void			house_in(t_data *);
-void			basement(t_data *);
-void			manor(t_data *);
-void			manor_in(t_data *);
+int			harbor(t_data *);
+int			boat(t_data *);
+int			shop_place(t_data *);
+int			shop(t_data *);
+int			beach(t_data *);
+int			house_out(t_data *);
+int			house_in(t_data *);
+int			basement(t_data *);
+int			manor(t_data *);
+int			manor_in(t_data *);
 
 /*
 ** LIB/FREE

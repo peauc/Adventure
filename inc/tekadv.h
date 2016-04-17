@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 21:06:55 2016 Mathieu Sauvau
+** Last update Sun Apr 17 22:11:24 2016 Mathieu Sauvau
 */
 
 #ifndef _TEKADV_H_
@@ -37,6 +37,7 @@ typedef struct		s_sprite_sheet
 typedef struct		s_player
 {
   t_bunny_position	pos;
+  t_bunny_position	save_pos;
   t_points		*node;
   t_sprite_sheet	*sp;
   t_bunny_pixelarray	*pix;
@@ -87,8 +88,9 @@ typedef struct                  s_mv_scene
   int                           s_nb;
   int                           click;
   const t_bunny_position        *pos_click;
-  t_bunny_position		mouse;
-  int                           old_mouse;
+  const t_bunny_position	*mouse;
+  t_bunny_position		pos;
+  int                           old_pos;
 }                               t_mv_scene;
 
 typedef struct                  s_data
@@ -123,7 +125,7 @@ enum                    scene
 typedef struct          s_scene_nb
 {
   int                   scene_nb;
-  void                  (*ft_scene_nb)(t_data *data);
+  int                  (*ft_scene_nb)(t_data *data);
 }                       t_scene_nb;
 
 /*
@@ -159,12 +161,10 @@ bool				cmp_position(t_bunny_position pos1,
 ** NODE
 */
 t_points		*check_all_pathcoord(t_points *list, t_points *it, t_points *dest);
-t_points		*get_node_byclick(t_points *node,
+t_points		*get_node_byclick(t_mv_scene *mv, t_points *node,
 					  const t_bunny_position *pos);
 t_points		*get_point_bycoord(t_points *list, t_bunny_position coord);
 bool			cmp_node(t_points *node1, t_points *node2);
-t_points		*get_node_byclick(t_points *node,
-				  const t_bunny_position *pos);
 t_points		*get_node_bycoord(t_points *list, t_bunny_position coord);
 bool			node_in_list(t_points *list, t_points *node);
 
@@ -251,16 +251,16 @@ int                     load_manor(t_data *);
 int                     load_harbor(t_data *);
 int                     load_beach(t_data *);
 int                     load_arrow(t_data *);
-void                    harbor(t_data *);
-void                    boat(t_data *);
-void                    shop_place(t_data *);
-void                    shop(t_data *);
-void                    beach(t_data *);
-void                    house_out(t_data *);
-void                    house_in(t_data *);
-void                    basement(t_data *);
-void                    manor(t_data *);
-void                    manor_in(t_data *);
+int                    harbor(t_data *);
+int                    boat(t_data *);
+int                    shop_place(t_data *);
+int                    shop(t_data *);
+int                    beach(t_data *);
+int                    house_out(t_data *);
+int                    house_in(t_data *);
+int                    basement(t_data *);
+int                    manor(t_data *);
+int                    manor_in(t_data *);
 
 /*
 ** LIB/FREE

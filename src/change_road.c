@@ -5,24 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 17 17:16:12 2016 Paul Wery
-** Last update Sun Apr 17 21:34:45 2016 Mathieu Sauvau
+** Last update Sun Apr 17 22:21:19 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
 #include "road.h"
-
-int	in_a_ellps(char *image, t_points *it,
-		   const t_bunny_position *pos)
-{
-  if (same_name(image, it->image) == 1
-      && pos->x >= (it->el.center.x - it->el.axe_a)
-      && pos->x <= (it->el.center.x + it->el.axe_a)
-      && pos->y >= (it->el.center.y - it->el.axe_b)
-      && pos->y <= (it->el.center.y + it->el.axe_b))
-    return (1);
-  else
-    return (0);
-}
 
 void			aff_roads(t_points *list,
 				  t_bunny_pixelarray *pix,
@@ -44,10 +31,7 @@ void			aff_roads(t_points *list,
       if (same_name(image, it->image) == 1)
         {
           zcircle(&r, pix, &it->el, BLUE);
-          if (in_a_ellps(image, it, pos) == 1)
-            circle(&r, pix, &it->el, YELLOW);
-          else
-            circle(&r, pix, &it->el, RED);
+	  circle(&r, pix, &it->el, RED);
           line(&r, it);
 	}
       it = it->next;

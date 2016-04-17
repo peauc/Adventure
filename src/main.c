@@ -5,7 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 21:35:25 2016 Mathieu Sauvau
+<<<<<<< HEAD
+** Last update Sun Apr 17 22:51:54 2016 Mathieu Sauvau
+=======
+** Last update Sun Apr 17 21:31:57 2016 marel_m
+>>>>>>> 8efb9ae34129d9585de8a75b48c499e2d2e132b3
 */
 
 #include "tekadv.h"
@@ -16,18 +20,26 @@ t_bunny_response	escape(t_bunny_event_state state,
 {
   if (key == BKS_ESCAPE && state == GO_DOWN && data)
       return (EXIT_ON_SUCCESS);
-  if (key == BKS_LEFT && state == GO_DOWN)
+  if (key == BKS_LEFT && state == GO_DOWN && data->mv_s->mv_bck - 5 > 0)
     {
-      data->mv_s->mv_bck -= 3;
+      data->mv_s->mv_bck -= 5;
+      if (data->mv_s->s_nb == 0)
+	data->mv_s->mv_fr -= 9;
+      else if (data->mv_s->s_nb != 5)
+	data->mv_s->mv_fr -= 5;
     }
-  if (key == BKS_RIGHT && state == GO_DOWN)
+  if (key == BKS_RIGHT && state == GO_DOWN && data->mv_s->mv_bck + 5 < WIDTH)
     {
-      data->mv_s->mv_bck += 3;
+      data->mv_s->mv_bck += 5;
+      if (data->mv_s->s_nb == 0)
+	data->mv_s->mv_fr += 9;
+      else if (data->mv_s->s_nb != 5)
+	data->mv_s->mv_fr += 5;
     }
   if (key == BKS_LCONTROL && state == GO_DOWN)
     {
       my_fill(data->road, 0x00000000);
-      aff_road(data->mv_s->s_nb, data->p, data->road, 0);
+      aff_road(data->mv_s->s_nb, data->p, data->road, data->mv_s->mv_bck);
     }
   else
     my_fill(data->road, 0x00000000);
@@ -37,6 +49,7 @@ t_bunny_response	escape(t_bunny_event_state state,
 t_bunny_response       	mainloop(t_data *data)
 {
   const t_bunny_position        *pos;
+  t_bunny_position		posi;
   t_flip                        flip;
 
   pos = bunny_get_mouse_position();
@@ -45,17 +58,16 @@ t_bunny_response       	mainloop(t_data *data)
   flip.flip = 0;
   flip.row = 0;
   anim_sprite(data->player->pix, data->player->sp, flip, 1);
-  data->mv_s->mouse = data->player->pos;
-  mv_camera_mouse(data);
-  data->mv_s->old_mouse = data->mv_s->mouse.x;
+  data->mv_s->mouse = bunny_get_mouse_position();
   draw_scene(data);
   draw_menu(data->pixel, data->menu);
   draw_inventory(data->pixel, data->tab);
   data->mv_s->click = 0;
   put_pix_in_pix(data->pixel, data->road, pos_(0, 0), 0);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
+  posi = pos_(data->player->pos.x - data->mv_s->mv_bck, data->player->pos.y);
   bunny_blit(&data->win->buffer,
-	     &data->player->pix->clipable, &data->player->pos);
+  	     &data->player->pix->clipable, &posi);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -84,7 +96,8 @@ int			main()
       return (1);
   data.win = bunny_start(WIDTH, HEIGHT, false, "test");
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL
-      || (data.road = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
+      || (data.road = bunny_new_pixelarray(data.tab[0].back->clipable.clip_width,
+					   HEIGHT)) == NULL)
     return (1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
       return (1);
@@ -107,6 +120,7 @@ int			main()
     return (0);
   data.node = change_list(data.p);
   pos_player(data.player, data.node);
+  data.player->save_pos = data.player->pos;
   data.mv_s->s_nb = 0;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;

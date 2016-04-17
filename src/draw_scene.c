@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Fri Apr 15 15:07:59 2016 marel_m
-** Last update Sun Apr 17 19:39:08 2016 marel_m
+** Last update Sun Apr 17 21:22:06 2016 Poc
 */
 
 #include "tekadv.h"
@@ -49,6 +49,7 @@ int		draw_scene(t_data *data)
   i = -1;
   while (++i < MAX_SCENE)
     if (i == data->mv_s->s_nb)
-      fptrtab[i].ft_scene_nb(data);
+      if (fptrtab[i].ft_scene_nb(data))
+	return (-1);
   return (0);
 }
