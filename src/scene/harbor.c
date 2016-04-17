@@ -5,12 +5,12 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:17:55 2016 marel_m
-** Last update Sun Apr 17 20:42:08 2016 marel_m
+** Last update Sun Apr 17 21:15:26 2016 Poc
 */
 
 #include "tekadv.h"
 
-void			change_scene_zero_two(t_data *data)
+int			change_scene_zero_two(t_data *data)
 {
   t_bunny_position	pos;
 
@@ -29,13 +29,14 @@ void			change_scene_zero_two(t_data *data)
 	  data->mv_s->click = 0;
 	  if ((data->p = change_road(2, data->p)) == NULL
 	      || (data->node = change_list(data->p)) == NULL)
-	    return ;
+	    return (1);
 	  pos_player(data->player, data->node);
 	}
     }
+  return (0);
 }
 
-void			change_scene_zero_eight(t_data *data)
+int			change_scene_zero_eight(t_data *data)
 {
   t_bunny_position	pos;
 
@@ -52,11 +53,16 @@ void			change_scene_zero_eight(t_data *data)
 	  data->mv_s->mv_fr = 0;
 	  data->mv_s->mv_bck = 0;
 	  data->mv_s->click = 0;
+	  if ((data->p = change_road(8, data->p)) == NULL
+	      || (data->node = change_list(data->p)) == NULL)
+	    return (1);
+	  pos_player(data->player, data->node);
 	}
     }
+  return (0);
 }
 
-void			change_scene_zero_one(t_data *data)
+int			change_scene_zero_one(t_data *data)
 {
   t_bunny_position	pos;
 
@@ -73,8 +79,14 @@ void			change_scene_zero_one(t_data *data)
 	  data->mv_s->mv_fr = 0;
 	  data->mv_s->mv_bck = 0;
 	  data->mv_s->click = 0;
+	  if ((data->p = change_road(1, data->p)) == NULL
+	      || (data->node = change_list(data->p)) == NULL)
+	    return (1);
+	  pos_player(data->player, data->node);
+
 	}
     }
+  return (0);
 }
 
 void			harbor(t_data *data)
@@ -86,9 +98,9 @@ void			harbor(t_data *data)
   pos.x = 0;
   pos.y = 0;
   put_pix_in_pix(data->pixel, data->tab[0].back, pos, data->mv_s->mv_bck);
-  change_scene_zero_two(data);
-  change_scene_zero_eight(data);
-  change_scene_zero_one(data);
+  if (change_scene_zero_two(data) ||
+      change_scene_zero_eight(data) ||
+      change_scene_zero_one(data))
   put_pix_in_pix(data->pixel, data->tab[0].front, pos, data->mv_s->mv_fr);
   put_pix_in_pix(data->pixel, data->new, pos, 0);
 }

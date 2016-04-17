@@ -5,12 +5,12 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 14:06:48 2016 marel_m
-** Last update Sun Apr 17 20:43:02 2016 marel_m
+** Last update Sun Apr 17 20:59:45 2016 Poc
 */
 
 #include "tekadv.h"
 
-void                    change_scene_three_two(t_data *data)
+int                    change_scene_three_two(t_data *data)
 {
   t_bunny_position      pos;
 
@@ -27,8 +27,14 @@ void                    change_scene_three_two(t_data *data)
 	  data->mv_s->mv_fr = WIDTH / 2;
 	  data->mv_s->mv_bck = WIDTH / 2;
 	  data->mv_s->click = 0;
+	  if ((data->p = change_road(2, data->p)) == NULL
+	      || (data->node = change_list(data->p)) == NULL)
+	    return (1);
+	  pos_player(data->player, data->node);
+
 	}
     }
+  return (0);
 }
 
 void			shop(t_data *data)
