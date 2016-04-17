@@ -5,17 +5,18 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:38:33 2016 Mathieu Sauvau
-** Last update Sun Apr 17 15:15:50 2016 Mathieu Sauvau
+** Last update Sun Apr 17 22:04:37 2016 Poc
 */
 
 #include "tekadv.h"
 
-void                    my_fill(t_bunny_pixelarray *pix_ar, unsigned int color)
+void				my_fill(t_bunny_pixelarray *pix_ar,
+					unsigned int color)
 {
-  int                   x;
-  int                   y;
-  t_color               *col;
-  int                   new_pos;
+  int			x;
+  int			y;
+  t_color		*col;
+  int			new_pos;
 
   x = 0;
   y = 0;
@@ -33,9 +34,9 @@ void                    my_fill(t_bunny_pixelarray *pix_ar, unsigned int color)
     }
 }
 
-t_bunny_position	pos_(int x, int y)
+t_bunny_position		pos_(int x, int y)
 {
-  t_bunny_position	pos;
+  t_bunny_position		pos;
 
   pos.x = x;
   pos.y = y;
@@ -51,8 +52,8 @@ t_bunny_accurate_position	posac_(double x, double y)
   return (pos);
 }
 
-bool			cmp_position(t_bunny_position pos1,
-				     t_bunny_position pos2)
+bool				cmp_position(t_bunny_position pos1,
+					     t_bunny_position pos2)
 {
   if (pos1.x == pos2.x && pos1.y == pos2.y)
     return (true);

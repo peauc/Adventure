@@ -5,14 +5,14 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 21:54:34 2016 Poc
+** Last update Sun Apr 17 21:59:51 2016 Poc
 */
 
 #include "tekadv.h"
 
-t_bunny_response	escape(t_bunny_event_state state,
-			       t_bunny_keysym key,
-			       t_data *data)
+t_bunny_response		escape(t_bunny_event_state state,
+				       t_bunny_keysym key,
+				       t_data *data)
 {
   if (key == BKS_ESCAPE && state == GO_DOWN && data)
       return (EXIT_ON_SUCCESS);
@@ -39,7 +39,7 @@ t_bunny_response	escape(t_bunny_event_state state,
   return (GO_ON);
 }
 
-t_bunny_response       	mainloop(t_data *data)
+t_bunny_response		mainloop(t_data *data)
 {
   const t_bunny_position        *pos;
   t_flip                        flip;
@@ -62,11 +62,11 @@ t_bunny_response       	mainloop(t_data *data)
   return (GO_ON);
 }
 
-t_sprite_sheet          *load_sprite_sheet(char *sprite_sheet,
-					   t_bunny_position size,
-					   int  anim_speed)
+t_sprite_sheet			*load_sprite_sheet(char *sprite_sheet,
+						   t_bunny_position size,
+						   int  anim_speed)
 {
-  t_sprite_sheet        *sp;
+  t_sprite_sheet		*sp;
 
   if ((sp = bunny_malloc(sizeof(t_sprite_sheet *))) == NULL
       || (sp->pix = bunny_load_pixelarray(sprite_sheet)) == NULL)
@@ -77,7 +77,7 @@ t_sprite_sheet          *load_sprite_sheet(char *sprite_sheet,
   return (sp);
 }
 
-int			initialize(t_data *data)
+int				initialize(t_data *data)
 {
   if ((data->win = bunny_start(WIDTH, HEIGHT, false, "test")) == NULL)
     return (1);
@@ -106,9 +106,9 @@ int			initialize(t_data *data)
   return (0);
 }
 
-int			main()
+int				main()
 {
-  t_data		data;
+  t_data			data;
 
   bunny_set_maximum_ram(10000000000);
   if (initialize(&data))

@@ -5,14 +5,14 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:37:21 2016 marel_m
-** Last update Sun Apr 17 21:19:56 2016 marel_m
+** Last update Sun Apr 17 22:06:21 2016 Poc
 */
 
 #include "tekadv.h"
 
-int                    change_scene_two_zero(t_data *data)
+int			change_scene_two_zero(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pos.x = WIDTH - 100;
   pos.y = 400;

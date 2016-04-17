@@ -1,11 +1,11 @@
 /*
-OB** tekpixel.c for tekpixel in /home/wery_p/rendu/gfx_tekadventure/create_road
+** tekpixel.c for tekpixel in /home/wery_p/rendu/gfx_tekadventure/create_road
 **
 ** Made by Paul Wery
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 10 13:57:15 2016 Paul Wery
-** Last update Sun Apr 17 19:43:22 2016 marel_m
+** Last update Sun Apr 17 21:58:45 2016 Poc
 */
 
 #include "tekadv.h"
