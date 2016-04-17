@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 22:11:24 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:30:16 2016 Poc
 */
 
 #ifndef _TEKADV_H_
@@ -247,6 +247,8 @@ void                    mv_camera_mouse(t_data *);
 /*
 ** SCENE
 */
+
+t_sprite_sheet		*load_sprite_sheet(char *, t_bunny_position, int);
 int                     load_manor(t_data *);
 int                     load_harbor(t_data *);
 int                     load_beach(t_data *);

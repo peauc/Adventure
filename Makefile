@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 23:14:03 2016 Poc
+## Last update Sun Apr 17 23:29:30 2016 Poc
 ##
 
 DEBUG=	no
@@ -59,6 +59,7 @@ SRC=	main.c					\
 	load_item_basement.c			\
 	menu.c					\
 	menu_load.c				\
+	load_sprite_sheet.c			\
 	init_tab.c				\
 	free_scene.c				\
 	pixelarraycpy.c				\
