@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 21:51:49 2016 Poc
+** Last update Sun Apr 17 21:54:34 2016 Poc
 */
 
 #include "tekadv.h"
@@ -16,13 +16,21 @@ t_bunny_response	escape(t_bunny_event_state state,
 {
   if (key == BKS_ESCAPE && state == GO_DOWN && data)
       return (EXIT_ON_SUCCESS);
-  if (key == BKS_LEFT && state == GO_DOWN)
+  if (key == BKS_LEFT && state == GO_DOWN && data->mv_s->mv_bck - 5 > 0)
     {
-      data->mv_s->mv_bck -= 3;
+      data->mv_s->mv_bck -= 5;
+      if (data->mv_s->s_nb == 0)
+	data->mv_s->mv_fr -= 9;
+      else if (data->mv_s->s_nb != 5)
+	data->mv_s->mv_fr -= 5;
     }
-  if (key == BKS_RIGHT && state == GO_DOWN)
+  if (key == BKS_RIGHT && state == GO_DOWN && data->mv_s->mv_bck + 5 < WIDTH)
     {
-      data->mv_s->mv_bck += 3;
+      data->mv_s->mv_bck += 5;
+      if (data->mv_s->s_nb == 0)
+	data->mv_s->mv_fr += 9;
+      else if (data->mv_s->s_nb != 5)
+	data->mv_s->mv_fr += 5;
     }
   if (key == BKS_LCONTROL && state == GO_DOWN)
     {
@@ -42,11 +50,7 @@ t_bunny_response       	mainloop(t_data *data)
   flip.flip = 0;
   flip.row = 0;
   anim_sprite(data->player->pix, data->player->sp, flip, 1);
-  data->mv_s->pos = data->player->pos;
   data->mv_s->mouse = bunny_get_mouse_position();
-  mv_camera_mouse(data);
-  data->mv_s->old_pos = data->mv_s->pos.x;
-  printf("%d %d\n", data->mv_s->pos.x, data->mv_s->old_pos);
   draw_scene(data);
   draw_menu(data->pixel, data->menu);
   draw_inventory(data->pixel, data->tab);
