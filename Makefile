@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 23:07:17 2016 Poc
+## Last update Sun Apr 17 23:29:30 2016 Poc
 ##
 
 DEBUG=	no
@@ -59,6 +59,7 @@ SRC=	main.c					\
 	load_item_basement.c			\
 	menu.c					\
 	menu_load.c				\
+	load_sprite_sheet.c			\
 	init_tab.c				\
 	free_scene.c				\
 	pixelarraycpy.c				\
@@ -77,7 +78,7 @@ ifeq ($(DEBUG), yes)
 	CFLAGS=		-W -Wall -Wextra -ansi -pedantic -g -D DEBUG
 	CC=		clang $(HEAD)
 else
-	CFLAGS=		-W -Wall -Wextra -ansi -pedantic
+	CFLAGS=		-W -Werror -Wall -Wextra -ansi -pedantic
 	CC=		gcc $(HEAD)
 endif
 

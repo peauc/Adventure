@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 23:31:25 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:32:16 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -62,21 +62,6 @@ t_bunny_response		mainloop(t_data *data)
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->win);
   return (GO_ON);
-}
-
-t_sprite_sheet			*load_sprite_sheet(char *sprite_sheet,
-						   t_bunny_position size,
-						   int  anim_speed)
-{
-  t_sprite_sheet		*sp;
-
-  if ((sp = bunny_malloc(sizeof(t_sprite_sheet *))) == NULL
-      || (sp->pix = bunny_load_pixelarray(sprite_sheet)) == NULL)
-    return (NULL);
-  sp->pos = pos_(-1, 0);
-  sp->size = size;
-  sp->anim_speed = anim_speed;
-  return (sp);
 }
 
 int				initialize(t_data *data)
