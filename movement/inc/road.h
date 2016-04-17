@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sun Apr 17 12:01:17 2016 marel_m
-** Last update Sun Apr 17 17:54:07 2016 Paul Wery
+** Last update Sun Apr 17 18:30:58 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -169,5 +169,13 @@ void			write_str(char *str, int fd);
 void			write_nb(int nb, int fd);
 void			write_next(t_points *it, int fd);
 t_points		*change_road(int num_road, t_points *list);
+t_points		*change_road(int num_road, t_points *list);
+void			aff_road(int num_road, t_points *list,
+				 t_bunny_pixelarray *pix, int x);
+void			aff_roads(t_points *list,
+				  t_bunny_pixelarray *pix,
+				  char *image, int x);
+int			in_a_ellps(char *image, t_points *it,
+				   const t_bunny_position *pos);
 
 #endif /* !ROAD */
