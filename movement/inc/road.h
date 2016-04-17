@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sun Apr 17 12:01:17 2016 marel_m
-** Last update Sun Apr 17 12:09:02 2016 marel_m
+** Last update Sun Apr 17 17:54:07 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -168,5 +168,6 @@ int			save_ini(t_road *r);
 void			write_str(char *str, int fd);
 void			write_nb(int nb, int fd);
 void			write_next(t_points *it, int fd);
+t_points		*change_road(int num_road, t_points *list);
 
 #endif /* !ROAD */
