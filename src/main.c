@@ -5,7 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
+<<<<<<< HEAD
+** Last update Sun Apr 17 12:37:52 2016 Poc
+=======
 ** Last update Sun Apr 17 11:50:51 2016 marel_m
+>>>>>>> 3760f9526023d9479ab0fccefd6b69918f4d4bc1
 */
 
 #include "scene.h"
@@ -15,10 +19,7 @@ t_bunny_response	escape(t_bunny_event_state state,
 			       t_data *data)
 {
   if (key == BKS_ESCAPE && state == GO_DOWN)
-    {
-      /* free_data(data); */
       return (EXIT_ON_SUCCESS);
-    }
   if (key == BKS_LEFT && data->mv_s->s_nb != 5)
     {
       if (data->mv_s->mv_bck > 10)
@@ -83,7 +84,7 @@ int			main()
       printf("init tab\n");
       return (1);
     }
-  data.mv_s->s_nb = 0;
+  data.mv_s->s_nb = 7;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
@@ -92,5 +93,9 @@ int			main()
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
+  free_data(&data);
+  bunny_delete_clipable(&data.pixel->clipable);
+  bunny_delete_clipable(&data.new->clipable);
+  bunny_stop(data.win);
   return (1);
 }
