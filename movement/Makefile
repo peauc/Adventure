@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 15:11:10 2016 Mathieu Sauvau
+## Last update Sun Apr 17 17:33:30 2016 Paul Wery
 ##
 
 DEBUG=	yes
@@ -19,7 +19,7 @@ SRC=	new_main.c \
 	pathfinding.c \
 	do_some_shit.c \
 	movement.c \
-	../../create_road/srcs/full_ini.c \
+	full_ini.c \
 	../../create_road/srcs/my_list.c \
 	../../create_road/srcs/delete_links.c \
 	../../create_road/srcs/comp_string.c \
