@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 20:40:21 2016 marel_m
+** Last update Sun Apr 17 21:16:08 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -42,16 +42,18 @@ t_bunny_response       	mainloop(t_data *data)
   flip.flip = 0;
   flip.row = 0;
   anim_sprite(data->player->pix, data->player->sp, flip, 1);
-  data->mv_s->mouse = data->player->pos;
+  data->mv_s->pos = data->player->pos;
+  data->mv_s->mouse = bunny_get_mouse_position();
   mv_camera_mouse(data);
-  data->mv_s->old_mouse = data->mv_s->mouse.x;
+  data->mv_s->old_pos = data->mv_s->pos.x;
+  printf("%d %d\n", data->mv_s->pos.x, data->mv_s->old_pos);
   draw_scene(data);
   draw_menu(data->pixel, data->menu);
   draw_inventory(data->pixel, data->tab);
   data->mv_s->click = 0;
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_blit(&data->win->buffer,
-	     &data->player->pix->clipable, &data->player->pos);
+  	     &data->player->pix->clipable, &data->player->pos);
   bunny_display(data->win);
   return (GO_ON);
 }

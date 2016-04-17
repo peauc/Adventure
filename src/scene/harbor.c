@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:17:55 2016 marel_m
-** Last update Sun Apr 17 20:42:08 2016 marel_m
+** Last update Sun Apr 17 21:13:39 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -16,9 +16,9 @@ void			change_scene_zero_two(t_data *data)
 
   pos.x = 0;
   pos.y = 400;
-  if (data->mv_s->mouse.x + data->mv_s->mv_bck >= 0
-      && data->mv_s->mouse.x + data->mv_s->mv_bck <= 100
-      && data->mv_s->mouse.y <= 500 && data->mv_s->mouse.y >= 400)
+  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 0
+      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 100
+      && data->mv_s->mouse->y <= 500 && data->mv_s->mouse->y >= 400)
     {
       put_pix_in_pix(data->pixel, data->tab[12].front, pos, 0);
       if (data->mv_s->click == 1)
@@ -41,9 +41,9 @@ void			change_scene_zero_eight(t_data *data)
 
   pos.x = WIDTH - 100;
   pos.y = 350;
-  if (data->mv_s->mouse.x + data->mv_s->mv_bck >= 2048 - 100
-      && data->mv_s->mouse.x + data->mv_s->mv_bck <= 2048
-      && data->mv_s->mouse.y <= 450 && data->mv_s->mouse.y >= 350)
+  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 2048 - 100
+      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 2048
+      && data->mv_s->mouse->y <= 450 && data->mv_s->mouse->y >= 350)
     {
       put_pix_in_pix(data->pixel, data->tab[13].front, pos, 0);
       if (data->mv_s->click == 1)
@@ -62,9 +62,9 @@ void			change_scene_zero_one(t_data *data)
 
   pos.x = 1350 - data->mv_s->mv_bck;
   pos.y = 50;
-  if (data->mv_s->mouse.x + data->mv_s->mv_bck >= 1350
-      && data->mv_s->mouse.x + data->mv_s->mv_bck <= 1450
-      && data->mv_s->mouse.y <= 150 && data->mv_s->mouse.y >= 50)
+  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 1350
+      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1450
+      && data->mv_s->mouse->y <= 150 && data->mv_s->mouse->y >= 50)
     {
       put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
@@ -89,6 +89,7 @@ void			harbor(t_data *data)
   change_scene_zero_two(data);
   change_scene_zero_eight(data);
   change_scene_zero_one(data);
+  put_pix_in_pix(data->pixel, data->player->sp, pos, 0);
   put_pix_in_pix(data->pixel, data->tab[0].front, pos, data->mv_s->mv_fr);
   put_pix_in_pix(data->pixel, data->new, pos, 0);
 }

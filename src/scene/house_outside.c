@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:32:57 2016 marel_m
-** Last update Sun Apr 17 20:42:37 2016 marel_m
+** Last update Sun Apr 17 20:59:11 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -16,9 +16,9 @@ void                    change_scene_five_four(t_data *data)
 
   pos.x = WIDTH / 2 + 125;
   pos.y = 476;
-  if (data->mv_s->mouse.x >= WIDTH / 2 + 125
-      && data->mv_s->mouse.x <= WIDTH / 2 + 225
-      && data->mv_s->mouse.y <= 576 && data->mv_s->mouse.y >= 476)
+  if (data->mv_s->mouse->x >= WIDTH / 2 + 125
+      && data->mv_s->mouse->x <= WIDTH / 2 + 225
+      && data->mv_s->mouse->y <= 576 && data->mv_s->mouse->y >= 476)
     {
       put_pix_in_pix(data->pixel, data->tab[10].front, pos, 0);
       if (data->mv_s->click == 1)
@@ -37,9 +37,9 @@ void                    change_scene_five_six(t_data *data)
 
   pos.x = 450;
   pos.y = 300;
-  if (data->mv_s->mouse.x >= 450
-      && data->mv_s->mouse.x <= 550
-      && data->mv_s->mouse.y <= 400 && data->mv_s->mouse.y >= 300)
+  if (data->mv_s->mouse->x >= 450
+      && data->mv_s->mouse->x <= 550
+      && data->mv_s->mouse->y <= 400 && data->mv_s->mouse->y >= 300)
     {
       put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
