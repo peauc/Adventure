@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 01:28:11 2016 Paul Wery
-** Last update Sun Apr 17 18:40:11 2016 Paul Wery
+** Last update Sun Apr 17 18:48:39 2016 Mathieu Sauvau
 */
 
 #include <sys/types.h>
@@ -136,7 +136,7 @@ int			full_ini(t_points *list, char *name)
 		 S_IRUSR | S_IWUSR)) == -1)
     return (-1);
   close(fd);
-  if ((ini = bunny_load_ini("spaths.ini")) == NULL)
+  if ((ini = bunny_load_ini("paths.ini")) == NULL)
     return (-1);
   scope = bunny_ini_first(ini);
   while ((scope = bunny_ini_next(ini, scope)) != NULL)
