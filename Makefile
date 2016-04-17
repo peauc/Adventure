@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 20:16:57 2016 marel_m
+## Last update Sun Apr 17 22:06:04 2016 Paul Wery
 ## Last update Sun Apr 17 14:44:44 2016 marel_m
 ##
 
@@ -62,7 +62,8 @@ SRC=	main.c					\
 	menu_load.c				\
 	init_tab.c				\
 	free_scene.c				\
-	pixelarraycpy.c
+	pixelarraycpy.c				\
+	get_const_nb.c
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 

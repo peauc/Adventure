@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Sat Apr 16 15:37:48 2016 marel_m
+** Last update Sun Apr 17 22:08:09 2016 Paul Wery
 */
 
 #ifndef ROAD
@@ -108,15 +108,11 @@ t_bunny_response	key(t_bunny_event_state state,
 t_bunny_response	loop(void *data);
 t_bunny_response	wheel_mouse(int wheelid, int delta,
 				    void *data);
-
-
 t_points		*create_list(void);
 int			add_elem_next(t_points *elem, t_points *src);
 void			delete_elem(t_points *list, t_points *elem);
 void			delete_list(t_points **root);
 void			delete_links(t_points *list, t_points *elem);
-
-
 void			pix_initialize(t_bunny_pixelarray *pix);
 void			pix_initialize_alpha(t_bunny_pixelarray *pix);
 t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *pix,
@@ -141,7 +137,6 @@ void			circle(t_road *r, t_bunny_pixelarray *pix,
 			       t_el *el, unsigned int color);
 void			zcircle(t_road *r, t_bunny_pixelarray *pix,
 				t_el *el, unsigned int color);
-
 void			tekline(t_road *r,
 				t_bunny_position *pos,
 				t_color *color);
