@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sat Apr 16 09:59:29 2016 Mathieu Sauvau
-** Last update Sun Apr 17 13:23:40 2016 Mathieu Sauvau
+** Last update Sun Apr 17 14:41:05 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -50,19 +50,6 @@ void		add_cpy_node(t_points **list, t_points *node)
     }
 }
 
-void		add_node(t_points **list, t_points *node)
-{
-  if (!*list)
-    {
-      *list = node;
-    }
-  else
-    {
-      node->next = *list;
-      *list = node;
-    }
-}
-
 t_points	*change_list(t_points *list)
 {
   t_points	*it;
@@ -82,15 +69,6 @@ t_points	*change_list(t_points *list)
   return (new_list);
 }
 
-void		print_node(t_points *list)
-{
-  while (list)
-    {
-      printf("node %d - %d %d\n", list->index, list->el.center.x, list->el.center.y);
-      list = list->next;
-    }
-}
-
 void		del_node(t_points **list, t_points *node)
 {
   t_points	*prev;
@@ -105,20 +83,6 @@ void		del_node(t_points **list, t_points *node)
       bunny_free(prev);
       return ;
     }
-  /* save = *list; */
-  /* prev = *list; */
-  /* while (*list) */
-  /*   { */
-  /*     if (cmp_node(*list, node)) */
-  /* 	{ */
-  /* 	  prev->next = (*list)->next; */
-  /* 	  free(*list); */
-  /* 	  break; */
-  /* 	} */
-  /*     prev = *list; */
-  /*     *list = (*list)->next; */
-  /*   } */
-  /* *list = save; */
 }
 
 void		free_node(t_points *list)

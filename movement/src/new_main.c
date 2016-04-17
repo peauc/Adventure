@@ -5,57 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 13:32:56 2016 Mathieu Sauvau
+** Last update Sun Apr 17 15:11:29 2016 Mathieu Sauvau
 */
 
 #include <math.h>
 #include "tekadv.h"
-
-t_points	*get_node_byclick(t_points *node,
-			  const t_bunny_position *pos)
-{
-  while (node)
-    {
-      if (pos->x >= (node->el.center.x - node->el.zaxe_a)
-	  && pos->x <= (node->el.center.x + node->el.zaxe_a)
-	  && pos->y >= (node->el.center.y - node->el.zaxe_b)
-	  && pos->y <= (node->el.center.y + node->el.zaxe_b))
-	  return (node);
-      node = node->next;
-    }
-  return (NULL);
-}
-
-t_bunny_position	pos_player(t_player *player, t_points *node)
-{
-  player->node = node;
-  return (player->pos = pos_(node->el.center.x - player->sp->size.x / 2,
-			     node->el.center.y - player->sp->size.y));
-}
-
-bool			cmp_position(t_bunny_position pos1,
-				     t_bunny_position pos2)
-{
-  if (pos1.x == pos2.x && pos1.y == pos2.y)
-    return (true);
-  return (false);
-}
-
-bool			cmp_node(t_points *node1, t_points *node2)
-{
-  return (cmp_position(node1->el.center, node2->el.center));
-}
-
-t_points		*get_node_bycoord(t_points *list, t_bunny_position coord)
-{
-  while (list)
-    {
-      if (cmp_position(list->el.center, coord))
-	return (list);
-      list = list->next;
-    }
-  return (NULL);
-}
 
 void			movement(t_bunny_keysym key, t_data *data)
 {
@@ -63,157 +17,24 @@ void			movement(t_bunny_keysym key, t_data *data)
   data = data;
 }
 
-t_bunny_accurate_position	posac_(double x, double y)
+t_bunny_position	pos_player(t_player *player, t_points *node)
 {
-  t_bunny_accurate_position	pos;
-
-  pos.x = x;
-  pos.y = y;
-  return (pos);
+  if (!node)
+    return (pos_(0, 0));
+  player->node = node;
+  return (player->pos = pos_(node->el.center.x - player->sp->size.x / 2,
+			     node->el.center.y - player->sp->size.y));
 }
 
-void				move_to(t_data *data, t_bunny_position dest)
+void				show_player(t_data *data, int row)
 {
-  t_bunny_accurate_position	u;
-  double			n;
-  t_bunny_accurate_position	move;
-  t_flip			flip;
-
-  u = posac_(dest.x - data->player->node->el.center.x,
-	     dest.y - data->player->node->el.center.y);
-  if (u.x == 0 && u.y == 0)
-    return ;
-  n = sqrt(pow(u.x, 2) + pow(u.y, 2));
-  u = posac_(u.x / n, u.y / n);
-  flip = get_row_anim(data->player->node->el.center, dest);
-  while (data->player->pos.x != dest.x - data->player->sp->size.x / 2 ||
-	 data->player->pos.y != dest.y - data->player->sp->size.y)
-    {
-      move = posac_(move.x + u.x, move.y + u.y);
-      data->player->pos.x += (int)move.x;
-      data->player->pos.y += (int)move.y;
-      move = posac_(move.x - (int)move.x, move.y - (int)move.y);
-      my_fill(data->player->pix, PINK);
-      if (flip.flip)
-	data->player->pix->clipable.scale.x *= -1;
-      anim_sprite(data->player->pix, data->player->sp, flip.row, 12);
-      bunny_blit(&data->win->buffer, &data->pix->clipable, NULL);
-      bunny_blit(&data->win->buffer, &data->player->pix->clipable, &data->player->pos);
-      bunny_display(data->win);
-    }
+  anim_sprite(data->player->pix, data->player->sp, row, 12);
+  bunny_blit(&data->win->buffer, &data->pix->clipable, NULL);
+  bunny_blit(&data->win->buffer, &data->player->pix->clipable, &data->player->pos);
+  bunny_display(data->win);
 }
 
-void			move(t_data *data,
-			     t_points *path, t_player *player)
-{
-  static int		i;
-  t_bunny_position	new_pos;
 
-  while (path)
-    {
-      move_to(data, path->el.center);
-      pos_player(player, path);
-      path = path->next;
-    }
-}
-
-bool			node_in_list(t_points *list, t_points *node)
-{
-  t_points		*it;
-
-  it = list->next;
-  while (it != list)
-    {
-      if (cmp_node(it, node))
-	return (true);
-      it = it->next;
-    }
-  return (false);
-}
-
-t_points		*construct_path(t_points *list, t_dict *came_from,
-					t_points *start, t_points *dest)
-{
-  t_points		*path;
-  t_points		*current;
-
-  current = look_up(came_from, dest->index);
-  path = NULL;
-  add_cpy_node(&path, dest);
-  add_cpy_node(&path, current);
-  print_node(path);
-  printf("CURRENT %d %d\n", current->el.center.x, current->el.center.y);
-  printf("start %d %d\n", start->el.center.x, start->el.center.y);
-  printf("path %d %d\n", path->el.center.x, path->el.center.y);
-  while (!cmp_node(current, start))
-    {
-      current = look_up(came_from, current->index);
-      printf("CURRENT %d %d\n", current->el.center.x, current->el.center.y);
-      add_cpy_node(&path, current);
-    }
-  return (path);
-}
-
-t_dict			*find_way(t_points *list,
-				  t_points *start,
-				  t_points *dest)
-{
-  t_dict		*came_from;
-  t_points		*neighbor;
-  t_points		*current;
-  t_points		*frontier;
-
-  if (dest == NULL || cmp_node(start, dest))
-    return (NULL);
-  came_from = NULL;
-  frontier = NULL;
-  add_cpy_node(&frontier, start);
-  add_dict(&came_from, new_entry(start->index, NULL));
-  print_dict(came_from);
-  printf("start center %d %d\n", start->el.center.x, start->el.center.y);
-  printf("dest center %d %d\n", dest->el.center.x, dest->el.center.y);
-  while (frontier)
-    {
-      current = cpy_node(frontier);
-      del_node(&frontier, current);
-      printf("current %d %d\n", current->el.center.x, current->el.center.y);
-      if (cmp_node(current, dest))
-      	{
-      	  printf("BREAK\n");
-      	  break;
-      	}
-      if ((neighbor = get_node_bycoord(list, current->path_0[1])) != NULL
-  	   && !is_in_dict(came_from, neighbor->index))
-  	{
-	  printf("ADD TO FRONTIER PATH 0 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-	  add_cpy_node(&frontier, neighbor);
-	  add_dict(&came_from, new_entry(neighbor->index, current));
-  	}
-      if ((neighbor = get_node_bycoord(list, current->path_1[1])) != NULL
-  	  && !is_in_dict(came_from, neighbor->index))
-  	{
-	  printf("ADD TO FRONTIER PATH 1 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-  	  add_cpy_node(&frontier, neighbor);
-	  add_dict(&came_from, new_entry(neighbor->index, current));
-  	}
-      if ((neighbor = get_node_bycoord(list, current->path_2[1])) != NULL
-  	  && !is_in_dict(came_from, neighbor->index))
-  	{
-	  printf("ADD TO FRONTIER PATH 2 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-  	  add_cpy_node(&frontier, neighbor);
-	  add_dict(&came_from, new_entry(neighbor->index, current));
-  	}
-      if ((neighbor = get_node_bycoord(list, current->path_3[1])) != NULL
-  	  && !is_in_dict(came_from, neighbor->index))
-  	{
-	  printf("ADD TO FRONTIER PATH 3 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-  	  add_cpy_node(&frontier, neighbor);
-	  add_dict(&came_from, new_entry(neighbor->index, current));
-  	}
-    }
-  print_dict(came_from);
-  return (came_from);
-}
 
 t_bunny_response		click(t_bunny_event_state state,
 				      t_bunny_mousebutton button,
@@ -235,8 +56,7 @@ t_bunny_response		click(t_bunny_event_state state,
 	  came_from = find_way(data->node, data->player->node, dest);
 	  if (came_from)
 	    {
-	      path = construct_path(data->node, came_from, data->player->node, dest);
-	      print_node(path);
+	      path = construct_path(came_from, data->player->node, dest);
 	      move(data, path, data->player);
 	    }
 	}
@@ -306,7 +126,6 @@ int			main(int ac, char **av)
   data.p = create_list();
   full_ini(data.p);
   data.node = change_list(data.p);
-  print_node(data.node);
   pos_player(data.player, data.node);
   bunny_set_click_response(&click);
   bunny_set_loop_main_function((t_bunny_loop)mainloop);
