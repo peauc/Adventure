@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 14:37:56 2016 Mathieu Sauvau
+** Last update Sun Apr 17 11:49:29 2016 marel_m
 */
 
 #include "scene.h"
@@ -70,7 +70,7 @@ int			main()
       printf("load menu failed\n");
       return (1);
     }
-  if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
+  if ((data.mv_s = bunny_malloc(sizeof(t_mv_scene))) == NULL)
     {
       printf("scene broke\n");
       return (1);

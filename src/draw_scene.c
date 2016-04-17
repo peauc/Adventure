@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Fri Apr 15 15:07:59 2016 marel_m
-** Last update Sat Apr 16 14:19:47 2016 marel_m
+** Last update Sun Apr 17 11:47:22 2016 marel_m
 */
 
 #include "scene.h"
@@ -14,7 +14,7 @@ t_scene_nb	*init_tab()
 {
   t_scene_nb	*tab;
 
-  if ((tab = malloc(sizeof(t_scene_nb) * MAX_SCENE)) == NULL)
+  if ((tab = bunny_malloc(sizeof(t_scene_nb) * MAX_SCENE)) == NULL)
     return (NULL);
   tab[HARBOR].scene_nb = 0;
   tab[HARBOR].ft_scene_nb = &harbor;

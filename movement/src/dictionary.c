@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Fri Apr 15 17:30:48 2016 Mathieu Sauvau
-** Last update Sat Apr 16 17:11:19 2016 Mathieu Sauvau
+** Last update Sun Apr 17 11:49:05 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -28,7 +28,7 @@ t_dict			*new_entry(int key, t_points *val)
 {
   t_dict		*new;
 
-  if ((new = malloc(sizeof(t_dict))) == NULL)
+  if ((new = bunny_malloc(sizeof(t_dict))) == NULL)
     return (NULL);
   new->key = key;
   new->val = cpy_node(val);

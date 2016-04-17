@@ -5,10 +5,11 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Mar  8 09:15:03 2016 maud marel
-** Last update Tue Apr 12 16:59:10 2016 marel_m
+** Last update Sun Apr 17 11:47:13 2016 marel_m
 */
 
 #include <stdlib.h>
+#include <lapin.h>
 
 int	my_strlen(char *str)
 {
@@ -27,7 +28,7 @@ char	*my_strdup(char *str)
 
   i = 0;
   if (str == NULL
-      || (new = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
+      || (new = bunny_malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
     return (NULL);
   while (str && str[i])
     {
