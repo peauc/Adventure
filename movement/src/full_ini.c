@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Apr 12 01:28:11 2016 Paul Wery
-** Last update Sun Apr 17 17:49:17 2016 Paul Wery
+** Last update Sun Apr 17 18:40:11 2016 Paul Wery
 */
 
 #include <sys/types.h>
@@ -112,7 +112,7 @@ int		full_elem(t_bunny_ini *ini, const char *scope,
 }
 
 int		ok(t_bunny_ini *ini,
-		   t_bunny_ini_scope *scope,
+		   const char *scope,
 		   char *name)
 {
   const char	*elem;
@@ -136,7 +136,7 @@ int			full_ini(t_points *list, char *name)
 		 S_IRUSR | S_IWUSR)) == -1)
     return (-1);
   close(fd);
-  if ((ini = bunny_load_ini("paths.ini")) == NULL)
+  if ((ini = bunny_load_ini("spaths.ini")) == NULL)
     return (-1);
   scope = bunny_ini_first(ini);
   while ((scope = bunny_ini_next(ini, scope)) != NULL)
