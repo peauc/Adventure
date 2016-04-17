@@ -5,14 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sat Apr 16 15:35:51 2016 Poc
-** Last update Sun Apr 17 13:32:47 2016 Poc
+** Last update Sun Apr 17 15:19:35 2016 Poc
 */
 
 #include "tekadv.h"
 
-
-
-t_flip		do_some_shit(t_bunny_position start, t_bunny_position end)
+t_flip		get_row_anim(t_bunny_position start, t_bunny_position end)
 {
   t_flip	flip;
 
@@ -29,12 +27,12 @@ t_flip		do_some_shit(t_bunny_position start, t_bunny_position end)
   else if (start.x < end.x)
     {
       flip.flip = (start.y < end.y ? 1 : 0);
-      flip.row = 2;
+      flip.row = 5;
     }
   else if (start.x > end.x)
     {
       flip.flip = (start.y > end.y ? 0 : 1);
-      flip.row = 5;
+      flip.row = 2;
     }
   return (flip);
 }
