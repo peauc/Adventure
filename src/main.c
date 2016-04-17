@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 15:19:01 2016 Poc
+** Last update Sun Apr 17 17:23:04 2016 Poc
 */
 
 #include "scene.h"
@@ -66,6 +66,8 @@ int			main()
       return (1);
   if ((load_scene_tab(data.tab)))
       return (1);
+  if ((load_music()))
+    return (1);
   data.mv_s->s_nb = 7;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
