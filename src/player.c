@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 17:42:10 2016 Mathieu Sauvau
-** Last update Sun Apr 17 22:40:55 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:26:19 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -26,8 +26,8 @@ void				show_player(t_data *data, t_flip flip)
   pos = pos_(data->player->pos.x - data->mv_s->mv_bck,
 	     data->player->pos.y);
   anim_sprite(data->player->pix, data->player->sp, flip, 12);
+  draw_scene(data);
+  put_pix_in_pix(data->pixel, data->player->pix, pos, 0);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
-  bunny_blit(&data->win->buffer,
-	     &data->player->pix->clipable, &pos);
   bunny_display(data->win);
 }

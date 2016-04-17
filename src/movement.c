@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 15:08:02 2016 Mathieu Sauvau
-** Last update Sun Apr 17 22:52:03 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:18:05 2016 Mathieu Sauvau
 */
 
 #include <math.h>
@@ -32,7 +32,7 @@ void				move_to(t_data *data, t_bunny_position dest)
       data->player->pos.x += (int)move.x;
       data->player->pos.y += (int)move.y;
       move = posac_(move.x - (int)move.x, move.y - (int)move.y);
-      my_fill(data->player->pix, PINK);
+      my_fill(data->player->pix, 0x00000000);
       if (flip.flip)
 	data->player->pix->clipable.scale.x *= -1;
       show_player(data, flip);
