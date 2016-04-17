@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 22:57:32 2016 Mathieu Sauvau
+## Last update Sun Apr 17 23:07:17 2016 Poc
 ##
 
 DEBUG=	no
@@ -74,11 +74,11 @@ CMD+=	 -lsfml-system -lstdc++ -ldl -L ~/.froot/lib -lm
 LIB=	-I inc/
 
 ifeq ($(DEBUG), yes)
-	CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic -g -D DEBUG
-	CC=		clang
+	CFLAGS=		-W -Wall -Wextra -ansi -pedantic -g -D DEBUG
+	CC=		clang $(HEAD)
 else
-	CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic
-	CC=		gcc
+	CFLAGS=		-W -Wall -Wextra -ansi -pedantic
+	CC=		gcc $(HEAD)
 endif
 
 NAME=	adv

@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 17 17:16:12 2016 Paul Wery
-** Last update Sun Apr 17 22:21:19 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:08:06 2016 Poc
 */
 
 #include "tekadv.h"
@@ -17,13 +17,11 @@ void			aff_roads(t_points *list,
 {
   t_points			*it;
   t_road			r;
-  const t_bunny_position	*pos;
 
   r.x = x;
   r.y = 0;
   r.pix = pix;
   it = list->next;
-  pos = bunny_get_mouse_position();
   r.max_x = WIDTH + x;
   r.max_y = HEIGHT;
   while (it != list)

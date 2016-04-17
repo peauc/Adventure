@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 23:26:28 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:31:25 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -44,11 +44,9 @@ t_bunny_response		escape(t_bunny_event_state state,
 
 t_bunny_response		mainloop(t_data *data)
 {
-  const t_bunny_position        *pos;
   t_bunny_position		posi;
   t_flip                        flip;
 
-  pos = bunny_get_mouse_position();
   my_fill(data->player->pix, 0x00000000);
   flip.flip = 0;
   flip.row = 0;
