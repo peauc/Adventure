@@ -5,12 +5,12 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Sun Apr 17 20:59:11 2016 marel_m
+** Last update Sun Apr 17 21:19:30 2016 marel_m
 */
 
 #include "tekadv.h"
 
-void                    change_scene_nine_eight(t_data *data)
+int                    change_scene_nine_eight(t_data *data)
 {
   t_bunny_position      pos;
 
@@ -27,11 +27,16 @@ void                    change_scene_nine_eight(t_data *data)
 	  data->mv_s->mv_fr = 0;
 	  data->mv_s->mv_bck = 0;
 	  data->mv_s->click = 0;
+	  if ((data->p = change_road(8, data->p)) == NULL
+	      || (data->node = change_list(data->p)) == NULL)
+	    return (1);
+	  pos_player(data->player, data->node);
 	}
     }
+  return (0);
 }
 
-void			manor_in(t_data *data)
+int			manor_in(t_data *data)
 {
   t_bunny_position      pos;
 
@@ -41,8 +46,10 @@ void			manor_in(t_data *data)
   pos.y = 0;
   put_pix_in_pix(data->pixel, data->tab[9].back, pos, data->mv_s->mv_bck);
   put_pix_in_pix(data->pixel, data->tab[9].front, pos, data->mv_s->mv_fr);
-  change_scene_nine_eight(data);
+  if (change_scene_nine_eight(data))
+    return (1);
   put_pix_in_pix(data->pixel, data->new, pos, 0);
+  return (0);
 }
 
 void                    change_scene_eight_zero(t_data *data)
@@ -62,11 +69,15 @@ void                    change_scene_eight_zero(t_data *data)
 	  data->mv_s->mv_fr = WIDTH - 4;
 	  data->mv_s->mv_bck = WIDTH - 4;
 	  data->mv_s->click = 0;
+	  if ((data->p = change_road(0, data->p)) == NULL
+	      || (data->node = change_list(data->p)) == NULL)
+	    return (1);
+	  pos_player(data->player, data->node);
 	}
     }
 }
 
-void                    change_scene_eight_nine(t_data *data)
+int			change_scene_eight_nine(t_data *data)
 {
   t_bunny_position      pos;
 
@@ -84,11 +95,16 @@ void                    change_scene_eight_nine(t_data *data)
 	  data->mv_s->mv_fr = 0;
 	  data->mv_s->mv_bck = 0;
 	  data->mv_s->click = 0;
+	  if ((data->p = change_road(9, data->p)) == NULL
+	      || (data->node = change_list(data->p)) == NULL)
+	    return (1);
+	  pos_player(data->player, data->node);
 	}
     }
+  return (0);
 }
 
-void			manor(t_data *data)
+int			manor(t_data *data)
 {
   t_bunny_position      pos;
 
@@ -97,7 +113,9 @@ void			manor(t_data *data)
   pos.x = 0;
   pos.y = 0;
   put_pix_in_pix(data->pixel, data->tab[8].front, pos, 0);
-  change_scene_eight_zero(data);
-  change_scene_eight_nine(data);
+  if (change_scene_eight_zero(data) ||
+      change_scene_eight_nine(data))
+    return (1);
   put_pix_in_pix(data->pixel, data->new, pos, 0);
+  return (0);
 }
