@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 19:28:19 2016 marel_m
+** Last update Sun Apr 17 21:06:38 2016 Mathieu Sauvau
 */
 
 #ifndef _SCENE_

@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 20:40:21 2016 marel_m
+** Last update Sun Apr 17 21:35:25 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -26,8 +26,11 @@ t_bunny_response	escape(t_bunny_event_state state,
     }
   if (key == BKS_LCONTROL && state == GO_DOWN)
     {
-      aff_road(data->mv_s->s_nb, data->p, data->new, 0);
+      my_fill(data->road, 0x00000000);
+      aff_road(data->mv_s->s_nb, data->p, data->road, 0);
     }
+  else
+    my_fill(data->road, 0x00000000);
   return (GO_ON);
 }
 
@@ -49,6 +52,7 @@ t_bunny_response       	mainloop(t_data *data)
   draw_menu(data->pixel, data->menu);
   draw_inventory(data->pixel, data->tab);
   data->mv_s->click = 0;
+  put_pix_in_pix(data->pixel, data->road, pos_(0, 0), 0);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
   bunny_blit(&data->win->buffer,
 	     &data->player->pix->clipable, &data->player->pos);
@@ -79,7 +83,8 @@ int			main()
   if (load_all_scene(&data) == -1)
       return (1);
   data.win = bunny_start(WIDTH, HEIGHT, false, "test");
-  if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
+  if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL
+      || (data.road = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
       return (1);
@@ -106,6 +111,7 @@ int			main()
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
+  my_fill(data.road, 0x00000000);
   if ((data.p = change_road(0, data.p)) == NULL
       || (data.node = change_list(data.p)) == NULL)
     return (1);

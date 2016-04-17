@@ -5,9 +5,10 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 17 17:16:12 2016 Paul Wery
-** Last update Sun Apr 17 20:32:20 2016 marel_m
+** Last update Sun Apr 17 21:34:45 2016 Mathieu Sauvau
 */
 
+#include "tekadv.h"
 #include "road.h"
 
 int	in_a_ellps(char *image, t_points *it,
@@ -36,6 +37,8 @@ void			aff_roads(t_points *list,
   r.pix = pix;
   it = list->next;
   pos = bunny_get_mouse_position();
+  r.max_x = WIDTH + x;
+  r.max_y = HEIGHT;
   while (it != list)
     {
       if (same_name(image, it->image) == 1)

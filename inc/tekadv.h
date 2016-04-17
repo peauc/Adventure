@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 20:39:50 2016 marel_m
+** Last update Sun Apr 17 21:06:55 2016 Mathieu Sauvau
 */
 
 #ifndef _TEKADV_H_
@@ -98,6 +98,7 @@ typedef struct                  s_data
   t_bunny_window                *win;
   t_bunny_pixelarray            *new;
   t_bunny_pixelarray            *pixel;
+  t_bunny_pixelarray		*road;
   t_menu                        *menu;
   t_player                      *player;
   t_points                      *p;
