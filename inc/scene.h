@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 18:11:11 2016 marel_m
+** Last update Sun Apr 17 18:31:53 2016 Poc
 */
 
 #ifndef _SCENE_
@@ -93,25 +93,26 @@ typedef struct		s_scene_nb
 ** INIT
 */
 int			load_all_scene(t_data *);
+int			load_buttons(t_menu *);
 int			load_item(t_menu *, t_bunny_ini *);
 int			load_item_basement(t_scene *);
-t_menu			*load_menu();
+int			load_music();
 int			load_scene_tab(t_scene[14]);
-int			load_buttons(t_menu *);
 int			init_scene(t_scene[14]);
+t_menu			*load_menu();
 void			set_all_to_zero(t_button *);
 
 /*
 ** DISPLAY
 */
-int			draw_scene(t_data *);
 int			draw_menu(t_bunny_pixelarray *, t_menu *);
+int			draw_scene(t_data *);
 int			draw_inventory(t_bunny_pixelarray *, t_scene[14]);
 int			draw_items(t_item *, t_bunny_pixelarray *);
+t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *, int, int);
 void			pixelarray_copy(t_bunny_pixelarray *,
 					 t_bunny_pixelarray *,
 					 t_bunny_position);
-t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *, int, int);
 void			put_pix_in_pix(t_bunny_pixelarray *,
 				       t_bunny_pixelarray *,
 				       t_bunny_position,
@@ -138,6 +139,10 @@ void			mv_camera_mouse(t_data *);
 /*
 ** SCENE
 */
+int			load_manor(t_data *);
+int			load_harbor(t_data *);
+int			load_beach(t_data *);
+int			load_arrow(t_data *);
 void			harbor(t_data *);
 void			boat(t_data *);
 void			shop_place(t_data *);
@@ -148,15 +153,11 @@ void			house_in(t_data *);
 void			basement(t_data *);
 void			manor(t_data *);
 void			manor_in(t_data *);
-int			load_manor(t_data *);
-int			load_harbor(t_data *);
-int			load_beach(t_data *);
-int			load_arrow(t_data *);
 
 /*
 ** LIB/FREE
 */
-void			free_data(t_data *);
 char			*my_strdup(char *);
+void			free_data(t_data *);
 
 #endif /* _SCENE_ */
