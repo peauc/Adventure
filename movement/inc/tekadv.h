@@ -6,7 +6,7 @@
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
 <<<<<<< HEAD
-** Last update Sun Apr 17 15:48:59 2016 Mathieu Sauvau
+** Last update Sun Apr 17 17:43:46 2016 Mathieu Sauvau
 =======
 ** Last update Sat Apr 16 17:29:08 2016 Mathieu Sauvau
 >>>>>>> 42d64d8101a8f5c2fc0d7893be20260f02b5ecd7
@@ -76,8 +76,10 @@ void			cpy_color(t_bunny_pixelarray *out, t_bunny_pixelarray *src,
 void			cpy_sprite(t_bunny_pixelarray *out, t_sprite_sheet *sp,
 				   int col, int row);
 void			anim_sprite(t_bunny_pixelarray *out, t_sprite_sheet *sp,
-				    int start_row, int limit_col);
+				    t_flip flip, int limit_col);
 t_flip			get_row_anim(t_bunny_position start, t_bunny_position end);
+void			show_player(t_data *data, t_flip flip);
+t_bunny_position	pos_player(t_player *player, t_points *node);
 
 /*
 ** PATHFINDING

@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 14:41:20 2016 Mathieu Sauvau
-** Last update Sun Apr 17 15:16:04 2016 Mathieu Sauvau
+** Last update Sun Apr 17 18:25:53 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -41,6 +41,8 @@ t_points	*get_node_byclick(t_points *node,
 
 bool			cmp_node(t_points *node1, t_points *node2)
 {
+  if (!node1 || !node2)
+    return (true);
   return (cmp_position(node1->el.center, node2->el.center));
 }
 
