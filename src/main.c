@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 21:59:51 2016 Poc
+** Last update Sun Apr 17 23:07:24 2016 Poc
 */
 
 #include "tekadv.h"
@@ -34,17 +34,19 @@ t_bunny_response		escape(t_bunny_event_state state,
     }
   if (key == BKS_LCONTROL && state == GO_DOWN)
     {
-      aff_road(data->mv_s->s_nb, data->p, data->new, 0);
+      my_fill(data->road, 0x00000000);
+      aff_road(data->mv_s->s_nb, data->p, data->road, data->mv_s->mv_bck);
     }
+  else
+    my_fill(data->road, 0x00000000);
   return (GO_ON);
 }
 
 t_bunny_response		mainloop(t_data *data)
 {
-  const t_bunny_position        *pos;
+  t_bunny_position		posi;
   t_flip                        flip;
 
-  pos = bunny_get_mouse_position();
   my_fill(data->pixel, PINK);
   my_fill(data->player->pix, PINK);
   flip.flip = 0;
@@ -55,9 +57,11 @@ t_bunny_response		mainloop(t_data *data)
   draw_menu(data->pixel, data->menu);
   draw_inventory(data->pixel, data->tab);
   data->mv_s->click = 0;
+  put_pix_in_pix(data->pixel, data->road, pos_(0, 0), 0);
   bunny_blit(&data->win->buffer, &data->pixel->clipable, NULL);
+  posi = pos_(data->player->pos.x - data->mv_s->mv_bck, data->player->pos.y);
   bunny_blit(&data->win->buffer,
-  	     &data->player->pix->clipable, &data->player->pos);
+  	     &data->player->pix->clipable, &posi);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -87,8 +91,11 @@ int				initialize(t_data *data)
       (data->menu = load_menu()) == NULL ||
       (data->mv_s = malloc(sizeof(t_mv_scene))) == NULL ||
       (load_scene_tab(data->tab)) ||
+      (data->road = bunny_new_pixelarray(data->tab[0].back->clipable.clip_width,
+					 HEIGHT)) == NULL ||
       (load_music()))
       return (1);
+  my_fill(data->road, 0x00000000);
   data->mv_s->s_nb = 0;
   data->mv_s->mv_bck = 0;
   data->mv_s->mv_fr = 0;

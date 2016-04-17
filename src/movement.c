@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 15:08:02 2016 Mathieu Sauvau
-** Last update Sun Apr 17 18:26:57 2016 Mathieu Sauvau
+** Last update Sun Apr 17 22:52:03 2016 Mathieu Sauvau
 */
 
 #include <math.h>
@@ -46,6 +46,7 @@ void			move(t_data *data,
     {
       move_to(data, path->el.center);
       pos_player(player, path);
+      player->save_pos.x = player->pos.x;
       path = path->next;
     }
 }
