@@ -5,11 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-<<<<<<< HEAD
-** Last update Sun Apr 17 12:37:52 2016 Poc
-=======
-** Last update Sun Apr 17 11:50:51 2016 marel_m
->>>>>>> 3760f9526023d9479ab0fccefd6b69918f4d4bc1
+** Last update Sun Apr 17 13:01:12 2016 Poc
 */
 
 #include "scene.h"
@@ -55,35 +51,21 @@ int			main()
 {
   t_data		data;
 
+
   bunny_set_maximum_ram(10000000000);
   if (load_all_scene(&data) == -1)
-    {
-      printf("load all scene\n");
       return (1);
-    }
   data.win = bunny_start(WIDTH, HEIGHT, false, "test");
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
-    {
-      printf("pixelarray broke\n");
       return (1);
-    }
   if ((data.menu = load_menu()) == NULL)
-    {
-      printf("load menu failed\n");
       return (1);
-    }
-  if ((data.mv_s = bunny_malloc(sizeof(t_mv_scene))) == NULL)
-    {
-      printf("scene broke\n");
+  if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
       return (1);
-    }
   if ((load_scene_tab(data.tab)))
-    {
-      printf("init tab\n");
       return (1);
-    }
   data.mv_s->s_nb = 7;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
@@ -93,7 +75,8 @@ int			main()
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
-  free_data(&data);
+  /* free_data(&data); */
+  printf("Penis de type enorme\n");
   bunny_delete_clipable(&data.pixel->clipable);
   bunny_delete_clipable(&data.new->clipable);
   bunny_stop(data.win);

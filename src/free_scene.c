@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 15:10:11 2016 marel_m
-** Last update Sun Apr 17 12:30:35 2016 Poc
+** Last update Sun Apr 17 12:59:35 2016 Poc
 */
 
 #include "scene.h"
@@ -45,6 +45,4 @@ void	free_data(t_data *data)
 	  bunny_delete_clipable(&data->tab[i].middle->clipable);
 	}
     }
-  printf("bite\n");
-  bunny_delete_clipable(&data->pixel->clipable);
 }
