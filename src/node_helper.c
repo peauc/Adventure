@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 14:41:20 2016 Mathieu Sauvau
-** Last update Sun Apr 17 18:25:53 2016 Mathieu Sauvau
+** Last update Sun Apr 17 22:13:58 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -24,13 +24,13 @@ bool			node_in_list(t_points *list, t_points *node)
   return (false);
 }
 
-t_points	*get_node_byclick(t_points *node,
+t_points	*get_node_byclick(t_mv_scene *mv, t_points *node,
 				  const t_bunny_position *pos)
 {
   while (node)
     {
-      if (pos->x >= (node->el.center.x - node->el.zaxe_a)
-	  && pos->x <= (node->el.center.x + node->el.zaxe_a)
+      if (pos->x >= (node->el.center.x - node->el.zaxe_a - mv->mv_bck)
+	  && pos->x <= (node->el.center.x + node->el.zaxe_a - mv->mv_bck)
 	  && pos->y >= (node->el.center.y - node->el.zaxe_b)
 	  && pos->y <= (node->el.center.y + node->el.zaxe_b))
 	  return (node);

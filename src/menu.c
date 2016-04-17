@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 21:35:38 2016 marel_m
+** Last update Sun Apr 17 22:13:28 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -41,7 +41,7 @@ void				mv_perso(t_bunny_event_state state,
       if (!clicked)
 	{
 	  clicked = true;
-	  dest = get_node_byclick(data->node, pos);
+	  dest = get_node_byclick(data->mv_s, data->node, pos);
 	  came_from = find_way(data->node, data->player->node, dest);
 	  if (came_from)
 	    {
