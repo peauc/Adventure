@@ -1,18 +1,18 @@
 /*
-** tekpixel.c for tekpixel in /home/wery_p/rendu/gfx_tekadventure/create_road
+OB** tekpixel.c for tekpixel in /home/wery_p/rendu/gfx_tekadventure/create_road
 **
 ** Made by Paul Wery
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Apr 10 13:57:15 2016 Paul Wery
-** Last update Sat Apr 16 14:31:33 2016 Mathieu Sauvau
+** Last update Sun Apr 17 19:43:22 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
-static void		tekpixel(t_bunny_pixelarray *pix,
-			 t_bunny_position *pos,
-			 unsigned int color)
+static void		tekpixele(t_bunny_pixelarray *pix,
+				  t_bunny_position *pos,
+				  unsigned int color)
 {
   t_color	*pixel;
   int		i;
@@ -43,7 +43,7 @@ void			pixelarray_copy(t_bunny_pixelarray *dest,
 	    + (pos.x - offset.x + ((pos.y - offset.y) *
 				   src->clipable.clip_width));
 	  if (color->argb[3] != 0)
-	    tekpixel(dest, &pos, color->full);
+	    tekpixele(dest, &pos, color->full);
 	  pos.x += 1;
 	}
       pos.x = offset.x;

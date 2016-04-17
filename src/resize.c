@@ -5,11 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Mon Feb 22 14:13:05 2016 Paul Wery
-** Last update Sat Apr 16 14:18:02 2016 marel_m
+** Last update Sun Apr 17 19:38:06 2016 marel_m
 */
 
 #include <lapin.h>
-#include "scene.h"
+#include "tekadv.h"
 #include "road.h"
 
 void	ini_resize(t_resize *r)

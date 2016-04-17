@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Apr 15 20:31:58 2016 Poc
-** Last update Sat Apr 16 14:21:00 2016 marel_m
+** Last update Sun Apr 17 19:39:07 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 int	load_scene_tab(t_scene tab[14])
 {

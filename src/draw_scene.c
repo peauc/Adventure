@@ -5,10 +5,10 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Fri Apr 15 15:07:59 2016 marel_m
-** Last update Sun Apr 17 11:47:22 2016 marel_m
+** Last update Sun Apr 17 19:39:08 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 t_scene_nb	*init_tab()
 {

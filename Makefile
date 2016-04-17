@@ -5,13 +5,34 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 17:35:07 2016 Poc
+## Last update Sun Apr 17 20:16:57 2016 marel_m
 ## Last update Sun Apr 17 14:44:44 2016 marel_m
 ##
 
 DEBUG=	yes
 
 SRC=	main.c					\
+	anim_sprite.c				\
+	helper.c				\
+	dictionary.c				\
+	node_list.c				\
+	node_helper.c				\
+	pathfinding.c				\
+	do_some_shit.c				\
+	movement.c				\
+	player.c				\
+	change_road.c				\
+	full_ini.c				\
+	../create_road/srcs/my_list.c		\
+	../create_road/srcs/delete_links.c	\
+	../create_road/srcs/comp_string.c	\
+	../create_road/srcs/tekcircle.c		\
+	../create_road/srcs/tekpixel.c		\
+	../create_road/srcs/create_tmp.c	\
+	../create_road/srcs/line/ini_line.c	\
+	../create_road/srcs/line/line.c		\
+	../create_road/srcs/line/tekline.c	\
+	../create_road/srcs/line/my_color.c	\
 	draw_inventory.c			\
 	resize.c				\
 	load_music.c				\
@@ -34,7 +55,6 @@ SRC=	main.c					\
 	determine_item.c			\
 	draw_scene.c				\
 	draw_menu.c				\
-	fill.c					\
 	get_pos.c				\
 	load_buttons.c				\
 	load_item_basement.c			\

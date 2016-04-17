@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:38:33 2016 Mathieu Sauvau
-** Last update Tue Apr 12 15:40:09 2016 Mathieu Sauvau
+** Last update Sun Apr 17 15:15:50 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -40,4 +40,21 @@ t_bunny_position	pos_(int x, int y)
   pos.x = x;
   pos.y = y;
   return (pos);
+}
+
+t_bunny_accurate_position	posac_(double x, double y)
+{
+  t_bunny_accurate_position	pos;
+
+  pos.x = x;
+  pos.y = y;
+  return (pos);
+}
+
+bool			cmp_position(t_bunny_position pos1,
+				     t_bunny_position pos2)
+{
+  if (pos1.x == pos2.x && pos1.y == pos2.y)
+    return (true);
+  return (false);
 }

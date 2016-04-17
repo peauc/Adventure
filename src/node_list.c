@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sat Apr 16 09:59:29 2016 Mathieu Sauvau
-** Last update Sun Apr 17 11:50:26 2016 marel_m
+** Last update Sun Apr 17 18:03:28 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -14,7 +14,8 @@ t_points	*cpy_node(t_points *point)
 {
   t_points	*p;
 
-  if ((p = bunny_malloc(sizeof(t_points))) == NULL)
+  if (point == NULL ||
+      (p = bunny_malloc(sizeof(t_points))) == NULL)
     return (NULL);
   p->index = point->index;
   p->el.center = point->el.center;
@@ -39,26 +40,14 @@ void		add_cpy_node(t_points **list, t_points *node)
 {
   t_points	*tmp;
 
-  tmp = cpy_node(node);
+  if ((tmp = cpy_node(node)) == NULL)
+    return ;
   if (!*list)
     *list = tmp;
   else
     {
       tmp->next = *list;
       *list = tmp;
-    }
-}
-
-void		add_node(t_points **list, t_points *node)
-{
-  if (!*list)
-    {
-      *list = node;
-    }
-  else
-    {
-      node->next = *list;
-      *list = node;
     }
 }
 
@@ -81,44 +70,22 @@ t_points	*change_list(t_points *list)
   return (new_list);
 }
 
-void		print_node(t_points *list)
-{
-  while (list)
-    {
-      printf("node %d - %d %d\n", list->index, list->el.center.x, list->el.center.y);
-      list = list->next;
-    }
-}
-
 void		del_node(t_points **list, t_points *node)
 {
   t_points	*prev;
-  t_points	*save;
 
-  if (cmp_node(*list,  node))
+  if (!*list || !node)
+    return ;
+  if (cmp_node(*list, node))
     {
       prev = *list;
       *list = (*list)->next;
-      free(prev);
+      bunny_free(prev);
       return ;
     }
-  save = *list;
-  prev = *list;
-  while (*list)
-    {
-      if (cmp_node(*list, node))
-	{
-	  prev->next = (*list)->next;
-	  free(*list);
-	  break;
-	}
-      prev = *list;
-      *list = (*list)->next;
-    }
-  *list = save;
 }
 
-void		free_node(t_points *list)
+void		clear_node(t_points *list)
 {
   t_points	*tmp;
 
@@ -126,7 +93,7 @@ void		free_node(t_points *list)
     {
       tmp = list;
       list = list->next;
-      free(tmp);
+      bunny_free(tmp);
     }
-  free(list);
+  bunny_free(list);
 }

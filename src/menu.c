@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 17:21:21 2016 marel_m
+** Last update Sun Apr 17 19:52:33 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 void			set_all_to_zero(t_button *buttons)
 {
@@ -23,11 +23,17 @@ void			set_all_to_zero(t_button *buttons)
 
 }
 
-t_bunny_response	clicky(t_bunny_event_state clicked,
+t_bunny_response	clicky(t_bunny_event_state state,
 			       t_bunny_mouse_button button,
 			       t_data *data)
 {
-  if (button == BMB_LEFT && clicked == GO_DOWN)
+  const t_bunny_position        *pos;
+  t_dict                        *came_from;
+  t_points                      *dest;
+  t_points                      *path;
+  bool                          clicked;
+
+  if (button == BMB_LEFT && state == GO_DOWN)
     {
       if ((determine_button_clicked(data->menu)))
 	  return (EXIT_ON_ERROR);
@@ -37,7 +43,24 @@ t_bunny_response	clicky(t_bunny_event_state clicked,
       	return (EXIT_ON_ERROR);
       data->mv_s->pos_click = bunny_get_mouse_position();
     }
-  if (button == BMB_RIGHT && clicked == GO_DOWN)
-    ;
+  clicked = false;
+  pos = bunny_get_mouse_position();
+  path = NULL;
+  if (button == BMB_RIGHT && state == GO_DOWN)
+    {
+      if (!clicked)
+	{
+	  clicked = true;
+	  dest = get_node_byclick(data->node, pos);
+	  came_from = find_way(data->node, data->player->node, dest);
+	  if (came_from)
+	    {
+	      path = construct_path(came_from, data->player->node, dest);
+	      move(data, path, data->player);
+	      clear_dict(came_from);
+	      clear_node(path);
+	    }
+	}
+    }
   return (GO_ON);
 }

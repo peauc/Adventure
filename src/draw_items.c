@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Apr 15 13:54:43 2016 Poc
-** Last update Sat Apr 16 14:20:20 2016 marel_m
+** Last update Sun Apr 17 19:39:08 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 int	draw_items(t_item *item, t_bunny_pixelarray *pix)
 {

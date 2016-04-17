@@ -5,10 +5,10 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Sun Apr 17 17:16:31 2016 marel_m
+** Last update Sun Apr 17 20:42:51 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 void                    change_scene_nine_eight(t_data *data)
 {
@@ -16,9 +16,9 @@ void                    change_scene_nine_eight(t_data *data)
 
   pos.x = 200 - data->mv_s->mv_bck;
   pos.y = 250;
-  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 200
-      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 300
-      && data->mv_s->mouse->y <= 350 && data->mv_s->mouse->y >= 250)
+  if (data->mv_s->mouse.x + data->mv_s->mv_bck >= 200
+      && data->mv_s->mouse.x + data->mv_s->mv_bck <= 300
+      && data->mv_s->mouse.y <= 350 && data->mv_s->mouse.y >= 250)
     {
       put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
@@ -51,9 +51,9 @@ void                    change_scene_eight_zero(t_data *data)
 
   pos.x = 0;
   pos.y = 475;
-  if (data->mv_s->mouse->x >= 0
-      && data->mv_s->mouse->x <= 100
-      && data->mv_s->mouse->y <= 575 && data->mv_s->mouse->y >= 475)
+  if (data->mv_s->mouse.x >= 0
+      && data->mv_s->mouse.x <= 100
+      && data->mv_s->mouse.y <= 575 && data->mv_s->mouse.y >= 475)
     {
       put_pix_in_pix(data->pixel, data->tab[12].front, pos, 0);
       if (data->mv_s->click == 1)
@@ -72,9 +72,9 @@ void                    change_scene_eight_nine(t_data *data)
 
   pos.x = 300;
   pos.y = 325;
-  if (data->mv_s->mouse->x >= 300
-      && data->mv_s->mouse->x <= 400
-      && data->mv_s->mouse->y <= 425 && data->mv_s->mouse->y >= 325)
+  if (data->mv_s->mouse.x >= 300
+      && data->mv_s->mouse.x <= 400
+      && data->mv_s->mouse.y <= 425 && data->mv_s->mouse.y >= 325)
     {
       put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1 && data->menu->buttons[1].is_clicked == 1

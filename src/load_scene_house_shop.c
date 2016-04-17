@@ -5,10 +5,10 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 11:42:20 2016 marel_m
-** Last update Sun Apr 17 11:32:36 2016 marel_m
+** Last update Sun Apr 17 19:39:05 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 int	load_shop(t_data *data)
 {

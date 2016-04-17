@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sat Apr 16 11:59:06 2016 Poc
-** Last update Sat Apr 16 14:21:56 2016 marel_m
+** Last update Sun Apr 17 19:39:07 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 t_bunny_position	get_pos(int x, int y)
 {

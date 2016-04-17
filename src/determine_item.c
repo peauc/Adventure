@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Apr 15 15:35:00 2016 Poc
-** Last update Sat Apr 16 14:30:35 2016 Poc
+** Last update Sun Apr 17 19:39:09 2016 marel_m
  */
 
-#include "scene.h"
+#include "tekadv.h"
 
 int				is_clicked(t_bunny_position *pos,
 					   t_bunny_pixelarray *pixel,

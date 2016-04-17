@@ -5,10 +5,10 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 14:09:58 2016 marel_m
-** Last update Sun Apr 17 11:32:21 2016 marel_m
+** Last update Sun Apr 17 19:39:05 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 int	load_beach(t_data *data)
 {

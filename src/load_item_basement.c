@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Apr 14 21:52:45 2016 Poc
-** Last update Sun Apr 17 11:33:22 2016 marel_m
+** Last update Sun Apr 17 19:39:06 2016 marel_m
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "scene.h"
+#include "tekadv.h"
 
 int	load_item_basement(t_scene *scene)
 {

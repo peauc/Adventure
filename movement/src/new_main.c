@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 18:45:46 2016 Mathieu Sauvau
+** Last update Sun Apr 17 18:54:40 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -104,7 +104,7 @@ int			main(int ac, char **av)
   ac = ac;
   av = av;
   if ((data.player = bunny_malloc(sizeof(t_player))) == NULL
-      || (data.player->sp = load_sprite_sheet("gimp/sprite_monkey_island.png",
+      || (data.player->sp = load_sprite_sheet("sprites/sprite_monkey_island.png",
 					      pos_(125, 290), 10)) == NULL
       || (data.player->pix = bunny_new_pixelarray(data.player->sp->size.x,
 						  data.player->sp->size.y)) == NULL

@@ -5,10 +5,10 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 15:10:11 2016 marel_m
-** Last update Sun Apr 17 17:34:51 2016 Poc
+** Last update Sun Apr 17 19:39:07 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 void	delete_item(t_item *item)
 {

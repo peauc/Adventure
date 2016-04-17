@@ -5,15 +5,15 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Thu Apr 14 13:02:01 2016 marel_m
-** Last update Sun Apr 17 17:19:48 2016 marel_m
+** Last update Sun Apr 17 19:42:07 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
-void            tekpixel(t_bunny_pixelarray *pix,
-			 t_bunny_position *pos,
-			 t_color *color,
-			 int state)
+void            tekpixel_scene(t_bunny_pixelarray *pix,
+			       t_bunny_position *pos,
+			       t_color *color,
+			       int state)
 {
   t_color       *pixel;
   int           i;
@@ -50,7 +50,7 @@ void                    put_pix_in_pix(t_bunny_pixelarray *pix,
 	  i = posi.x + (posi.y * src->clipable.clip_width) + plus;
 	  color = (t_color*)src->pixels + i;
 	  if (color->argb[3] != 0)
-	    tekpixel(pix, &pos, color, 0);
+	    tekpixel_scene(pix, &pos, color, 0);
 	  pos.x++;
 	  posi.x++;
 	}
@@ -80,7 +80,7 @@ void                    put_pix_in_pix_mv(t_bunny_pixelarray *pix,
 	  i = posi.x + (posi.y * src->clipable.clip_width) + plus;
 	  color = (t_color*)src->pixels + i;
 	  if (color->argb[3] != 0)
-	    tekpixel(pix, &pos, color, 0);
+	    tekpixel_scene(pix, &pos, color, 0);
 	  pos.x++;
 	  posi.x++;
 	}

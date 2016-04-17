@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 18:31:53 2016 Poc
+** Last update Sun Apr 17 19:28:19 2016 marel_m
 */
 
 #ifndef _SCENE_
@@ -16,6 +16,9 @@
 # include <stdbool.h>
 # include "lib.h"
 # include "item.h"
+# include "scene.h"
+# include "tekadv.h"
+# include "road.h"
 
 # define PUTERROR(X)	write(2, X, my_strlen(X))
 # define PUTSTR(X)	write(1, X, my_strlen(X))
@@ -66,6 +69,9 @@ typedef struct			s_data
   t_bunny_pixelarray		*new;
   t_bunny_pixelarray		*pixel;
   t_menu			*menu;
+  t_player			*player;
+  t_points			*p;
+  t_points			*node;
 }				t_data;
 
 enum			scene
@@ -122,6 +128,8 @@ void			put_pix_in_pix_mv(t_bunny_pixelarray *,
 					  t_bunny_position,
 					  int);
 void			pix_initialize(t_bunny_pixelarray *);
+void                    show_player(t_data *data, t_flip flip);
+
 
 /*
 ** ACTION
@@ -135,6 +143,13 @@ t_bunny_position	get_pos(int, int);
 t_bunny_response	clicky(t_bunny_event_state, t_bunny_mouse_button,
 			       t_data *);
 void			mv_camera_mouse(t_data *);
+
+/*
+** MOVEMENT
+*/
+void                    move_to(t_data *data, t_bunny_position dest);
+void                    move(t_data *data,
+			     t_points *path, t_player *player);
 
 /*
 ** SCENE
@@ -159,5 +174,7 @@ void			manor_in(t_data *);
 */
 char			*my_strdup(char *);
 void			free_data(t_data *);
+
+# include "tekadv.h"
 
 #endif /* _SCENE_ */

@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Tue Apr 12 16:57:44 2016 Poc
-** Last update Sat Apr 16 14:20:01 2016 marel_m
+** Last update Sun Apr 17 19:39:06 2016 marel_m
 */
 
-#include "scene.h"
+#include "tekadv.h"
 
 static int		load_first_button(t_button *button)
 {

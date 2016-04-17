@@ -5,11 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-<<<<<<< HEAD
-** Last update Sun Apr 17 17:43:46 2016 Mathieu Sauvau
-=======
-** Last update Sat Apr 16 17:29:08 2016 Mathieu Sauvau
->>>>>>> 42d64d8101a8f5c2fc0d7893be20260f02b5ecd7
+** Last update Sun Apr 17 19:05:31 2016 marel_m
 */
 
 #ifndef _TEKADV_H_
