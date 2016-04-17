@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 16:20:31 2016 marel_m
+** Last update Sun Apr 17 18:32:15 2016 Poc
 */
 
 #include "scene.h"
@@ -14,7 +14,7 @@ t_bunny_response	escape(t_bunny_event_state state,
 			       t_bunny_keysym key,
 			       t_data *data)
 {
-  if (key == BKS_ESCAPE && state == GO_DOWN)
+  if (key == BKS_ESCAPE && state == GO_DOWN && data)
       return (EXIT_ON_SUCCESS);
   return (GO_ON);
 }
@@ -51,6 +51,8 @@ int			main()
       return (1);
   if ((load_scene_tab(data.tab)))
       return (1);
+  if ((load_music()))
+    return (1);
   data.mv_s->s_nb = 0;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
@@ -60,6 +62,7 @@ int			main()
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
+  load_music();
   free_data(&data);
   bunny_delete_clipable(&data.pixel->clipable);
   bunny_delete_clipable(&data.new->clipable);
