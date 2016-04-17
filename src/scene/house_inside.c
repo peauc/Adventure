@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 14:03:38 2016 marel_m
-** Last update Sat Apr 16 14:23:06 2016 marel_m
+** Last update Sun Apr 17 17:16:40 2016 marel_m
 */
 
 #include "scene.h"
@@ -20,7 +20,7 @@ void                    change_scene_six_five(t_data *data)
       && data->mv_s->mouse->x <= 910
       && data->mv_s->mouse->y <= 400 && data->mv_s->mouse->y >= 300)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 5;
@@ -41,7 +41,7 @@ void                    change_scene_six_seven(t_data *data)
       && data->mv_s->mouse->x <= 300
       && data->mv_s->mouse->y <= 500 && data->mv_s->mouse->y >= 400)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[10].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[10].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 7;
@@ -60,10 +60,10 @@ void			house_in(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[6].back, pos, 0);
+  put_pix_in_pix(data->pixel, data->tab[6].back, pos, 0);
   change_scene_six_five(data);
   change_scene_six_seven(data);
-  put_pix_in_pix_txt(data->pixel, data->tab[6].middle, pos, 0);
-  put_pix_in_pix_txt(data->pixel, data->tab[6].front, pos, 0);
-  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
+  put_pix_in_pix(data->pixel, data->tab[6].middle, pos, 0);
+  put_pix_in_pix(data->pixel, data->tab[6].front, pos, 0);
+  put_pix_in_pix(data->pixel, data->new, pos, 0);
 }

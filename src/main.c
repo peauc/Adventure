@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 17:23:04 2016 Poc
+** Last update Sun Apr 17 17:40:28 2016 Poc
 */
 
 #include "scene.h"
@@ -16,28 +16,14 @@ t_bunny_response	escape(t_bunny_event_state state,
 {
   if (key == BKS_ESCAPE && state == GO_DOWN)
       return (EXIT_ON_SUCCESS);
-  if (key == BKS_LEFT && data->mv_s->s_nb != 5)
-    {
-      if (data->mv_s->mv_bck > 10)
-	{
-	  data->mv_s->mv_bck -= 10;
-	  data->mv_s->mv_fr -= 10;
-	}
-    }
-  if (key == BKS_RIGHT && data->mv_s->s_nb != 5)
-    {
-      if (data->mv_s->mv_bck < WIDTH - 10)
-	{
-	  data->mv_s->mv_bck += 10;
-	  data->mv_s->mv_fr += 10;
-	}
-    }
   return (GO_ON);
 }
 
 t_bunny_response       	mainloop(t_data *data)
 {
   data->mv_s->mouse = bunny_get_mouse_position();
+  mv_camera_mouse(data);
+  data->mv_s->old_mouse = data->mv_s->mouse->x;
   draw_scene(data);
   draw_menu(data->pixel, data->menu);
   draw_inventory(data->pixel, data->tab);
@@ -50,7 +36,6 @@ t_bunny_response       	mainloop(t_data *data)
 int			main()
 {
   t_data		data;
-
 
   bunny_set_maximum_ram(10000000000);
   if (load_all_scene(&data) == -1)
@@ -68,7 +53,7 @@ int			main()
       return (1);
   if ((load_music()))
     return (1);
-  data.mv_s->s_nb = 7;
+  data.mv_s->s_nb = 0;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
@@ -77,8 +62,8 @@ int			main()
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
+  load_music();
   free_data(&data);
-  printf("Penis de type enorme\n");
   bunny_delete_clipable(&data.pixel->clipable);
   bunny_delete_clipable(&data.new->clipable);
   bunny_stop(data.win);

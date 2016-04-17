@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:35:23 2016 marel_m
-** Last update Sat Apr 16 14:23:36 2016 marel_m
+** Last update Sun Apr 17 17:16:31 2016 marel_m
 */
 
 #include "scene.h"
@@ -20,7 +20,7 @@ void                    change_scene_nine_eight(t_data *data)
       && data->mv_s->mouse->x + data->mv_s->mv_bck <= 300
       && data->mv_s->mouse->y <= 350 && data->mv_s->mouse->y >= 250)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 8;
@@ -39,10 +39,10 @@ void			manor_in(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[9].back, pos, data->mv_s->mv_bck);
-  put_pix_in_pix_txt(data->pixel, data->tab[9].front, pos, data->mv_s->mv_fr);
+  put_pix_in_pix(data->pixel, data->tab[9].back, pos, data->mv_s->mv_bck);
+  put_pix_in_pix(data->pixel, data->tab[9].front, pos, data->mv_s->mv_fr);
   change_scene_nine_eight(data);
-  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
+  put_pix_in_pix(data->pixel, data->new, pos, 0);
 }
 
 void                    change_scene_eight_zero(t_data *data)
@@ -55,7 +55,7 @@ void                    change_scene_eight_zero(t_data *data)
       && data->mv_s->mouse->x <= 100
       && data->mv_s->mouse->y <= 575 && data->mv_s->mouse->y >= 475)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[12].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[12].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 0;
@@ -76,7 +76,7 @@ void                    change_scene_eight_nine(t_data *data)
       && data->mv_s->mouse->x <= 400
       && data->mv_s->mouse->y <= 425 && data->mv_s->mouse->y >= 325)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1 && data->menu->buttons[1].is_clicked == 1
 	  && data->tab[7].item[0].selected[0] == 1)
 	{
@@ -96,8 +96,8 @@ void			manor(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[8].front, pos, 0);
+  put_pix_in_pix(data->pixel, data->tab[8].front, pos, 0);
   change_scene_eight_zero(data);
   change_scene_eight_nine(data);
-  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
+  put_pix_in_pix(data->pixel, data->new, pos, 0);
 }

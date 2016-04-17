@@ -5,7 +5,8 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 17:32:33 2016 Poc
+## Last update Sun Apr 17 17:35:07 2016 Poc
+## Last update Sun Apr 17 14:44:44 2016 marel_m
 ##
 
 DEBUG=	yes
@@ -17,6 +18,7 @@ SRC=	main.c					\
 	load_scene_beach_harbor_manor_arrow.c	\
 	load_scene_house_shop.c			\
 	print_image.c				\
+	mv_camera.c				\
 	scene/house_outside.c			\
 	scene/house_inside.c			\
 	scene/harbor.c				\

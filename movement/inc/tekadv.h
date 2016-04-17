@@ -6,7 +6,7 @@
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
 <<<<<<< HEAD
-** Last update Sun Apr 17 15:10:49 2016 Mathieu Sauvau
+** Last update Sun Apr 17 15:48:59 2016 Mathieu Sauvau
 =======
 ** Last update Sat Apr 16 17:29:08 2016 Mathieu Sauvau
 >>>>>>> 42d64d8101a8f5c2fc0d7893be20260f02b5ecd7
@@ -111,13 +111,13 @@ bool			node_in_list(t_points *list, t_points *node);
 /*
 ** NODE LIST
 */
-void		add_node(t_points **list, t_points *node);
 t_points	*change_list(t_points *list);
 void		print_node(t_points *list);
 void		free_node(t_points *list);
 void		del_node(t_points **list, t_points *node);
 t_points	*cpy_node(t_points *point);
 void		add_cpy_node(t_points **list, t_points *node);
+void		clear_node(t_points *list);
 
 /*
 ** DICTIONARY
@@ -127,6 +127,7 @@ void			add_dict(t_dict **dict, t_dict *new);
 void			print_dict(t_dict *dict);
 bool			is_in_dict(t_dict *dict, int key);
 t_points		*look_up(t_dict *dict, int key);
+void			clear_dict(t_dict *dict);
 
 /*
 ** MOVEMENT
@@ -134,6 +135,5 @@ t_points		*look_up(t_dict *dict, int key);
 void			move_to(t_data *data, t_bunny_position dest);
 void			move(t_data *data,
 			     t_points *path, t_player *player);
-
 
 #endif /* ! _TEKADV_H_ */
