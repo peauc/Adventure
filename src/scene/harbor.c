@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:17:55 2016 marel_m
-** Last update Sat Apr 16 14:22:59 2016 marel_m
+** Last update Sun Apr 17 16:17:27 2016 marel_m
 */
 
 #include "scene.h"
@@ -85,6 +85,7 @@ void			harbor(t_data *data)
   change_scene_zero_two(data);
   change_scene_zero_eight(data);
   change_scene_zero_one(data);
+  printf("%d\n", data->mv_s->mv_fr);
   put_pix_in_pix_txt(data->pixel, data->tab[0].front, pos, data->mv_s->mv_fr);
   put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
 }

@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 12:13:45 2016 Poc
+** Last update Sun Apr 17 15:05:16 2016 marel_m
 */
 
 #ifndef _SCENE_
@@ -55,6 +55,7 @@ typedef struct			s_mv_scene
   int				click;
   const t_bunny_position	*pos_click;
   const t_bunny_position	*mouse;
+  int				old_mouse;
 }				t_mv_scene;
 
 typedef struct			s_data
@@ -119,6 +120,8 @@ void			put_pix_in_pix_txt(t_bunny_pixelarray *,
 					   int);
 t_bunny_response	clicky(t_bunny_event_state, t_bunny_mouse_button,
 			       t_data *);
+void			free_data(t_data *);
+void			mv_camera_mouse(t_data *);
 
 /*
 ** SCENE
