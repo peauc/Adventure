@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 11:06:01 2016 marel_m
+** Last update Sun Apr 17 11:37:19 2016 marel_m
 */
 
 #include "scene.h"
@@ -16,7 +16,7 @@ t_bunny_response	escape(t_bunny_event_state state,
 {
   if (key == BKS_ESCAPE && state == GO_DOWN)
     {
-      free_scene(data);
+      /* free_data(data); */
       return (EXIT_ON_SUCCESS);
     }
   if (key == BKS_LEFT && data->mv_s->s_nb != 5)
@@ -55,14 +55,14 @@ int			main()
   t_data		data;
 
   bunny_set_maximum_ram(10000000000);
-  data.win = bunny_start(WIDTH, HEIGHT, false, "test");
-  if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
-    return (1);
   if (load_all_scene(&data) == -1)
     {
       printf("load all scene\n");
       return (1);
     }
+  data.win = bunny_start(WIDTH, HEIGHT, false, "test");
+  if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
+    return (1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     {
       printf("pixelarray broke\n");

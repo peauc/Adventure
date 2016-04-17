@@ -5,12 +5,12 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 15:10:11 2016 marel_m
-** Last update Sat Apr 16 15:23:22 2016 marel_m
+** Last update Sun Apr 17 11:35:57 2016 marel_m
 */
 
 #include "scene.h"
 
-void	free_scene(t_data *data)
+void	free_data(t_data *data)
 {
   int	i;
 
