@@ -5,6 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
+## Last update Sun Apr 17 17:35:07 2016 Poc
 ## Last update Sun Apr 17 14:44:44 2016 marel_m
 ##
 
@@ -13,6 +14,7 @@ DEBUG=	yes
 SRC=	main.c					\
 	draw_inventory.c			\
 	resize.c				\
+	load_music.c				\
 	load_scene_beach_harbor_manor_arrow.c	\
 	load_scene_house_shop.c			\
 	print_image.c				\

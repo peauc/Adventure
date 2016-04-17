@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sat Apr 16 09:59:29 2016 Mathieu Sauvau
-** Last update Sun Apr 17 15:35:09 2016 Mathieu Sauvau
+** Last update Sun Apr 17 18:03:28 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -40,7 +40,8 @@ void		add_cpy_node(t_points **list, t_points *node)
 {
   t_points	*tmp;
 
-  tmp = cpy_node(node);
+  if ((tmp = cpy_node(node)) == NULL)
+    return ;
   if (!*list)
     *list = tmp;
   else
@@ -72,7 +73,6 @@ t_points	*change_list(t_points *list)
 void		del_node(t_points **list, t_points *node)
 {
   t_points	*prev;
-  t_points	*save;
 
   if (!*list || !node)
     return ;

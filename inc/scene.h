@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 17:17:12 2016 marel_m
+** Last update Sun Apr 17 18:31:53 2016 Poc
 */
 
 #ifndef _SCENE_
@@ -89,31 +89,30 @@ typedef struct		s_scene_nb
   void			(*ft_scene_nb)(t_data *data);
 }			t_scene_nb;
 
-int			determine_button_clicked(t_menu *);
-int			draw_scene(t_data *);
-int			load_scene_tab(t_scene[14]);
-int			draw_menu(t_bunny_pixelarray *, t_menu *);
-int			draw_inventory(t_bunny_pixelarray *, t_scene[14]);
-int			determine_item(t_scene);
-int			init_scene(t_scene[14]);
-int			load_buttons(t_menu *);
-int			draw_items(t_item *, t_bunny_pixelarray *);
-int			is_clicked(t_bunny_position *,
-				   t_bunny_pixelarray *,
-				   t_bunny_position);
+/*
+** INIT
+*/
 int			load_all_scene(t_data *);
+int			load_buttons(t_menu *);
 int			load_item(t_menu *, t_bunny_ini *);
 int			load_item_basement(t_scene *);
-char			*my_strdup(char *);
+int			load_music();
+int			load_scene_tab(t_scene[14]);
+int			init_scene(t_scene[14]);
 t_menu			*load_menu();
+void			set_all_to_zero(t_button *);
+
+/*
+** DISPLAY
+*/
+int			draw_menu(t_bunny_pixelarray *, t_menu *);
+int			draw_scene(t_data *);
+int			draw_inventory(t_bunny_pixelarray *, t_scene[14]);
+int			draw_items(t_item *, t_bunny_pixelarray *);
+t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *, int, int);
 void			pixelarray_copy(t_bunny_pixelarray *,
 					 t_bunny_pixelarray *,
 					 t_bunny_position);
-t_bunny_position	get_pos(int, int);
-t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *, int, int);
-void			set_all_to_zero(t_button *);
-void			pix_initialize(t_bunny_pixelarray *);
-void			boat(t_data *);
 void			put_pix_in_pix(t_bunny_pixelarray *,
 				       t_bunny_pixelarray *,
 				       t_bunny_position,
@@ -122,15 +121,28 @@ void			put_pix_in_pix_mv(t_bunny_pixelarray *,
 					  t_bunny_pixelarray *,
 					  t_bunny_position,
 					  int);
+void			pix_initialize(t_bunny_pixelarray *);
+
+/*
+** ACTION
+*/
+int			determine_button_clicked(t_menu *);
+int			determine_item(t_scene);
+int			is_clicked(t_bunny_position *,
+				   t_bunny_pixelarray *,
+				   t_bunny_position);
+t_bunny_position	get_pos(int, int);
 t_bunny_response	clicky(t_bunny_event_state, t_bunny_mouse_button,
 			       t_data *);
-void			free_data(t_data *);
 void			mv_camera_mouse(t_data *);
 
 /*
 ** SCENE
 */
-
+int			load_manor(t_data *);
+int			load_harbor(t_data *);
+int			load_beach(t_data *);
+int			load_arrow(t_data *);
 void			harbor(t_data *);
 void			boat(t_data *);
 void			shop_place(t_data *);
@@ -141,9 +153,11 @@ void			house_in(t_data *);
 void			basement(t_data *);
 void			manor(t_data *);
 void			manor_in(t_data *);
-int			load_manor(t_data *);
-int			load_harbor(t_data *);
-int			load_beach(t_data *);
-int			load_arrow(t_data *);
+
+/*
+** LIB/FREE
+*/
+char			*my_strdup(char *);
+void			free_data(t_data *);
 
 #endif /* _SCENE_ */

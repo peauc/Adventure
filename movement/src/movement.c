@@ -5,9 +5,10 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 15:08:02 2016 Mathieu Sauvau
-** Last update Sun Apr 17 15:15:36 2016 Mathieu Sauvau
+** Last update Sun Apr 17 18:26:57 2016 Mathieu Sauvau
 */
 
+#include <math.h>
 #include "tekadv.h"
 
 void				move_to(t_data *data, t_bunny_position dest)
@@ -34,16 +35,13 @@ void				move_to(t_data *data, t_bunny_position dest)
       my_fill(data->player->pix, PINK);
       if (flip.flip)
 	data->player->pix->clipable.scale.x *= -1;
-      show_player(data, flip.row);
+      show_player(data, flip);
     }
 }
 
 void			move(t_data *data,
 			     t_points *path, t_player *player)
 {
-  static int		i;
-  t_bunny_position	new_pos;
-
   while (path)
     {
       move_to(data, path->el.center);

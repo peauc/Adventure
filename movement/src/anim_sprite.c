@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:30:07 2016 Mathieu Sauvau
-** Last update Sun Apr 17 15:22:27 2016 Poc
+** Last update Sun Apr 17 15:53:33 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -79,7 +79,7 @@ void			cpy_reverse_sprite(t_bunny_pixelarray *out,
 }
 
 void			anim_sprite(t_bunny_pixelarray *out, t_sprite_sheet *sp,
-				    int start_row, int limit_col)
+				    t_flip flip, int limit_col)
 {
   if (++sp->speed_cursor > sp->anim_speed)
     {
@@ -87,5 +87,8 @@ void			anim_sprite(t_bunny_pixelarray *out, t_sprite_sheet *sp,
 	sp->col = 0;
       sp->speed_cursor = 0;
     }
-  cpy_sprite(out, sp, sp->col, start_row);
+  if (!flip.flip)
+    cpy_sprite(out, sp, sp->col, flip.row);
+  else
+    cpy_reverse_sprite(out, sp, sp->col, flip.row);
 }
