@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 15:25:22 2016 Mathieu Sauvau
+** Last update Sat Apr 16 17:56:42 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -100,20 +100,17 @@ void			movement(t_bunny_keysym key, t_data *data)
 /*   return (NULL); */
 /* } */
 
-void			move_to(t_points *way, t_player *player)
+void			move_to(t_data *data,
+				t_points *path, t_player *player)
 {
-  t_points		*it;
-
-  if (way)
+  while (path)
     {
-      it = way->next;
-      while (it != way)
-	{
-	  printf("move to %d %d \n", it->el.center.x, it->el.center.y);
-	  pos_player(player, it);
-	  usleep (1000);
-	  it = it->next;
-	}
+      usleep(100000);
+      pos_player(player, path);
+      bunny_blit(&data->win->buffer, &data->player->pix->clipable, &data->player->pos);
+      bunny_display(data->win);
+      printf("player pos %d %d\n", path->el.center.x, path->el.center.y);
+      path = path->next;
     }
 }
 
@@ -138,9 +135,11 @@ t_points		*construct_path(t_points *list, t_dict *came_from,
   t_points		*current;
 
   current = look_up(came_from, dest->index);
-  printf("current %d %d\n", current->el.center.x, current->el.center.y);
   path = NULL;
   add_cpy_node(&path, dest);
+  add_cpy_node(&path, current);
+  print_node(path);
+  printf("CURRENT %d %d\n", current->el.center.x, current->el.center.y);
   printf("start %d %d\n", start->el.center.x, start->el.center.y);
   printf("path %d %d\n", path->el.center.x, path->el.center.y);
   while (!cmp_node(current, start))
@@ -161,11 +160,11 @@ t_dict			*find_way(t_points *list,
   t_points		*current;
   t_points		*frontier;
 
-  if (dest == NULL || start == dest)
+  if (dest == NULL || cmp_node(start, dest))
     return (NULL);
   came_from = NULL;
   frontier = NULL;
-  add_node(&frontier, start);
+  add_cpy_node(&frontier, start);
   add_dict(&came_from, new_entry(start->index, NULL));
   print_dict(came_from);
   printf("start center %d %d\n", start->el.center.x, start->el.center.y);
@@ -184,11 +183,8 @@ t_dict			*find_way(t_points *list,
   	   && !is_in_dict(came_from, neighbor->index))
   	{
 	  printf("ADD TO FRONTIER PATH 0 %d %d\n", neighbor->el.center.x, neighbor->el.center.y);
-	  //	  printf("current %d %d\n", current->el.center.x, current->el.center.y);
 	  add_cpy_node(&frontier, neighbor);
-	  // print_node(frontier);
 	  add_dict(&came_from, new_entry(neighbor->index, current));
-	  print_dict(came_from);
   	}
       if ((neighbor = get_node_bycoord(list, current->path_1[1])) != NULL
   	  && !is_in_dict(came_from, neighbor->index))
@@ -224,20 +220,25 @@ t_bunny_response		click(t_bunny_event_state state,
   t_dict			*came_from;
   t_points			*dest;
   t_points			*path;
-
+  bool				clicked;
 
   pos = bunny_get_mouse_position();
   if (button == BMB_RIGHT && state == GO_DOWN)
     {
-      dest = get_node_byclick(data->node, pos);
-      came_from = find_way(data->node, data->player->node, dest);
-      if (came_from)
+      if (!clicked)
 	{
-	  path = construct_path(data->node, came_from, data->player->node, dest);
-	  print_node(path);
+	  clicked = true;
+	  dest = get_node_byclick(data->node, pos);
+	  came_from = find_way(data->node, data->player->node, dest);
+	  if (came_from)
+	    {
+	      path = construct_path(data->node, came_from, data->player->node, dest);
+	      print_node(path);
+	      move_to(data, path, data->player);
+	    }
 	}
-      //move_to(way, data->player);
     }
+  clicked = false;
   return (GO_ON);
 }
 

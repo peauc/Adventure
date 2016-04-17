@@ -5,7 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
+<<<<<<< HEAD
 ** Last update Sat Apr 16 16:06:06 2016 Poc
+=======
+** Last update Sat Apr 16 17:29:08 2016 Mathieu Sauvau
+>>>>>>> 42d64d8101a8f5c2fc0d7893be20260f02b5ecd7
 */
 
 #ifndef _TEKADV_H_
@@ -100,6 +104,7 @@ void		free_node(t_points *list);
 void		del_node(t_points **list, t_points *node);
 t_points	*cpy_node(t_points *point);
 void		add_cpy_node(t_points **list, t_points *node);
+void		push_back(t_points **head, t_points *node);
 
 /*
 ** DICTIONARY

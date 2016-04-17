@@ -5,11 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-<<<<<<< HEAD
-** Last update Tue Apr 12 17:12:44 2016 Mathieu Sauvau
-=======
-** Last update Wed Apr 13 00:11:16 2016 Paul Wery
->>>>>>> 58a9dc824a5a78dd5ee44bbee7b0a8493c20ad5d
+** Last update Sat Apr 16 15:37:48 2016 marel_m
 */
 
 #ifndef ROAD
