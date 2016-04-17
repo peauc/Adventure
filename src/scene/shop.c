@@ -5,14 +5,14 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 14:06:48 2016 marel_m
-** Last update Sun Apr 17 21:23:33 2016 Poc
+** Last update Sun Apr 17 22:04:57 2016 Poc
 */
 
 #include "tekadv.h"
 
-int                    change_scene_three_two(t_data *data)
+int			change_scene_three_two(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pos.x = 250 - data->mv_s->mv_bck;
   pos.y = 350;

@@ -5,14 +5,14 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:22:50 2016 marel_m
-** Last update Sun Apr 17 21:18:28 2016 marel_m
+** Last update Sun Apr 17 22:05:45 2016 Poc
 */
 
 #include "tekadv.h"
 
-int                    change_scene_one_zero(t_data *data)
+int			change_scene_one_zero(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pos.x = 185;
   pos.y = 375;
@@ -36,9 +36,9 @@ int                    change_scene_one_zero(t_data *data)
   return (0);
 }
 
-int	boat(t_data *data)
+int			boat(t_data *data)
 {
-  t_bunny_position      pos;
+  t_bunny_position	pos;
 
   pix_initialize(data->pixel);
   pix_initialize(data->new);

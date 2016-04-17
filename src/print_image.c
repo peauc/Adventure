@@ -5,18 +5,18 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Thu Apr 14 13:02:01 2016 marel_m
-** Last update Sun Apr 17 19:42:07 2016 marel_m
+** Last update Sun Apr 17 22:03:28 2016 Poc
 */
 
 #include "tekadv.h"
 
-void            tekpixel_scene(t_bunny_pixelarray *pix,
-			       t_bunny_position *pos,
-			       t_color *color,
-			       int state)
+void			tekpixel_scene(t_bunny_pixelarray *pix,
+				       t_bunny_position *pos,
+				       t_color *color,
+				       int state)
 {
-  t_color       *pixel;
-  int           i;
+  t_color		*pixel;
+  int			i;
 
   if (pos->x >= 0 && pos->x < pix->clipable.clip_width &&
       pos->y >= 0 && pos->y < pix->clipable.clip_height)
@@ -29,14 +29,14 @@ void            tekpixel_scene(t_bunny_pixelarray *pix,
     }
 }
 
-void                    put_pix_in_pix(t_bunny_pixelarray *pix,
+void			put_pix_in_pix(t_bunny_pixelarray *pix,
 				       t_bunny_pixelarray *src,
 				       t_bunny_position pos,
 				       int plus)
 {
-  t_bunny_position      posi;
-  t_color               *color;
-  int                   i;
+  t_bunny_position	posi;
+  t_color		*color;
+  int			i;
   int			set;
 
   posi.y = 0;
@@ -59,14 +59,14 @@ void                    put_pix_in_pix(t_bunny_pixelarray *pix,
     }
 }
 
-void                    put_pix_in_pix_mv(t_bunny_pixelarray *pix,
+void			put_pix_in_pix_mv(t_bunny_pixelarray *pix,
 					  t_bunny_pixelarray *src,
 					  t_bunny_position pos,
 					  int plus)
 {
-  t_bunny_position      posi;
-  t_color               *color;
-  int                   i;
+  t_bunny_position	posi;
+  t_color		*color;
+  int			i;
   int			set;
 
   posi.y = 0;
@@ -89,11 +89,11 @@ void                    put_pix_in_pix_mv(t_bunny_pixelarray *pix,
     }
 }
 
-void            pix_initialize(t_bunny_pixelarray *pix)
+void			pix_initialize(t_bunny_pixelarray *pix)
 {
-  t_color       *color;
-  int           n;
-  int           i;
+  t_color		*color;
+  int			n;
+  int			i;
 
   n = 0;
   i = pix->clipable.clip_width * pix->clipable.clip_height;

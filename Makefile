@@ -5,11 +5,10 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 21:21:51 2016 Mathieu Sauvau
-## Last update Sun Apr 17 14:44:44 2016 marel_m
+## Last update Sun Apr 17 22:57:32 2016 Mathieu Sauvau
 ##
 
-DEBUG=	yes
+DEBUG=	no
 
 SRC=	main.c					\
 	anim_sprite.c				\
@@ -62,7 +61,8 @@ SRC=	main.c					\
 	menu_load.c				\
 	init_tab.c				\
 	free_scene.c				\
-	pixelarraycpy.c
+	pixelarraycpy.c				\
+	get_const_nb.c
 
 OBJ=	$(addprefix src/, $(SRC:.c=.o))
 
