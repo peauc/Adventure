@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sun Apr 17 12:01:17 2016 marel_m
-** Last update Sun Apr 17 12:09:02 2016 marel_m
+** Last update Sun Apr 17 17:46:56 2016 marel_m
 */
 
 #ifndef ROAD
@@ -110,13 +110,11 @@ t_bunny_response	loop(void *data);
 t_bunny_response	wheel_mouse(int wheelid, int delta,
 				    void *data);
 
-
 t_points		*create_list(void);
 int			add_elem_next(t_points *elem, t_points *src);
 void			delete_elem(t_points *list, t_points *elem);
 void			delete_list(t_points **root);
 void			delete_links(t_points *list, t_points *elem);
-
 
 void			pix_initialize(t_bunny_pixelarray *pix);
 void			pix_initialize_alpha(t_bunny_pixelarray *pix);
