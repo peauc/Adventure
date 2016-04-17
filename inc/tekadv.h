@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 21:21:28 2016 Poc
+** Last update Sun Apr 17 21:24:09 2016 Poc
 */
 
 #ifndef _TEKADV_H_
@@ -87,8 +87,9 @@ typedef struct                  s_mv_scene
   int                           s_nb;
   int                           click;
   const t_bunny_position        *pos_click;
-  t_bunny_position		mouse;
-  int                           old_mouse;
+  const t_bunny_position	*mouse;
+  t_bunny_position		pos;
+  int                           old_pos;
 }                               t_mv_scene;
 
 typedef struct                  s_data

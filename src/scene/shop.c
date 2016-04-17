@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 14:06:48 2016 marel_m
-** Last update Sun Apr 17 21:21:12 2016 Poc
+** Last update Sun Apr 17 21:23:33 2016 Poc
 */
 
 #include "tekadv.h"
@@ -16,9 +16,9 @@ int                    change_scene_three_two(t_data *data)
 
   pos.x = 250 - data->mv_s->mv_bck;
   pos.y = 350;
-  if (data->mv_s->mouse.x + data->mv_s->mv_bck >= 250
-      && data->mv_s->mouse.x + data->mv_s->mv_bck <= 350
-      && data->mv_s->mouse.y <= 450 && data->mv_s->mouse.y >= 350)
+  if (data->mv_s->mouse->x + data->mv_s->mv_bck >= 250
+      && data->mv_s->mouse->x + data->mv_s->mv_bck <= 350
+      && data->mv_s->mouse->y <= 450 && data->mv_s->mouse->y >= 350)
     {
       put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)

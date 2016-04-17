@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 14:03:38 2016 marel_m
-** Last update Sun Apr 17 21:16:09 2016 Poc
+** Last update Sun Apr 17 21:19:11 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -16,9 +16,9 @@ int			change_scene_six_five(t_data *data)
 
   pos.x = 810;
   pos.y = 300;
-  if (data->mv_s->mouse.x >= 810
-      && data->mv_s->mouse.x <= 910
-      && data->mv_s->mouse.y <= 400 && data->mv_s->mouse.y >= 300)
+  if (data->mv_s->mouse->x >= 810
+      && data->mv_s->mouse->x <= 910
+      && data->mv_s->mouse->y <= 400 && data->mv_s->mouse->y >= 300)
     {
       put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
@@ -42,9 +42,9 @@ int			change_scene_six_seven(t_data *data)
 
   pos.x = 200;
   pos.y = 400;
-  if (data->mv_s->mouse.x >= 200
-      && data->mv_s->mouse.x <= 300
-      && data->mv_s->mouse.y <= 500 && data->mv_s->mouse.y >= 400)
+  if (data->mv_s->mouse->x >= 200
+      && data->mv_s->mouse->x <= 300
+      && data->mv_s->mouse->y <= 500 && data->mv_s->mouse->y >= 400)
     {
       put_pix_in_pix(data->pixel, data->tab[10].front, pos, 0);
       if (data->mv_s->click == 1)
