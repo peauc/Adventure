@@ -5,9 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 17:56:42 2016 Mathieu Sauvau
+** Last update Sun Apr 17 13:16:32 2016 Mathieu Sauvau
 */
 
+#include <math.h>
 #include "tekadv.h"
 
 t_points	*get_node_byclick(t_points *node,
@@ -100,16 +101,52 @@ void			movement(t_bunny_keysym key, t_data *data)
 /*   return (NULL); */
 /* } */
 
-void			move_to(t_data *data,
-				t_points *path, t_player *player)
+t_bunny_accurate_position	posac_(double x, double y)
 {
-  while (path)
+  t_bunny_accurate_position	pos;
+
+  pos.x = x;
+  pos.y = y;
+  return (pos);
+}
+
+void				move_to(t_data *data, t_bunny_position dest)
+{
+  t_bunny_accurate_position	u;
+  double			n;
+  t_bunny_accurate_position	move;
+
+  u = posac_(dest.x - data->player->node->el.center.x, dest.y - data->player->node->el.center.y);
+  if (u.x == 0 && u.y == 0)
+    return ;
+  n = sqrt(pow(u.x, 2) + pow(u.y, 2));
+  u = posac_(u.x / n, u.y / n);
+  printf("u %f %f\n", u.x, u.y);
+  while (data->player->pos.x != dest.x - data->player->sp->size.x / 2 ||
+	 data->player->pos.y != dest.y - data->player->sp->size.y)
     {
-      usleep(100000);
-      pos_player(player, path);
+      move = posac_(move.x + u.x, move.y + u.y);
+      data->player->pos.x += (int)move.x;
+      data->player->pos.y += (int)move.y;
+      move = posac_(move.x - (int)move.x, move.y - (int)move.y);
+      my_fill(data->player->pix, PINK);
+      anim_sprite(data->player->pix, data->player->sp, 1, 12);
+      bunny_blit(&data->win->buffer, &data->pix->clipable, NULL);
       bunny_blit(&data->win->buffer, &data->player->pix->clipable, &data->player->pos);
       bunny_display(data->win);
-      printf("player pos %d %d\n", path->el.center.x, path->el.center.y);
+    }
+}
+
+void			move(t_data *data,
+			     t_points *path, t_player *player)
+{
+  static int		i;
+  t_bunny_position	new_pos;
+
+  while (path)
+    {
+      move_to(data, path->el.center);
+      pos_player(player, path);
       path = path->next;
     }
 }
@@ -234,7 +271,7 @@ t_bunny_response		click(t_bunny_event_state state,
 	    {
 	      path = construct_path(data->node, came_from, data->player->node, dest);
 	      print_node(path);
-	      move_to(data, path, data->player);
+	      move(data, path, data->player);
 	    }
 	}
     }
@@ -260,7 +297,7 @@ t_bunny_response       	mainloop(t_data *data)
 
   pos = bunny_get_mouse_position();
   my_fill(data->pix, PINK);
-  my_fill(data->player->pix, 0x00000000);
+  my_fill(data->player->pix, PINK);
   anim_sprite(data->player->pix, data->player->sp, 1, 12);
   //  aff_all2(data->pix, data->p, pos, "pictures/screen1.jpg");
   bunny_blit(&data->win->buffer, &data->pix->clipable, NULL);
@@ -293,7 +330,7 @@ int			main(int ac, char **av)
   av = av;
   if ((data.player = bunny_malloc(sizeof(t_player))) == NULL
       || (data.player->sp = load_sprite_sheet("gimp/sprite_monkey_island.png",
-					      pos_(125, 290), 40)) == NULL
+					      pos_(125, 290), 10)) == NULL
       || (data.player->pix = bunny_new_pixelarray(data.player->sp->size.x,
 						  data.player->sp->size.y)) == NULL
       || (data.win = bunny_start(WIDTH, HEIGHT, false, "test")) == NULL
