@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sat Apr 16 15:10:11 2016 marel_m
-** Last update Sun Apr 17 15:19:11 2016 Poc
+** Last update Sun Apr 17 17:20:30 2016 marel_m
 */
 
 #include "scene.h"
@@ -33,10 +33,9 @@ void	free_buttons(t_button *button)
   i = 0;
   while (i < 4)
     {
-      printf("button[i] %s\n", button[i].name);
       bunny_free(button[i].name);
-      bunny_delete_clipable(&button[i].sprite);
-      bunny_delete_clipable(&button[i].active_sprite);
+      bunny_delete_clipable(&button[i].sprite->clipable);
+      bunny_delete_clipable(&button[i].active_sprite->clipable);
       i++;
     }
 }
@@ -49,7 +48,6 @@ void	free_data(t_data *data)
   free_buttons(data->menu->buttons);
   while (++i < 14)
     {
-      printf("%s\n", data->tab[i].name);
       bunny_free(data->tab[i].name);
       bunny_delete_clipable(&data->tab[i].front->clipable);
       delete_item(data->tab[i].item);

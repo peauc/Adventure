@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 15:05:16 2016 marel_m
+** Last update Sun Apr 17 17:17:12 2016 marel_m
 */
 
 #ifndef _SCENE_
@@ -114,10 +114,14 @@ t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *, int, int);
 void			set_all_to_zero(t_button *);
 void			pix_initialize(t_bunny_pixelarray *);
 void			boat(t_data *);
-void			put_pix_in_pix_txt(t_bunny_pixelarray *,
-					   t_bunny_pixelarray *,
-					   t_bunny_position,
-					   int);
+void			put_pix_in_pix(t_bunny_pixelarray *,
+				       t_bunny_pixelarray *,
+				       t_bunny_position,
+				       int);
+void			put_pix_in_pix_mv(t_bunny_pixelarray *,
+					  t_bunny_pixelarray *,
+					  t_bunny_position,
+					  int);
 t_bunny_response	clicky(t_bunny_event_state, t_bunny_mouse_button,
 			       t_data *);
 void			free_data(t_data *);
