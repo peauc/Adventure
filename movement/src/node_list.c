@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sat Apr 16 09:59:29 2016 Mathieu Sauvau
-** Last update Sat Apr 16 17:45:06 2016 Mathieu Sauvau
+** Last update Sun Apr 17 11:48:42 2016 marel_m
 */
 
 #include "tekadv.h"
@@ -15,7 +15,7 @@ t_points	*cpy_node(t_points *point)
   t_points	*p;
 
   if (point == NULL ||
-      (p = malloc(sizeof(t_points))) == NULL)
+      (p = bunny_malloc(sizeof(t_points))) == NULL)
     return (NULL);
   p->index = point->index;
   p->el.center = point->el.center;
