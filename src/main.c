@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 13:01:12 2016 Poc
+** Last update Sun Apr 17 13:09:38 2016 Poc
 */
 
 #include "scene.h"
@@ -75,7 +75,7 @@ int			main()
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
-  /* free_data(&data); */
+  free_data(&data);
   printf("Penis de type enorme\n");
   bunny_delete_clipable(&data.pixel->clipable);
   bunny_delete_clipable(&data.new->clipable);

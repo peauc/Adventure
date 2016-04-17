@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:30:07 2016 Mathieu Sauvau
-** Last update Tue Apr 12 15:40:51 2016 Mathieu Sauvau
+** Last update Sun Apr 17 15:09:32 2016 Poc
 */
 
 #include "tekadv.h"
@@ -52,6 +52,32 @@ void			cpy_sprite(t_bunny_pixelarray *out, t_sprite_sheet *sp,
     }
 }
 
+void			cpy_reverse_sprite(t_bunny_pixelarray *out,
+					   t_sprite_sheet *sp,
+					   int col, int row)
+{
+  t_bunny_position	copying_pos;
+  t_bunny_position	actual_pos;
+  t_bunny_position	max;
+
+  actual_pos = pos_(col * sp->size.x, row * sp->size.y);
+  max = pos_(actual_pos.x + sp->size.x, actual_pos.y + sp->size.y);
+  copying_pos.y = (sp->size.y);
+  while (actual_pos.y < max.y)
+    {
+      copying_pos.x = sp->size.x;
+      while (actual_pos.x < max.x)
+	{
+	  cpy_color(out, sp->pix, copying_pos, actual_pos);
+	  actual_pos.x += 1;
+	  copying_pos.x -= 1;
+	}
+      actual_pos.x = col * sp->size.x;
+      actual_pos.y += 1;
+      copying_pos.y -= 1;
+    }
+}
+
 void			anim_sprite(t_bunny_pixelarray *out, t_sprite_sheet *sp,
 				    int start_row, int limit_col)
 {
@@ -61,5 +87,5 @@ void			anim_sprite(t_bunny_pixelarray *out, t_sprite_sheet *sp,
 	sp->col = 0;
       sp->speed_cursor = 0;
     }
-  cpy_sprite(out, sp, sp->col, start_row);
+  cpy_reverse_sprite(out, sp, sp->col, start_row);
 }
