@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 13:16:32 2016 Mathieu Sauvau
+** Last update Sun Apr 17 13:32:56 2016 Mathieu Sauvau
 */
 
 #include <math.h>
@@ -32,28 +32,6 @@ t_bunny_position	pos_player(t_player *player, t_points *node)
   return (player->pos = pos_(node->el.center.x - player->sp->size.x / 2,
 			     node->el.center.y - player->sp->size.y));
 }
-
-/* void		aff_all2(t_bunny_pixelarray *pix, */
-/* 			 t_points *list, */
-/* 			 const t_bunny_position *pos) */
-/* { */
-/*   t_points	*it; */
-
-/*   it = list->next; */
-/*   while (it != list) */
-/*     { */
-/*       if (same_name(image, it->image) == 1) */
-/* 	{ */
-/* 	  zcircle(pix, &it->el, BLUE); */
-/* 	  if (in_a_el(it, pos) == 1) */
-/* 	    circle(pix, &it->el, YELLOW); */
-/* 	  else */
-/* 	    circle(pix, &it->el, RED); */
-/* 	  line(pix, it); */
-/* 	} */
-/*       it = it->next; */
-/*     } */
-/* } */
 
 bool			cmp_position(t_bunny_position pos1,
 				     t_bunny_position pos2)
@@ -85,22 +63,6 @@ void			movement(t_bunny_keysym key, t_data *data)
   data = data;
 }
 
-/* t_points		*print_node(t_points *list) */
-/* { */
-/*   t_points		*it; */
-
-/*   if (list) */
-/*     { */
-/*       it = list->next; */
-/*       while (it != list) */
-/* 	{ */
-/* 	  printf("node %d %d \n", it->el.center.x, it->el.center.y); */
-/* 	  it = it->next; */
-/* 	} */
-/*     } */
-/*   return (NULL); */
-/* } */
-
 t_bunny_accurate_position	posac_(double x, double y)
 {
   t_bunny_accurate_position	pos;
@@ -115,13 +77,15 @@ void				move_to(t_data *data, t_bunny_position dest)
   t_bunny_accurate_position	u;
   double			n;
   t_bunny_accurate_position	move;
+  t_flip			flip;
 
-  u = posac_(dest.x - data->player->node->el.center.x, dest.y - data->player->node->el.center.y);
+  u = posac_(dest.x - data->player->node->el.center.x,
+	     dest.y - data->player->node->el.center.y);
   if (u.x == 0 && u.y == 0)
     return ;
   n = sqrt(pow(u.x, 2) + pow(u.y, 2));
   u = posac_(u.x / n, u.y / n);
-  printf("u %f %f\n", u.x, u.y);
+  flip = get_row_anim(data->player->node->el.center, dest);
   while (data->player->pos.x != dest.x - data->player->sp->size.x / 2 ||
 	 data->player->pos.y != dest.y - data->player->sp->size.y)
     {
@@ -130,7 +94,9 @@ void				move_to(t_data *data, t_bunny_position dest)
       data->player->pos.y += (int)move.y;
       move = posac_(move.x - (int)move.x, move.y - (int)move.y);
       my_fill(data->player->pix, PINK);
-      anim_sprite(data->player->pix, data->player->sp, 1, 12);
+      if (flip.flip)
+	data->player->pix->clipable.scale.x *= -1;
+      anim_sprite(data->player->pix, data->player->sp, flip.row, 12);
       bunny_blit(&data->win->buffer, &data->pix->clipable, NULL);
       bunny_blit(&data->win->buffer, &data->player->pix->clipable, &data->player->pos);
       bunny_display(data->win);

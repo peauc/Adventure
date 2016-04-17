@@ -5,14 +5,14 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Wed Apr  6 22:15:40 2016 Paul Wery
-## Last update Wed Apr 13 00:09:35 2016 Paul Wery
+## Last update Sat Apr 16 15:37:21 2016 marel_m
 ##
 
 NAME	=	road
 
 RM	=	rm -f
 
-CC	=	gcc -g
+CC	=	gcc
 
 CFLAGS	=	-W -Wall -Werror -ansi -pedantic -Iinclude -I/home/${USER}/.froot/include
 

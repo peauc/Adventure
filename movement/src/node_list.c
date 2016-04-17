@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sat Apr 16 09:59:29 2016 Mathieu Sauvau
-** Last update Sat Apr 16 17:45:06 2016 Mathieu Sauvau
+** Last update Sun Apr 17 13:23:40 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -15,7 +15,7 @@ t_points	*cpy_node(t_points *point)
   t_points	*p;
 
   if (point == NULL ||
-      (p = malloc(sizeof(t_points))) == NULL)
+      (p = bunny_malloc(sizeof(t_points))) == NULL)
     return (NULL);
   p->index = point->index;
   p->el.center = point->el.center;
@@ -102,7 +102,7 @@ void		del_node(t_points **list, t_points *node)
     {
       prev = *list;
       *list = (*list)->next;
-      free(prev);
+      bunny_free(prev);
       return ;
     }
   /* save = *list; */
@@ -129,7 +129,7 @@ void		free_node(t_points *list)
     {
       tmp = list;
       list = list->next;
-      free(tmp);
+      bunny_free(tmp);
     }
-  free(list);
+  bunny_free(list);
 }

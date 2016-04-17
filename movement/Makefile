@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sat Apr 16 15:08:45 2016 Mathieu Sauvau
+## Last update Sun Apr 17 13:28:33 2016 Mathieu Sauvau
 ##
 
 DEBUG=	yes
@@ -15,6 +15,7 @@ SRC=	new_main.c \
 	helper.c \
 	dictionary.c \
 	node_list.c \
+	do_some_shit.c \
 	../../create_road/srcs/full_ini.c \
 	../../create_road/srcs/my_list.c \
 	../../create_road/srcs/delete_links.c \

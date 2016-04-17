@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 14:37:56 2016 Mathieu Sauvau
+** Last update Sun Apr 17 13:09:21 2016 marel_m
 */
 
 #include "scene.h"
@@ -15,8 +15,8 @@ t_bunny_response	escape(t_bunny_event_state state,
 			       t_data *data)
 {
   if (key == BKS_ESCAPE && state == GO_DOWN)
-    return (EXIT_ON_SUCCESS);
-  if (key == BKS_LEFT)
+      return (EXIT_ON_SUCCESS);
+  if (key == BKS_LEFT && data->mv_s->s_nb != 5)
     {
       if (data->mv_s->mv_bck > 10)
 	{
@@ -24,7 +24,7 @@ t_bunny_response	escape(t_bunny_event_state state,
 	  data->mv_s->mv_fr -= 10;
 	}
     }
-  if (key == BKS_RIGHT)
+  if (key == BKS_RIGHT && data->mv_s->s_nb != 5)
     {
       if (data->mv_s->mv_bck < WIDTH - 10)
 	{
@@ -51,36 +51,22 @@ int			main()
 {
   t_data		data;
 
+
   bunny_set_maximum_ram(10000000000);
+  if (load_all_scene(&data) == -1)
+      return (1);
   data.win = bunny_start(WIDTH, HEIGHT, false, "test");
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
-  if (load_all_scene(&data) == -1)
-    {
-      printf("load all scene\n");
-      return (1);
-    }
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
-    {
-      printf("pixelarray broke\n");
       return (1);
-    }
   if ((data.menu = load_menu()) == NULL)
-    {
-      printf("load menu failed\n");
       return (1);
-    }
   if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
-    {
-      printf("scene broke\n");
       return (1);
-    }
   if ((load_scene_tab(data.tab)))
-    {
-      printf("init tab\n");
       return (1);
-    }
-  data.mv_s->s_nb = 0;
+  data.mv_s->s_nb = 7;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
   data.mv_s->click = 0;
@@ -89,5 +75,10 @@ int			main()
   bunny_set_click_response((t_bunny_click)&clicky);
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
+  free_data(&data);
+  printf("Penis de type enorme\n");
+  bunny_delete_clipable(&data.pixel->clipable);
+  bunny_delete_clipable(&data.new->clipable);
+  bunny_stop(data.win);
   return (1);
 }
