@@ -5,7 +5,7 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Sun Apr 17 14:49:20 2016 Mathieu Sauvau
-** Last update Sun Apr 17 18:26:24 2016 Mathieu Sauvau
+** Last update Sun Apr 17 18:38:22 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -74,7 +74,6 @@ t_dict			*find_way(t_points *list, t_points *start, t_points *dest)
   t_dict		*came_from;
   t_points		*current;
   t_points		*frontier;
-  t_points		*neighbor;
 
   if (dest == NULL || cmp_node(start, dest))
     return (NULL);
