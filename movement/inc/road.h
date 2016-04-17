@@ -5,7 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-** Last update Sat Apr 16 15:37:48 2016 marel_m
+<<<<<<< HEAD
+** Last update Sat Apr 16 15:09:16 2016 Mathieu Sauvau
+=======
+** Last update Wed Apr 13 00:11:16 2016 Paul Wery
+>>>>>>> 58a9dc824a5a78dd5ee44bbee7b0a8493c20ad5d
 */
 
 #ifndef ROAD
@@ -73,6 +77,7 @@ typedef struct		s_points
   t_bunny_position	path_2[2];
   t_bunny_position	path_3[2];
   int			path;
+  int			index;
   char			*image;
   struct s_points	*next;
   struct s_points	*prev;

@@ -1,14 +1,14 @@
 /*
-** SCRIPT
+** gfx_tekadventure
 **
 ** Made by clement peau
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 14:02:56 2016 Poc
+** Last update Sat Apr 16 14:37:56 2016 Mathieu Sauvau
 */
 
-#include "default.h"
+#include "scene.h"
 
 t_bunny_response	escape(t_bunny_event_state state,
 			       t_bunny_keysym key,
@@ -56,15 +56,30 @@ int			main()
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if (load_all_scene(&data) == -1)
+    {
+      printf("load all scene\n");
       return (1);
+    }
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
+    {
+      printf("pixelarray broke\n");
       return (1);
+    }
   if ((data.menu = load_menu()) == NULL)
+    {
+      printf("load menu failed\n");
       return (1);
+    }
   if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
+    {
+      printf("scene broke\n");
       return (1);
+    }
   if ((load_scene_tab(data.tab)))
+    {
+      printf("init tab\n");
       return (1);
+    }
   data.mv_s->s_nb = 0;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;

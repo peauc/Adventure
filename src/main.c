@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Apr 16 15:28:12 2016 marel_m
+** Last update Sun Apr 17 11:06:01 2016 marel_m
 */
 
 #include "scene.h"
@@ -19,7 +19,7 @@ t_bunny_response	escape(t_bunny_event_state state,
       free_scene(data);
       return (EXIT_ON_SUCCESS);
     }
-  if (key == BKS_LEFT)
+  if (key == BKS_LEFT && data->mv_s->s_nb != 5)
     {
       if (data->mv_s->mv_bck > 10)
 	{
@@ -27,7 +27,7 @@ t_bunny_response	escape(t_bunny_event_state state,
 	  data->mv_s->mv_fr -= 10;
 	}
     }
-  if (key == BKS_RIGHT)
+  if (key == BKS_RIGHT && data->mv_s->s_nb != 5)
     {
       if (data->mv_s->mv_bck < WIDTH - 10)
 	{
