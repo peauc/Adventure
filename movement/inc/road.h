@@ -1,15 +1,11 @@
 /*
-** road.h for road in /home/wery_p/rendu/gfx_tekadventure/create_road
+** road.h for road in /home/marel_m/Rendu/Semestre_2/Infographie/gfx_tekadventure/movement
 **
-** Made by Paul Wery
-** Login   <wery_p@epitech.net>
+** Made by marel_m
+** Login   <marel_m@epitech.net>
 **
-** Started on  Wed Apr  6 22:23:37 2016 Paul Wery
-<<<<<<< HEAD
-** Last update Sat Apr 16 15:09:16 2016 Mathieu Sauvau
-=======
-** Last update Wed Apr 13 00:11:16 2016 Paul Wery
->>>>>>> 58a9dc824a5a78dd5ee44bbee7b0a8493c20ad5d
+** Started on  Sun Apr 17 12:01:17 2016 marel_m
+** Last update Sun Apr 17 12:09:02 2016 marel_m
 */
 
 #ifndef ROAD
@@ -22,19 +18,19 @@
 
 #include <lapin.h>
 
-typedef struct	s_line
+typedef struct		s_line
 {
-  t_color	mew;
-  unsigned int	nwc;
-  float		i;
-  int		j;
-  float		y;
-  int		z;
-  int		check;
-  double	red;
-  double	gre;
-  double	blue;
-}		t_line;
+  t_color		mew;
+  unsigned int		nwc;
+  float			i;
+  int			j;
+  float			y;
+  int			z;
+  int			check;
+  double		red;
+  double		gre;
+  double		blue;
+}			t_line;
 
 typedef struct		s_cir
 {
@@ -43,22 +39,22 @@ typedef struct		s_cir
   t_bunny_position	posi;
 }			t_cir;
 
-typedef struct	s_my_scale
+typedef struct		s_my_scale
 {
-  double	scale_x;
-  double	scale_y;
-}		t_my_scale;
+  double		scale_x;
+  double		scale_y;
+}			t_my_scale;
 
-typedef struct	s_resize
+typedef struct		s_resize
 {
-  double	x_one;
-  double	y_one;
-  double	x_two;
-  double	y_two;
-  t_color	*color;
-  t_color	*pixel;
-  int		i;
-}		t_resize;
+  double		x_one;
+  double		y_one;
+  double		x_two;
+  double		y_two;
+  t_color		*color;
+  t_color		*pixel;
+  int			i;
+}			t_resize;
 
 typedef struct		s_el
 {
@@ -139,7 +135,7 @@ void			aff_all(t_road *r, const t_bunny_position *pos);
 int			in_a_el(t_road *r, t_points *it,
 				const t_bunny_position *pos);
 t_bunny_position	*in_el(t_road *r,
-			      const t_bunny_position *pos);
+			       const t_bunny_position *pos);
 t_points		*get_elem(t_road *r,
 				  const t_bunny_position *pos);
 void			circle(t_road *r, t_bunny_pixelarray *pix,
