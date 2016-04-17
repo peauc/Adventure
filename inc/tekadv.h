@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Apr 17 23:32:32 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:37:36 2016 Poc
 */
 
 #ifndef _TEKADV_H_
@@ -151,7 +151,7 @@ t_dict			*find_way(t_points *list,  t_points *start, t_points *dest);
 /*
 ** HELPER
 */
-void				my_fill(t_bunny_pixelarray *pix_ar, unsigned int color);
+int				my_fill(t_bunny_pixelarray *pix_ar, unsigned int color);
 t_bunny_position		pos_(int x, int y);
 t_bunny_accurate_position	posac_(double x, double y);
 bool				cmp_position(t_bunny_position pos1,

@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Apr 17 23:28:13 2016 Poc
-** Last update Sun Apr 17 23:30:31 2016 Poc
+** Last update Sun Apr 17 23:39:47 2016 Poc
 */
 
 #include "tekadv.h"
 
-t_sprite_sheet	*load_sprite_sheet(char *sprite_sheet,t_bunny_position size,
+t_sprite_sheet	*load_sprite_sheet(char *sprite_sheet, t_bunny_position size,
 				   int  anim_speed)
 {
   t_sprite_sheet                *sp;

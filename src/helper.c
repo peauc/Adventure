@@ -5,12 +5,12 @@
 ** Login   <sauvau_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:38:33 2016 Mathieu Sauvau
-** Last update Sun Apr 17 22:04:37 2016 Poc
+** Last update Sun Apr 17 23:36:43 2016 Poc
 */
 
 #include "tekadv.h"
 
-void				my_fill(t_bunny_pixelarray *pix_ar,
+int				my_fill(t_bunny_pixelarray *pix_ar,
 					unsigned int color)
 {
   int			x;
@@ -32,6 +32,7 @@ void				my_fill(t_bunny_pixelarray *pix_ar,
       x++;
       y = 0;
     }
+  return (0);
 }
 
 t_bunny_position		pos_(int x, int y)

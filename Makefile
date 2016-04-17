@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 23:29:30 2016 Poc
+## Last update Sun Apr 17 23:33:34 2016 Poc
 ##
 
 DEBUG=	no
@@ -82,7 +82,7 @@ else
 	CC=		gcc $(HEAD)
 endif
 
-NAME=	adv
+NAME=	booty_island
 
 HEAD=	-I inc/
 

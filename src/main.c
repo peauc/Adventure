@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 23:32:16 2016 Mathieu Sauvau
+** Last update Sun Apr 17 23:39:07 2016 Poc
 */
 
 #include "tekadv.h"
@@ -32,11 +32,9 @@ t_bunny_response		escape(t_bunny_event_state state,
       else if (data->mv_s->s_nb != 5)
 	data->mv_s->mv_fr += 5;
     }
-  if (key == BKS_LCONTROL && state == GO_DOWN)
-    {
-      my_fill(data->road, 0x00000000);
+  if (key == BKS_LCONTROL && state == GO_DOWN &&
+      !my_fill(data->road, 0x00000000))
       aff_road(data->mv_s->s_nb, data->p, data->road, data->mv_s->mv_bck);
-    }
   else
     my_fill(data->road, 0x00000000);
   return (GO_ON);
@@ -64,6 +62,15 @@ t_bunny_response		mainloop(t_data *data)
   return (GO_ON);
 }
 
+int				initialize_bis(t_data *data)
+{
+  data->mv_s->s_nb = 0;
+  data->mv_s->mv_bck = 0;
+  data->mv_s->mv_fr = 0;
+  data->mv_s->click = 0;
+  return (0);
+}
+
 int				initialize(t_data *data)
 {
   if ((data->win = bunny_start(WIDTH, HEIGHT, false, "test")) == NULL)
@@ -78,11 +85,8 @@ int				initialize(t_data *data)
 					 HEIGHT)) == NULL ||
       (load_music()))
       return (1);
+  initialize_bis(data);
   my_fill(data->road, 0x00000000);
-  data->mv_s->s_nb = 0;
-  data->mv_s->mv_bck = 0;
-  data->mv_s->mv_fr = 0;
-  data->mv_s->click = 0;
   bunny_set_key_response((t_bunny_key)&escape);
   bunny_set_click_response((t_bunny_click)&clicky);
   if ((data->player = bunny_malloc(sizeof(t_player))) == NULL
