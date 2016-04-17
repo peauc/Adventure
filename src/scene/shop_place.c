@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:37:21 2016 marel_m
-** Last update Sat Apr 16 14:23:53 2016 marel_m
+** Last update Sun Apr 17 17:16:27 2016 marel_m
 */
 
 #include "scene.h"
@@ -20,7 +20,7 @@ void                    change_scene_two_zero(t_data *data)
       && data->mv_s->mouse->x + data->mv_s->mv_bck <= 2048
       && data->mv_s->mouse->y <= 500 && data->mv_s->mouse->y >= 400)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[13].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[13].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 0;
@@ -41,7 +41,7 @@ void                    change_scene_two_three(t_data *data)
       && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1750
       && data->mv_s->mouse->y <= 500 && data->mv_s->mouse->y >= 400)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 3;
@@ -62,7 +62,7 @@ void                    change_scene_two_four(t_data *data)
       && data->mv_s->mouse->x + data->mv_s->mv_bck <= 1250
       && data->mv_s->mouse->y <= 400 && data->mv_s->mouse->y >= 300)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 4;
@@ -81,9 +81,9 @@ void			shop_place(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[2].front, pos, data->mv_s->mv_fr);
+  put_pix_in_pix(data->pixel, data->tab[2].front, pos, data->mv_s->mv_fr);
   change_scene_two_zero(data);
   change_scene_two_three(data);
   change_scene_two_four(data);
-  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
+  put_pix_in_pix(data->pixel, data->new, pos, 0);
 }

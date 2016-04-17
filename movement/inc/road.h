@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sun Apr 17 12:01:17 2016 marel_m
-** Last update Sun Apr 17 12:09:02 2016 marel_m
+** Last update Sun Apr 17 18:30:36 2016 Mathieu Sauvau
 */
 
 #ifndef ROAD
@@ -110,13 +110,11 @@ t_bunny_response	loop(void *data);
 t_bunny_response	wheel_mouse(int wheelid, int delta,
 				    void *data);
 
-
 t_points		*create_list(void);
 int			add_elem_next(t_points *elem, t_points *src);
 void			delete_elem(t_points *list, t_points *elem);
 void			delete_list(t_points **root);
 void			delete_links(t_points *list, t_points *elem);
-
 
 void			pix_initialize(t_bunny_pixelarray *pix);
 void			pix_initialize_alpha(t_bunny_pixelarray *pix);
@@ -155,7 +153,7 @@ unsigned int		my_color(const t_bunny_position *pos,
 void			line(t_road *r, t_points *it);
 void			ini_el(t_road *r, const t_bunny_position *pos);
 int			cop_path(t_bunny_position *start, t_points *it);
-int			full_ini(t_points *list);
+int			full_ini(t_points *list, char *name);
 int			comp_string(char *one, char *two);
 int			same_name(char *one, char *two);
 void			road_pix(t_road *r, t_bunny_pixelarray *pix,
@@ -168,5 +166,6 @@ int			save_ini(t_road *r);
 void			write_str(char *str, int fd);
 void			write_nb(int nb, int fd);
 void			write_next(t_points *it, int fd);
+t_points		*change_road(int num_road, t_points *list);
 
 #endif /* !ROAD */

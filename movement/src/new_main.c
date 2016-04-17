@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 18:19:23 2016 Mathieu Sauvau
+** Last update Sun Apr 17 18:35:17 2016 Mathieu Sauvau
 */
 
 #include "tekadv.h"
@@ -113,7 +113,8 @@ int			main(int ac, char **av)
 
     return (0);
   data.p = create_list();
-  full_ini(data.p);
+  if ((full_ini(data.p, "toto")) == -1)
+    return (0);
   data.node = change_list(data.p);
   pos_player(data.player, data.node);
   bunny_set_click_response(&click);
