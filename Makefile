@@ -5,11 +5,11 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Thu Jan  7 16:17:02 2016 Clement Peau
-## Last update Sun Apr 17 20:16:57 2016 marel_m
+## Last update Sun Apr 17 22:12:13 2016 Poc
 ## Last update Sun Apr 17 14:44:44 2016 marel_m
 ##
 
-DEBUG=	yes
+DEBUG=	no
 
 SRC=	main.c					\
 	anim_sprite.c				\
@@ -74,11 +74,11 @@ CMD+=	 -lsfml-system -lstdc++ -ldl -L ~/.froot/lib -lm
 LIB=	-I inc/
 
 ifeq ($(DEBUG), yes)
-	CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic -g -D DEBUG
-	CC=		clang
+	CFLAGS=		-W -Wall -Wextra -ansi -pedantic -g -D DEBUG
+	CC=		clang $(HEAD)
 else
-	CFLAGS=		$(HEAD) -W -Wall -Wextra -ansi -pedantic
-	CC=		gcc
+	CFLAGS=		-W -Wall -Wextra -ansi -pedantic
+	CC=		gcc $(HEAD)
 endif
 
 NAME=	adv
