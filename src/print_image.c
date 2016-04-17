@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Thu Apr 14 13:02:01 2016 marel_m
-** Last update Sun Apr 17 16:19:13 2016 marel_m
+** Last update Sun Apr 17 17:19:48 2016 marel_m
 */
 
 #include "scene.h"
@@ -29,10 +29,40 @@ void            tekpixel(t_bunny_pixelarray *pix,
     }
 }
 
-void                    put_pix_in_pix_txt(t_bunny_pixelarray *pix,
-					   t_bunny_pixelarray *src,
-					   t_bunny_position pos,
-					   int plus)
+void                    put_pix_in_pix(t_bunny_pixelarray *pix,
+				       t_bunny_pixelarray *src,
+				       t_bunny_position pos,
+				       int plus)
+{
+  t_bunny_position      posi;
+  t_color               *color;
+  int                   i;
+  int			set;
+
+  posi.y = 0;
+  set = pos.x;
+  while (pos.y < HEIGHT && posi.y < src->clipable.clip_height)
+    {
+      pos.x = set;
+      posi.x = 0;
+      while (pos.x < WIDTH && (posi.x + plus) < src->clipable.clip_width)
+	{
+	  i = posi.x + (posi.y * src->clipable.clip_width) + plus;
+	  color = (t_color*)src->pixels + i;
+	  if (color->argb[3] != 0)
+	    tekpixel(pix, &pos, color, 0);
+	  pos.x++;
+	  posi.x++;
+	}
+      pos.y++;
+      posi.y++;
+    }
+}
+
+void                    put_pix_in_pix_mv(t_bunny_pixelarray *pix,
+					  t_bunny_pixelarray *src,
+					  t_bunny_position pos,
+					  int plus)
 {
   t_bunny_position      posi;
   t_color               *color;

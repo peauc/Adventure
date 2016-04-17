@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sun Apr 17 14:41:55 2016 marel_m
-** Last update Sun Apr 17 16:14:56 2016 marel_m
+** Last update Sun Apr 17 16:24:41 2016 marel_m
 */
 
 #include "scene.h"
@@ -41,7 +41,7 @@ void	mv_camera_mouse(t_data *data)
 {
   static int	i;
 
-  if (i != 0)
+  if (i != 0 && data->mv_s->s_nb != 5)
     {
       if ((data->mv_s->old_mouse < data->mv_s->mouse->x
 	   || data->mv_s->mouse->x > WIDTH - 100)

@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Tue Apr 12 15:28:42 2016 marel_m
-** Last update Sat Apr 16 14:23:59 2016 marel_m
+** Last update Sun Apr 17 17:16:43 2016 marel_m
 */
 
 #include "scene.h"
@@ -20,7 +20,7 @@ void                    change_scene_seven_six(t_data *data)
       && data->mv_s->mouse->x <= 400
       && data->mv_s->mouse->y <= 200 && data->mv_s->mouse->y >= 100)
     {
-      put_pix_in_pix_txt(data->pixel, data->tab[11].front, pos, 0);
+      put_pix_in_pix(data->pixel, data->tab[11].front, pos, 0);
       if (data->mv_s->click == 1)
 	{
 	  data->mv_s->s_nb = 6;
@@ -39,8 +39,8 @@ void			basement(t_data *data)
   pix_initialize(data->new);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(data->pixel, data->tab[7].front, pos, 0);
+  put_pix_in_pix(data->pixel, data->tab[7].front, pos, 0);
   change_scene_seven_six(data);
-  put_pix_in_pix_txt(data->pixel, data->new, pos, 0);
+  put_pix_in_pix(data->pixel, data->new, pos, 0);
   draw_items(data->tab[7].item, data->pixel);
 }
