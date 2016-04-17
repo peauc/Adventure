@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Apr 17 12:46:39 2016 marel_m
+** Last update Sun Apr 17 13:09:21 2016 marel_m
 */
 
 #include "scene.h"
@@ -51,35 +51,21 @@ int			main()
 {
   t_data		data;
 
+
   bunny_set_maximum_ram(10000000000);
   if (load_all_scene(&data) == -1)
-    {
-      printf("load all scene\n");
       return (1);
-    }
   data.win = bunny_start(WIDTH, HEIGHT, false, "test");
   if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if ((data.new = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
-    {
-      printf("pixelarray broke\n");
       return (1);
-    }
   if ((data.menu = load_menu()) == NULL)
-    {
-      printf("load menu failed\n");
       return (1);
-    }
-  if ((data.mv_s = bunny_malloc(sizeof(t_mv_scene))) == NULL)
-    {
-      printf("scene broke\n");
+  if ((data.mv_s = malloc(sizeof(t_mv_scene))) == NULL)
       return (1);
-    }
   if ((load_scene_tab(data.tab)))
-    {
-      printf("init tab\n");
       return (1);
-    }
   data.mv_s->s_nb = 7;
   data.mv_s->mv_bck = 0;
   data.mv_s->mv_fr = 0;
@@ -90,6 +76,7 @@ int			main()
   if (bunny_loop(data.win, 60, &data) == 0)
     return (0);
   free_data(&data);
+  printf("Penis de type enorme\n");
   bunny_delete_clipable(&data.pixel->clipable);
   bunny_delete_clipable(&data.new->clipable);
   bunny_stop(data.win);
